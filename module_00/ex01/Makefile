@@ -1,9 +1,10 @@
 ##########   BASE   ##########
 # File name
-NAME = megaphone
+NAME = phonebook
 
 # Sources
-SRCS += megaphone.cpp
+SRCS += phonebook.cpp
+HEADER = phonebook.hpp
 
 OBJS = ${SRCS:.c=.o}
 
@@ -14,17 +15,17 @@ CFLAGS = -g -Wall -Wextra -Werror
 ##########   RULES   ##########
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(HEADER)
 	${CC} ${SRCS} -o ${NAME} ${CFLAGS}
 
-%.o: %.c
+%.o: %.c $(HEADER)
 	$(CC) -o $@ -c $< $(CFLAGS) 
 
 clean:
-	rm -f ${NAME}
+	rm -f $(NAME)
 
 fclean:
-	rm -f ${NAME}
+	rm -f $(NAME)
 
 re: fclean all
 
