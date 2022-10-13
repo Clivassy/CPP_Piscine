@@ -5,23 +5,31 @@ using namespace std;
 
 class Phonebook {
 
+    private:
+
     public:
 
-    char a1;
-    int a2;
-    int number; // attribut de notre classe
-
-    Phonebook(char p1, int p2); // constructor
+    int repertoire[8];
+    Phonebook(Contact contact); // constructor
     ~Phonebook(void); // destructor
-
-    void    function(void);
 };
 
 class Contact {
 
-    public:
+    private:
     
-    Contact(void); // constructor
+    string firstName;
+    string lastName;
+    string nickname;
+    string phoneNumber;
+    string darkestSecret;
+
+    public:
+
+    int res;
+    string command;
+    void    getCommand(string p1);
+    Contact(string p1, string p2, string p3, string p4, string p5); // constructor
     ~Contact(void); // destructor
 };
 #endif
