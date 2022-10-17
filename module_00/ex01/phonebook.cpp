@@ -1,16 +1,10 @@
 #include <iostream>
-#include <cstring>
+#include <string>
 #include "phonebook.hpp"
 
 
-Phonebook::Phonebook(char p1, int p2) : a1(p1), a2(p2) { //constructor
+Phonebook::Phonebook(void) { //constructor
     cout << "Constructor called" << endl;
-    cout << "this->a1 = " << this->a1 << endl;
-    cout << "this->a2 = " << this->a2 << endl;
-    //this->number = 0;  // this == pointeur qui pointe sur l'instance courante
-    //cout << "Hello, quel age tu as ?" << endl;
-   // cin >> this->number;
-    this->function(); // appel de ma fct;
     return;
 }
 
@@ -19,68 +13,84 @@ Phonebook::~Phonebook( void ){ //destructor
     return;
 }
 
-Contact::Contact(string p1, string p2, string p3, string p4, string p5) :
-        firstName(p1), lastName(p2), nickname(p3), phoneNumber(p4), darkestSecret(p5)
+//Contact::Contact(string p1, string p2, string p3, string p4, string p5) :
+  //      firstName(p1), lastName(p2), nickname(p3), phoneNumber(p4), darkestSecret(p5)
+Contact::Contact(void)
 {
-    cout << "Constructor called" << endl;
-    cout << "Firstname = " << this->firstName << endl;
-    cout << "Lastname = " << this->lastName<< endl;
-    cout << "nickname = " << this->nickname << endl;
-    cout << "phone number = " << this->phoneNumber << endl;
-    cout << "Darkest secret = " << this->darkestSecret << endl;
-    this->getCommand("");
-    this->res = -1;
-    cout << "Res = " << this->res << endl;
+    /*cout << "Constructor called" << endl;*/
     return;
 }
 
 Contact::~Contact( void ){ //destructor
-    cout << "Destructor called" << endl;
+   // cout << "Destructor called" << endl;
     return;
 }
 
-void    Phonebook::function(void)
-{
-    cout << "Function of Phonebook is called" << endl;
-    return;
-}
+void    Phonebook::searchContact(Contact repertoire[8]){
 
-void    Contact::getCommand(string cmd){
-
-    if ((res = cmd.compare("ADD")) == 0)
+    int index;
+// gérer l'affichage de maniere efficace
+    for (int i = 0;  i < 8; i++)
     {
-        cout << "Command is ADD" << endl;
-        Contact newContact("", "", "", "", "");
-        cout << "First Name : " << endl;
-        cin >> newContact.firstName;
+        cout << i << "   |     " << repertoire[i].firstName ;
+        cout << "  |  " << repertoire[i].lastName << "  |  " << repertoire[i].nickname << endl;
     }
-    else if ((res = cmd.compare("SEARCH")) == 0)
-        cout << "Command is SEARCH" << endl;
-    else if ((res = cmd.compare("EXIT")) == 0)
-        cout << "Command is EXIT" << endl;
+    cout << "Enter index between 0 and 7 for he contact you want" << endl;
+    cin >> index;
+    // gerer si l'index indiqué n'est pas un chiffre en 0 et 7
+    // si c'est ok afficher le contact
+    if (index > 0 && index < 8)
+    {
+        cout << "Firstname = " << repertoire[index].firstName << endl;
+        cout << "Lastname = " << repertoire[index].lastName << endl;
+        cout << "nickname = " << repertoire[index].nickname << endl;
+        cout << "phone number = " << repertoire[index].phoneNumber << endl;
+        cout << "Darkest secret = " << repertoire[index].darkestSecret << endl;
+    }
     else
-        cout << "Command is other" << endl;
+        cout << "error: invalid index" << endl;
+    return;
+}
+
+void   Phonebook::addContact(Contact person)  {
+
+    cout << "AddContact fct called" << endl ;
+    (void)person;
     return;
 }
 
 int main(){
 
-    Contact contact("", "", "", "", "");
-    Phonebook repertoire(contact);
-
-    while (instance.res != 0)
+    int ret(-1);
+    int it(0);
+    string cmd("");
+    Phonebook repertoire;
+   
+    for(int i = 0; i < 8; i++) 
+      repertoire.new_repertoire[i].setX(i); // initialization du tableau de contacts
+    
+    cin >> cmd;
+    while ((ret = cmd.compare("EXIT")) != 0)
     {
-        cin >> instance.command;
-        instance.getCommand(instance.command);
-        cout << endl;
-        instance.res = instance.command.compare("EXIT");
+        if ((ret = cmd.compare("ADD")) == 0)
+        {
+            cout << "First Name : " << endl; cin >> repertoire.new_repertoire[it].firstName;
+            cout << "Last Name : " << endl; cin >> repertoire.new_repertoire[it].lastName;
+            cout << "Nickname : " << endl; cin >> repertoire.new_repertoire[it].nickname;
+            cout << "Phone number : " << endl; cin >> repertoire.new_repertoire[it].phoneNumber;
+            cout << "Darkest secret : " << endl; 
+            cin.ignore(); getline(cin, repertoire.new_repertoire[it].darkestSecret);
+            it++;
+        }
+        if ((ret = cmd.compare("SEARCH")) == 0)
+        {
+            repertoire.searchContact(repertoire.new_repertoire); // appel de la fonction qui search un contact
+            cin >> cmd;
+        }
+        else
+        {
+            cin >> cmd;
+        }
     }
-
-
-   // Phonebook instance('J', 25);
-    //cout << "instance.number = " << instance.number << endl;
-  //  cout << "Wow, tu as " << instance.number <<  " ans!" << endl;
-  //  Contact contact("Julia", "Batoro", "Julio", "0667120948", "never watch harry Potter");
- 
     return (0);
 }

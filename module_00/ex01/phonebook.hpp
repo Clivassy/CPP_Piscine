@@ -3,33 +3,30 @@
 
 using namespace std;
 
-class Phonebook {
-
-    private:
-
-    public:
-
-    int repertoire[8];
-    Phonebook(Contact contact); // constructor
-    ~Phonebook(void); // destructor
-};
-
 class Contact {
 
-    private:
-    
+    public:
     string firstName;
     string lastName;
     string nickname;
     string phoneNumber;
     string darkestSecret;
-
-    public:
-
-    int res;
-    string command;
-    void    getCommand(string p1);
-    Contact(string p1, string p2, string p3, string p4, string p5); // constructor
+    int x;
+    void setX(int i) { x = i; } 
+    Contact(void);
     ~Contact(void); // destructor
 };
+
+class Phonebook{
+
+
+    public:
+    Phonebook(void); // constructor
+    ~Phonebook(void); // destructor
+    Contact new_repertoire[8];
+    void    addContact(Contact person);
+    void    searchContact(Contact repertoire[8]);
+    void    printContact(Contact person);
+};
+
 #endif
