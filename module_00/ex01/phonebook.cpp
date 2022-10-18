@@ -137,3 +137,52 @@ int main(int ac, char *av[]){
     }
     return (0);
 }
+
+/* 
+void	PhoneBook::search(){
+
+	std::string	str;
+	int	index;
+	
+	if (this->_c_num == 0){
+		
+		std::cout << "NO CONTACT RECORDED !" << std::endl;
+		std::cout << std::endl;			
+		return;
+	}
+	std::cout << "     INDEX|FIRST NAME| LAST NAME|  NICKNAME|" << std::endl;
+	for(int j = 0; j < this->_c_num; j++){
+			
+		std::cout << std::right << std::setw(10) << j + 1 << "|";
+		for (int i = 0; i < 3; i++){
+			str = this->_book[j].get_info(i);
+			if (str.length() > 10)
+				str = str.substr(0, 9) + '.';				
+			std::cout << std::right << std::setw(10) << str << "|";
+		}
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+	while (1){
+		std::cout << "Which one ?" << std::endl;
+		std::cout << std::endl;
+		std::getline(std::cin, str);
+		if (std::cin.eof()){
+			this->~PhoneBook();
+			std::exit(EXIT_FAILURE);
+		}
+		if (str.length() > 1 || str[0] < '1' || std::atoi(str.c_str()) > this->_c_num){
+			std::cout << std::endl;
+			std::cout << "NOT A CONTACT !" << std::endl;
+			std::cout << std::endl;			
+			continue;
+		}
+		break;
+	}
+	std::cout << std::endl;
+	index = std::atoi(str.c_str()) - 1;
+	for (int i = 0; i < 5; i++)
+		std::cout << this->_book[index].get_info(i) << std::endl;
+	std::cout << std::endl;
+	return;
+}*/
