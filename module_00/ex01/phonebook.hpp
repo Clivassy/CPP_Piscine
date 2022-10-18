@@ -13,20 +13,22 @@ class Contact {
     string darkestSecret;
     int x;
     void setX(int i) { x = i; } 
-    Contact(void);
-    ~Contact(void); // destructor
+//    Contact(void);
+  //  ~Contact(void); // destructor
 };
 
 class Phonebook{
 
 
     public:
+    int it;
     Phonebook(void); // constructor
-    ~Phonebook(void); // destructor
-    Contact new_repertoire[8];
-    void    addContact(Contact person);
-    void    searchContact(Contact repertoire[8]);
-    void    printContact(Contact person);
+  //  ~Phonebook(void); // destructor
+    Contact repertoire[8];
+    void    addContact(void);
+    void    searchContact(void);
+    void    printRepertoire(string str);
+    void    printContact(int index);
 };
 
 #endif
