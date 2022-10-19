@@ -1,34 +1,51 @@
 #ifndef PHONEBOOK_H
 #define PHONEBOOK_H
 
-using namespace std;
+//------ librairies------------
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <sstream>
+#include <bits/stdc++.h>
+//-----------------------------
+
+//-------- Colors ------------
+#define CLEAR "\e[0m"
+#define YELLOW "\e[33m"
+#define RED "\e[0;31m"
+#define GREEN "\e[0;32m"
+#define CYAN "\e[0;36m"
+#define REDB "\e[41m"
+//----------------------------
+
 
 class Contact {
 
     public:
-    string firstName;
-    string lastName;
-    string nickname;
-    string phoneNumber;
-    string darkestSecret;
-    int x;
-    void setX(int i) { x = i; } 
-//    Contact(void);
-  //  ~Contact(void); // destructor
+    std::string firstName;
+    std::string lastName;
+    std::string nickname;
+    std::string phoneNumber;
+    std::string darkestSecret;
+    Contact(void); // constructor
+    ~Contact(void); // destructor
 };
 
 class Phonebook{
 
-
     public:
-    int it;
-    Phonebook(void); // constructor
-  //  ~Phonebook(void); // destructor
-    Contact repertoire[8];
+    int     idContact;
+    int     exit;
     void    addContact(void);
     void    searchContact(void);
-    void    printRepertoire(string str);
+    void    printRepertoire(std::string str);
     void    printContact(int index);
-};
+    void    exitPhonebook(int exit);
+    Phonebook(void); // constructor
+    ~Phonebook(void); // destructor
 
+    private:
+    Contact repertoire[8];
+
+};
 #endif

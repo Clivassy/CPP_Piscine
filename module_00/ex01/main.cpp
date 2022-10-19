@@ -1,39 +1,31 @@
 #include "phonebook.cpp"
 
-int main(int ac, char *av[]){
+int main(void){
 
-    (void)ac;
-    (void)av;
-    int ret(-1);
-    string cmd("");
+    std::string cmd("");
 
-    Phonebook new_repertoire;
-   
-  //  for(int i = 0; i < 8; i++) 
-    //  repertoire.new_repertoire[i].setX(i); // initialization du tableau de contacts
-    
-    cin >> cmd;
-    while ((ret = cmd.compare("EXIT")) != 0)
+    Phonebook newRepertoire;
+    std::cout << YELLOW "|-------------------------------|" << std::endl;
+    std::cout << "|     WELCOME ON PHONEBOOK      |" << std::endl;
+    std::cout << "|-------------------------------|" << std::endl;
+    std::cout << "|ADD    ➜       Adding Contacts |" << std::endl;
+    std::cout << "|SEARCH ➜       Search Contact  |" << std::endl;
+    std::cout << "|EXIT   ➜       Quit program    |" << std::endl;
+    std::cout << "|-------------------------------|" CLEAR << std::endl;
+    while (!newRepertoire.exit)
     {
-        if ((ret = cmd.compare("ADD")) == 0)
+        getline(std::cin, cmd);
+        if (!cmd.compare("ADD"))
         {
-            new_repertoire.addContact();
-           /* cout << "First Name : " << endl; cin >> repertoire.new_repertoire[it].firstName;
-            cout << "Last Name : " << endl; cin >> repertoire.new_repertoire[it].lastName;
-            cout << "Nickname : " << endl; cin >> repertoire.new_repertoire[it].nickname;
-            cout << "Phone number : " << endl; cin >> repertoire.new_repertoire[it].phoneNumber;
-            cout << "Darkest secret : " << endl; 
-            cin.ignore(); getline(cin, repertoire.new_repertoire[it].darkestSecret);
-            it++; */
+            newRepertoire.addContact();
         }
-        if ((ret = cmd.compare("SEARCH")) == 0)
+        if (!cmd.compare("SEARCH"))
         {
-           // phonebook.searchContact(); // appel de la fonction qui search un contact
-            cin >> cmd;
+            newRepertoire.searchContact();
         }
-        else
+        if (!cmd.compare("EXIT"))
         {
-            cin >> cmd;
+            newRepertoire.exitPhonebook(1);
         }
     }
     return (0);
