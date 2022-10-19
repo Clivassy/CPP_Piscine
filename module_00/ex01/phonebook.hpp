@@ -33,6 +33,9 @@ class Contact {
 
 class Phonebook{
 
+    private:
+    Contact repertoire[8];
+
     public:
     int     idContact;
     int     exit;
@@ -43,9 +46,5 @@ class Phonebook{
     void    exitPhonebook(int exit);
     Phonebook(void); // constructor
     ~Phonebook(void); // destructor
-
-    private:
-    Contact repertoire[8];
-
 };
 #endif

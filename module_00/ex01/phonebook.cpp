@@ -110,7 +110,6 @@ void    Phonebook::searchContact(void){
     return;
 }
 
-
 void   Phonebook::addContact(void)  {
 
     if (this->idContact < 8)
@@ -124,7 +123,7 @@ void   Phonebook::addContact(void)  {
     }
     else if (this->idContact > 7)
     {
-        std::cout << RED "Oops..Phonebook is full. Last contact will be replaced by new one." CLEAR << std::endl;
+        std::cout << YELLOW "Oops..Phonebook is full. Last contact will be replaced by new one." CLEAR << std::endl;
         std::cout << "First Name : " << std::endl; getline(std::cin, this->repertoire[7].firstName);
         std::cout << "Last Name : " << std::endl; getline(std::cin,this->repertoire[7].lastName);
         std::cout << "Nickname : " << std::endl;  getline(std::cin, this->repertoire[7].nickname);
@@ -132,4 +131,35 @@ void   Phonebook::addContact(void)  {
         std::cout << "Darkest secret : " << std::endl; getline(std::cin, this->repertoire[7].darkestSecret);
     }
     return;
+}
+
+int main(void){
+
+    std::string cmd("");
+
+    Phonebook newRepertoire;
+    std::cout << YELLOW "|-------------------------------|" << std::endl;
+    std::cout << "|     WELCOME ON PHONEBOOK      |" << std::endl;
+    std::cout << "|-------------------------------|" << std::endl;
+    std::cout << "|ADD    ➜       Adding Contacts |" << std::endl;
+    std::cout << "|SEARCH ➜       Search Contact  |" << std::endl;
+    std::cout << "|EXIT   ➜       Quit program    |" << std::endl;
+    std::cout << "|-------------------------------|" CLEAR << std::endl;
+    while (!newRepertoire.exit)
+    {
+        getline(std::cin, cmd);
+        if (!cmd.compare("ADD"))
+        {
+            newRepertoire.addContact();
+        }
+        if (!cmd.compare("SEARCH"))
+        {
+            newRepertoire.searchContact();
+        }
+        if (!cmd.compare("EXIT"))
+        {
+            newRepertoire.exitPhonebook(1);
+        }
+    }
+    return (0);
 }
