@@ -11,7 +11,7 @@ OBJS = ${SRCS:.c=.o}
 
 # Compilateurs
 CC = g++
-CFLAGS = -g -Wall -Wextra -Werror -std=c++98
+CFLAGS = -g -Wall -Wextra -Werror
 
 ##########   RULES   ##########
 all: $(NAME)
@@ -23,9 +23,9 @@ $(NAME): $(OBJS) $(HEADER)
 	$(CC) -o $@ -c $< $(CFLAGS) 
 
 clean:
-	rm -f *.o
+	rm -f $(NAME)
 
-fclean: clean
+fclean:
 	rm -f $(NAME)
 
 re: fclean all

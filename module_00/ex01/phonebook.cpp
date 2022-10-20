@@ -70,7 +70,7 @@ void			Phonebook::printRepertoire(std::string str)
 void    Phonebook::searchContact(void){
 
     std::string str;
-    std::string id;
+    char id;
     int index(0);
 
     if (this->idContact == 0)
@@ -84,8 +84,8 @@ void    Phonebook::searchContact(void){
     std::cout << "|__________|__________|__________|__________|" << std::endl;
 	for (int i = 0; i < this->idContact; i++)
 	{
-		id = std::to_string(i + 1);
-		this->printRepertoire(id);
+        id = i + '0' + 1;
+        std::cout << "|        " << id; 
 		this->printRepertoire(this->repertoire[i].firstName);
 		this->printRepertoire(this->repertoire[i].lastName);
 		this->printRepertoire(this->repertoire[i].nickname);
@@ -96,7 +96,12 @@ void    Phonebook::searchContact(void){
     {
         std::cout << CLEAR  "Please enter the id of the contact you want informations :" << std::endl;
         std::getline(std::cin, str);
-        if (str.size() > 1 || str[0] < '1')
+        if (std::cin.eof())
+        {
+            this->exit = 1;
+            return;
+        }
+        else if (str.size() > 1 || str[0] < '1' || std::atoi(str.c_str()) == 0)
         {
             std::cout << RED "Oops..invalid index" CLEAR << std::endl;
         }
@@ -110,11 +115,36 @@ void    Phonebook::searchContact(void){
     return;
 }
 
+/*void   Phonebook::fillContact(int index){
+
+    switch(index)
+    {
+        case 0:
+            return (this->repertoire[idContact].firstName)
+    }
+}
+
+void   Phonebook::addContact(void)  {
+
+    const char* infos[5];
+    int i(0);
+    while (i < 5)
+    {
+        getline(std::cin, info[i]);
+        if (info[i])
+        {
+            this->fillContact(i);
+            i++;
+        }      
+    }
+}*/
+
+
 void   Phonebook::addContact(void)  {
 
     if (this->idContact < 8)
     {
-        std::cout << "First Name : " << std::endl; getline(std::cin, this->repertoire[idContact].firstName);
+        std::cout << "First Name : " << std::endl;getline(std::cin, this->repertoire[idContact].firstName);
         std::cout << "Last Name : " << std::endl; getline(std::cin, this->repertoire[idContact].lastName);
         std::cout << "Nickname : " << std::endl; getline(std::cin, this->repertoire[idContact].nickname);
         std::cout << "Phone number : " << std::endl; getline(std::cin, this->repertoire[idContact].phoneNumber);
@@ -123,7 +153,7 @@ void   Phonebook::addContact(void)  {
     }
     else if (this->idContact > 7)
     {
-        std::cout << YELLOW "Oops..Phonebook is full. Last contact will be replaced by new one." CLEAR << std::endl;
+        std::cout << RED "Oops..Phonebook is full. Last contact will be replaced by new one." CLEAR << std::endl;
         std::cout << "First Name : " << std::endl; getline(std::cin, this->repertoire[7].firstName);
         std::cout << "Last Name : " << std::endl; getline(std::cin,this->repertoire[7].lastName);
         std::cout << "Nickname : " << std::endl;  getline(std::cin, this->repertoire[7].nickname);
@@ -148,18 +178,28 @@ int main(void){
     while (!newRepertoire.exit)
     {
         getline(std::cin, cmd);
-        if (!cmd.compare("ADD"))
+        if (std::cin.eof())
+        {
+            exit(EXIT_FAILURE);
+        }
+        else if (!cmd.compare("ADD"))
         {
             newRepertoire.addContact();
         }
-        if (!cmd.compare("SEARCH"))
+        else if (!cmd.compare("SEARCH"))
         {
             newRepertoire.searchContact();
         }
-        if (!cmd.compare("EXIT"))
+        else if (!cmd.compare("EXIT"))
         {
             newRepertoire.exitPhonebook(1);
         }
     }
     return (0);
 }
+
+/* if (std::cin.eof())
+    {
+        appel du destructor
+        + exit(failure);
+    }*/

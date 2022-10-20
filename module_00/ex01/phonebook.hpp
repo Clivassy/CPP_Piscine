@@ -6,7 +6,8 @@
 #include <string>
 #include <iomanip>
 #include <sstream>
-//-----------------------------
+#include <bits/stdc++.h>
+#include <stdlib.h>
 
 //-------- Colors ------------
 #define CLEAR "\e[0m"
