@@ -6,7 +6,6 @@
 #include <string>
 #include <iomanip>
 #include <sstream>
-#include <bits/stdc++.h>
 //-----------------------------
 
 //-------- Colors ------------
@@ -35,15 +34,15 @@ class Phonebook{
 
     private:
     Contact repertoire[8];
+    int     idContact;
 
     public:
-    int     idContact;
-    int     exit;
     void    addContact(void);
     void    searchContact(void);
     void    printRepertoire(std::string str);
     void    printContact(int index);
     void    exitPhonebook(int exit);
+    int     exit;
     Phonebook(void); // constructor
     ~Phonebook(void); // destructor
 };

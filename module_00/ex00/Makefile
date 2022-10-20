@@ -9,7 +9,7 @@ OBJS = ${SRCS:.c=.o}
 
 # Compilateurs
 CC = g++
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror -std=c++98
 
 ##########   RULES   ##########
 all: $(NAME)
@@ -21,9 +21,9 @@ $(NAME): $(OBJS)
 	$(CC) -o $@ -c $< $(CFLAGS) 
 
 clean:
-	rm -f ${NAME}
+	rm -f *.o
 
-fclean:
+fclean: clean
 	rm -f ${NAME}
 
 re: fclean all
