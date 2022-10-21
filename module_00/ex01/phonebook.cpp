@@ -66,7 +66,6 @@ void			Phonebook::printRepertoire(std::string str)
 	}
 }
 
-
 void    Phonebook::searchContact(void){
 
     std::string str;
@@ -85,11 +84,11 @@ void    Phonebook::searchContact(void){
 	for (int i = 0; i < this->idContact; i++)
 	{
         id = i + '0' + 1;
-        std::cout << "|        " << id; 
+        std::cout << "|         " << id; 
 		this->printRepertoire(this->repertoire[i].firstName);
 		this->printRepertoire(this->repertoire[i].lastName);
 		this->printRepertoire(this->repertoire[i].nickname);
-		std::cout << "|"  << std::endl;
+		std::cout << "|" << std::endl;
 	}
     std::cout << std::endl;
     while (1)
@@ -115,50 +114,43 @@ void    Phonebook::searchContact(void){
     return;
 }
 
-/*void   Phonebook::fillContact(int index){
-
-    switch(index)
-    {
-        case 0:
-            return (this->repertoire[idContact].firstName)
-    }
+void   Phonebook::fillContact(std::string &answer, std::string const &question)
+{
+	while (1)
+	{
+		std::cout << YELLOW "Add your " << question <<  "\n ➜";
+		getline(std::cin, answer);
+        if (std::cin.eof())
+        {
+            this->exit = 1;
+            return;
+        }
+        if (answer.empty())
+            std::cout << RED "Oops..You must fill this field" << std::endl;
+        else
+            break;
+	}
 }
 
-void   Phonebook::addContact(void)  {
-
-    const char* infos[5];
-    int i(0);
-    while (i < 5)
-    {
-        getline(std::cin, info[i]);
-        if (info[i])
-        {
-            this->fillContact(i);
-            i++;
-        }      
-    }
-}*/
-
-
-void   Phonebook::addContact(void)  {
-
+void   Phonebook::addContact( void ) 
+{
     if (this->idContact < 8)
     {
-        std::cout << "First Name : " << std::endl;getline(std::cin, this->repertoire[idContact].firstName);
-        std::cout << "Last Name : " << std::endl; getline(std::cin, this->repertoire[idContact].lastName);
-        std::cout << "Nickname : " << std::endl; getline(std::cin, this->repertoire[idContact].nickname);
-        std::cout << "Phone number : " << std::endl; getline(std::cin, this->repertoire[idContact].phoneNumber);
-        std::cout << "Darkest secret : " << std::endl; getline(std::cin, this->repertoire[idContact].darkestSecret);
+        this->fillContact(this->repertoire[idContact].firstName, "First name");
+		this->fillContact(this->repertoire[idContact].lastName, "Last name");
+		this->fillContact(this->repertoire[idContact].nickname, "Nick Name");
+		this->fillContact(this->repertoire[idContact].phoneNumber, "Phone number : ");
+		this->fillContact(this->repertoire[idContact].darkestSecret, "Darkest secret : ");
         this->idContact += 1;
     }
     else if (this->idContact > 7)
     {
         std::cout << RED "Oops..Phonebook is full. Last contact will be replaced by new one." CLEAR << std::endl;
-        std::cout << "First Name : " << std::endl; getline(std::cin, this->repertoire[7].firstName);
-        std::cout << "Last Name : " << std::endl; getline(std::cin,this->repertoire[7].lastName);
-        std::cout << "Nickname : " << std::endl;  getline(std::cin, this->repertoire[7].nickname);
-        std::cout << "Phone number : " << std::endl; getline(std::cin, this->repertoire[7].phoneNumber);
-        std::cout << "Darkest secret : " << std::endl; getline(std::cin, this->repertoire[7].darkestSecret);
+        this->fillContact(this->repertoire[7].firstName, "First name");
+		this->fillContact(this->repertoire[7].lastName, "Last name");
+		this->fillContact(this->repertoire[7].nickname, "Nick Name");
+		this->fillContact(this->repertoire[7].phoneNumber, "Phone number : ");
+		this->fillContact(this->repertoire[7].darkestSecret, "Darkest secret : ");
     }
     return;
 }
@@ -197,9 +189,3 @@ int main(void){
     }
     return (0);
 }
-
-/* if (std::cin.eof())
-    {
-        appel du destructor
-        + exit(failure);
-    }*/

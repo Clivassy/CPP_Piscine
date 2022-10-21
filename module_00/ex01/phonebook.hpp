@@ -6,7 +6,6 @@
 #include <string>
 #include <iomanip>
 #include <sstream>
-#include <bits/stdc++.h>
 #include <stdlib.h>
 
 //-------- Colors ------------
@@ -15,7 +14,6 @@
 #define RED "\e[0;31m"
 #define GREEN "\e[0;32m"
 #define CYAN "\e[0;36m"
-#define REDB "\e[41m"
 //----------------------------
 
 
@@ -40,6 +38,7 @@ class Phonebook{
     public:
     void    addContact(void);
     void    searchContact(void);
+    void    fillContact(std::string &s1, std::string const &s2);
     void    printRepertoire(std::string str);
     void    printContact(int index);
     void    exitPhonebook(int exit);

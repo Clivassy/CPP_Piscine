@@ -11,7 +11,7 @@ OBJS = ${SRCS:.c=.o}
 
 # Compilateurs
 CC = g++
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror -std=c++98
 
 ##########   RULES   ##########
 all: $(NAME)
