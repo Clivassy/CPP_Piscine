@@ -1,3 +1,4 @@
+
 ##########   BASE   ##########
 # File name
 NAME = zombie
@@ -5,8 +6,8 @@ NAME = zombie
 # Sources
 SRCS += Zombie.cpp
 SRCS += main.cpp
-#SRCS += newZombie.cpp
-#SRCS += randomChump.cpp
+SRCS += newZombie.cpp
+SRCS += randomChump.cpp
 
 OBJS = ${SRCS:.c=.o}
 

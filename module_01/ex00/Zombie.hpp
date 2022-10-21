@@ -7,23 +7,26 @@
 //-------- Colors ------------
 #define CLEAR "\e[0m"
 #define YELLOW "\e[33m"
-#define RED "\e[0;31m"
-#define GREEN "\e[0;32m"
-#define CYAN "\e[0;36m"
-#define REDB "\e[41m"
 //----------------------------
 
 
 class Zombie {
 
     private:
-    std::string name;
+    std::string _name;
 
     public:
-    void    announce( void );
-    Zombie* newZombie( std:: string name);
-    void    randomChump( std:: string name );
-    Zombie(void); // constructor
-    ~Zombie(void); // destructor
+    std::string getName(void)const;
+    void        setName(std::string name);
+    void        announce( void );
+    Zombie(std::string name);
+    ~Zombie(void);
 };
+
+//------ newZombie.cpp ------------
+Zombie* newZombie( std:: string name);
+
+//------ randomChump.cpp ------------
+void    randomChump( std:: string name );
+
 #endif
