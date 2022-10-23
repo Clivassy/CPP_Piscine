@@ -1,0 +1,31 @@
+##########   BASE   ##########
+# File name
+NAME = BonjourIciLeCerveau
+
+# Sources
+SRCS += main.cpp
+
+OBJS = ${SRCS:.c=.o}
+
+# Compilateurs
+CC = g++
+CFLAGS = -g -Wall -Wextra -Werror -std=c++98
+
+##########   RULES   ##########
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	${CC} ${SRCS} -o ${NAME} ${CFLAGS}
+
+%.o: %.c
+	$(CC) -o $@ -c $< $(CFLAGS) 
+
+clean:
+	rm -f $(NAME)
+
+fclean:
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
