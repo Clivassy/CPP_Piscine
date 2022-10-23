@@ -118,7 +118,7 @@ void   Phonebook::fillContact(std::string &answer, std::string const &question)
 {
 	while (1)
 	{
-		std::cout << YELLOW "Add your " << question <<  "\n ➜";
+		std::cout << YELLOW "Add your " << question <<  ":\n" CLEAR ;
 		getline(std::cin, answer);
         if (std::cin.eof())
         {
@@ -139,8 +139,8 @@ void   Phonebook::addContact( void )
         this->fillContact(this->repertoire[idContact].firstName, "First name");
 		this->fillContact(this->repertoire[idContact].lastName, "Last name");
 		this->fillContact(this->repertoire[idContact].nickname, "Nick Name");
-		this->fillContact(this->repertoire[idContact].phoneNumber, "Phone number : ");
-		this->fillContact(this->repertoire[idContact].darkestSecret, "Darkest secret : ");
+		this->fillContact(this->repertoire[idContact].phoneNumber, "Phone number");
+		this->fillContact(this->repertoire[idContact].darkestSecret, "Darkest secret");
         this->idContact += 1;
     }
     else if (this->idContact > 7)
