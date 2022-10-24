@@ -8,6 +8,7 @@ int main(int ac, char **av)
             return(0);
         }
     Sed newFile(av[1], av[2], av[3]);
+     newFile.sedReplace(av[1], av[2], av[3]);
     
     return(0);
 }

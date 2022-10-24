@@ -1,5 +1,5 @@
 #include "sed.hpp"
-
+#include <fstream>
 Sed:: Sed(std::string file, std::string str1, std::string str2) 
 :_fileName(file), _s1(str1), _s2(str2)
 {
@@ -11,37 +11,49 @@ Sed::~Sed( void )
 
 }
 
-void    Sed:: sedReplace( void )
+void    Sed:: sedReplace( std::string file, std::string str1, std::string str2 )
 {
-    std::string	fileReplace;
+	(void)str2;
+	(void)str1;
 
-    std::ofstream file.replace;
-    file.replace.open(file.c_str());
-    // protection ? ;
+    std::ofstream fileReplace;
+	std::string fileReplaceName, line, bufferTemp;
 
-    _file = av[1];
-		fileReplace = _file + ".replace";
+	std:: ifstream bufferIn(this->fileReplace.c_str())
+	if (!fileReplace)
+	{
+ 		std::cerr << RED "Error: file could not be opened" CLEAR << std::endl;
+     	return;
+	}
+	while (std::getline(fileReplace, line))
+		bufferTemp.append(line.append("\n"));
+	// remplacer dans le ficher les occurrences de s1 par s2
+	
+    fileReplace.close();
 
-    file.replace.close();
+	// fileReplaceName = file + ".replace";
+	// file = fileReplaceName;
 }
 
-/*void	replaceString(std::ofstream &fileout, std::string s1, std::string s2, std::string buff){
+/*	std::string::size_type	pos;
+	std::string				line, save;
 
-	size_t pos;
-	size_t toSkip;
-
-	pos = buff.find(s1);
-	if (pos == std::string::npos){
-		
-		fileout << buff;
-		return;
+	std::ifstream fileIn(this->_fileName.c_str());
+	if (!fileIn)
+		return (false);
+	while (std::getline(fileIn, line))
+		save.append(line.append("\n"));
+	while ((pos = save.find(this->_toReplace)) >= 0 and pos != std::string::npos)
+	{
+		save.erase(pos, this->_toReplace.length());
+		save.insert(pos, this->_toInsert);
 	}
-	else {
+	fileIn.close();
 
-		fileout << buff.substr(0, pos);
-		fileout << s2;
-		toSkip = pos + s1.length();
-		replaceString(fileout, s1, s2, buff.substr(toSkip));
-	}
-	return;
-}*/
+	std::ofstream fileOut(this->_fileName.append(".replace").c_str());
+	if (!fileOut)
+		return (false);
+	fileOut << save;
+	fileOut.close();
+
+	return (true);*/
