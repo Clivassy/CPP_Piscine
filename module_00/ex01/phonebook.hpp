@@ -34,7 +34,6 @@ class Phonebook{
     private:
     Contact repertoire[8];
     int     idContact;
-    int     _oldestContact;
 
     public:
     void    addContact(void);

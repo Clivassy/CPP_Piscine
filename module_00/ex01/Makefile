@@ -4,13 +4,12 @@ NAME = phonebook
 
 # Sources
 SRCS += phonebook.cpp
-#SRCS += main.cpp
 HEADER = phonebook.hpp
 
-OBJS = ${SRCS:.c=.o}
+OBJS = ${SRCS:.cpp=.o}
 
 # Compilateurs
-CC = g++
+CC = clang++
 CFLAGS = -g -Wall -Wextra -Werror -std=c++98
 
 ##########   RULES   ##########
@@ -23,9 +22,9 @@ $(NAME): $(OBJS) $(HEADER)
 	$(CC) -o $@ -c $< $(CFLAGS) 
 
 clean:
-	rm -f $(NAME)
+	rm -f $(OBJS)
 
-fclean:
+fclean: clean
 	rm -f $(NAME)
 
 re: fclean all

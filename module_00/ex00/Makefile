@@ -5,10 +5,10 @@ NAME = megaphone
 # Sources
 SRCS += megaphone.cpp
 
-OBJS = ${SRCS:.c=.o}
+OBJS = ${SRCS:.cpp=.o}
 
 # Compilateurs
-CC = g++
+CC = clang++
 CFLAGS = -g -Wall -Wextra -Werror -std=c++98
 
 ##########   RULES   ##########
@@ -21,7 +21,7 @@ $(NAME): $(OBJS)
 	$(CC) -o $@ -c $< $(CFLAGS) 
 
 clean:
-	rm -f *.o
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f ${NAME}

@@ -81,7 +81,8 @@ void    Phonebook::searchContact(void){
     std::cout << GREEN " ___________________________________________" << std::endl;
 	std::cout << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|" << std::endl;
     std::cout << "|__________|__________|__________|__________|" << std::endl;
-	for (int i = 0; i < this->idContact; i++)
+    int i(-1);
+    while (i < this->idContact && i < 8)
 	{
         id = i + '0' + 1;
         std::cout << "|         " << id; 
@@ -132,52 +133,15 @@ void   Phonebook::fillContact(std::string &answer, std::string const &question)
 	}
 }
 
-/*void PhoneBook::addContact(void)
-{
-	if (this->_nbContacts == 8)
-	{
-		this->_contacts[this->_oldest].setContact(this->_oldest + 1);
-		std::cout << RED << "Previous contact No" << this->_oldest + 1
-					<< " has been removed !" << RESET << std::endl;
-		this->_oldest++;
-		if (this->_oldest == 8)
-			this->_oldest = 0;
-		return ;
-	}
-	this->_contacts[this->_nbContacts].setContact(this->_nbContacts + 1);
-	this->_nbContacts++;
-}*/
-
 void   Phonebook::addContact( void ) 
 {
-    if (this->idContact < 8)
-    {
-        this->fillContact(this->repertoire[idContact].firstName, "First name");
-		this->fillContact(this->repertoire[idContact].lastName, "Last name");
-		this->fillContact(this->repertoire[idContact].nickname, "Nick Name");
-		this->fillContact(this->repertoire[idContact].phoneNumber, "Phone number");
-		this->fillContact(this->repertoire[idContact].darkestSecret, "Darkest secret");
-        this->idContact += 1;
-    }
-    else if (this->idContact == 8)
-    {
-        this->fillContact(this->_oldestContact].fillContact[_oldestContact + 1],"First name" ;
-		std::cout << RED << "Oops..Contact n= " << this->_oldestContact + 1
-					<< " has been removed !" << CLEAR << std::endl;
-		this->_oldestContact++;
-		if (this->_oldestContact == 8)
-			this->_oldestContact = 0;
-		return ;
-    }
-    /*else if (this->idContact > 7)
-    {
-        std::cout << RED "Oops..Phonebook is full. Last contact will be replaced by new one." CLEAR << std::endl;
-        this->fillContact(this->repertoire[7].firstName, "First name");
-		this->fillContact(this->repertoire[7].lastName, "Last name");
-		this->fillContact(this->repertoire[7].nickname, "Nick Name");
-		this->fillContact(this->repertoire[7].phoneNumber, "Phone number : ");
-		this->fillContact(this->repertoire[7].darkestSecret, "Darkest secret : ");
-    }*/
+
+    this->fillContact(this->repertoire[idContact % 8].firstName, "First name");
+	this->fillContact(this->repertoire[idContact % 8].lastName, "Last name");
+	this->fillContact(this->repertoire[idContact % 8].nickname, "Nick Name");
+	this->fillContact(this->repertoire[idContact % 8].phoneNumber, "Phone number");
+	this->fillContact(this->repertoire[idContact % 8].darkestSecret, "Darkest secret");
+    this->idContact += 1;
     return;
 }
 
