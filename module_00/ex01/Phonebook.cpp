@@ -1,4 +1,4 @@
-#include "phonebook.hpp"
+#include "Phonebook.hpp"
 
 Phonebook::Phonebook(void) 
 {
@@ -82,7 +82,7 @@ void    Phonebook::searchContact(void){
 	std::cout << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|" << std::endl;
     std::cout << "|__________|__________|__________|__________|" << std::endl;
     int i(-1);
-    while (i < this->idContact && i < 8)
+    while (++i < this->idContact && i < 8)
 	{
         id = i + '0' + 1;
         std::cout << "|         " << id; 

@@ -3,8 +3,8 @@
 NAME = phonebook
 
 # Sources
-SRCS += phonebook.cpp
-HEADER = phonebook.hpp
+SRCS += Phonebook.cpp
+HEADER = Phonebook.hpp
 
 OBJS = ${SRCS:.cpp=.o}
 
@@ -15,17 +15,17 @@ CFLAGS = -g -Wall -Wextra -Werror -std=c++98
 ##########   RULES   ##########
 all: $(NAME)
 
-$(NAME): $(OBJS) $(HEADER)
+$(NAME): $(OBJS)
 	${CC} ${SRCS} -o ${NAME} ${CFLAGS}
 
-%.o: %.c $(HEADER)
+%.o: %.c
 	$(CC) -o $@ -c $< $(CFLAGS) 
 
 clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f ${NAME}
 
 re: fclean all
 
