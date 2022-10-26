@@ -1,5 +1,5 @@
-#ifndef PHONEBOOK_H
-#define PHONEBOOK_H
+#ifndef CONTACT_H
+#define CONTACT_H
 
 //------ librairies------------
 #include <iostream>
@@ -16,15 +16,18 @@
 #define CYAN "\e[0;36m"
 //----------------------------
 
-
 class Contact {
 
+    private:
+    std::string _firstName;
+    std::string _lastName;
+    std::string _nickname;
+    std::string _phoneNumber;
+    std::string _darkestSecret;
+
     public:
-    std::string firstName;
-    std::string lastName;
-    std::string nickname;
-    std::string phoneNumber;
-    std::string darkestSecret;
+    std::string getContact(int info);
+    void        setContact(std:: string info, int id);
     Contact(void); // constructor
     ~Contact(void); // destructor
 };

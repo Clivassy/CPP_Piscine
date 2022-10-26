@@ -29,16 +29,16 @@ void Phonebook::printContact(int index)
     }
     else
     {
-        std::cout << CYAN "First Name : " << this->repertoire[index].firstName << std::endl;
-        std::cout << "Last Name : " << this->repertoire[index].lastName << std::endl;
-        std::cout << "Nickname : " << this->repertoire[index].nickname << std::endl;
-        std::cout << "Phone number : " << this->repertoire[index].phoneNumber << std::endl;
-        std::cout << "Darkest secret : " << this->repertoire[index].darkestSecret << CLEAR << std::endl;
+        std::cout << CYAN "First Name : " << this->repertoire[index].getContact(0) << std::endl;
+        std::cout << "Last Name : " << this->repertoire[index].getContact(1) << std::endl;
+        std::cout << "Nickname : " << this->repertoire[index].getContact(2) << std::endl;
+        std::cout << "Phone number : " << this->repertoire[index].getContact(3) << std::endl;
+        std::cout << "Darkest secret : " << this->repertoire[index].getContact(4) << CLEAR << std::endl;
     }
     return;
 }
 
-void			Phonebook::printRepertoire(std::string str)
+void    Phonebook::printRepertoire(std::string str)
 {
 	std::cout <<  "|";
 	if (str.length() <= 10)
@@ -74,9 +74,9 @@ void    Phonebook::searchContact(void){
 	{
         id = i + '0' + 1;
         std::cout << "|         " << id; 
-		this->printRepertoire(this->repertoire[i].firstName);
-		this->printRepertoire(this->repertoire[i].lastName);
-		this->printRepertoire(this->repertoire[i].nickname);
+		this->printRepertoire(this->repertoire[i].getContact(0));
+		this->printRepertoire(this->repertoire[i].getContact(1));
+		this->printRepertoire(this->repertoire[i].getContact(2));
 		std::cout << "|" << std::endl;
 	}
     std::cout << std::endl;
@@ -103,8 +103,9 @@ void    Phonebook::searchContact(void){
     return;
 }
 
-void   Phonebook::fillContact(std::string &answer, std::string const &question)
+void   Phonebook::fillContact(std::string question, int index)
 {
+    std::string answer;
 	while (1)
 	{
 		std::cout << YELLOW "Add your " << question <<  ":\n" CLEAR ;
@@ -117,18 +118,20 @@ void   Phonebook::fillContact(std::string &answer, std::string const &question)
         if (answer.empty())
             std::cout << RED "Oops..You must fill this field" << std::endl;
         else
+        {
+            this->repertoire[this->idContact % 8].setContact(answer, index);
             break;
+        }
 	}
 }
 
 void   Phonebook::addContact( void ) 
 {
-
-    this->fillContact(this->repertoire[idContact % 8].firstName, "First name");
-	this->fillContact(this->repertoire[idContact % 8].lastName, "Last name");
-	this->fillContact(this->repertoire[idContact % 8].nickname, "Nick Name");
-	this->fillContact(this->repertoire[idContact % 8].phoneNumber, "Phone number");
-	this->fillContact(this->repertoire[idContact % 8].darkestSecret, "Darkest secret");
+    this->fillContact("First name", 0);
+    this->fillContact("Last name", 1);
+    this->fillContact("Nickname", 2);
+    this->fillContact("Phone number", 3);
+    this->fillContact("Darkest Secret", 4);
     this->idContact += 1;
     return;
 }

@@ -7,6 +7,7 @@
 #include <iomanip>
 #include <sstream>
 #include <stdlib.h>
+#include "Contact.hpp"
 
 //-------- Colors ------------
 #define CLEAR "\e[0m"
@@ -15,19 +16,6 @@
 #define GREEN "\e[0;32m"
 #define CYAN "\e[0;36m"
 //----------------------------
-
-
-class Contact {
-
-    public:
-    std::string firstName;
-    std::string lastName;
-    std::string nickname;
-    std::string phoneNumber;
-    std::string darkestSecret;
-    Contact(void); // constructor
-    ~Contact(void); // destructor
-};
 
 class Phonebook{
 
@@ -38,7 +26,7 @@ class Phonebook{
     public:
     void    addContact(void);
     void    searchContact(void);
-    void    fillContact(std::string &s1, std::string const &s2);
+    void    fillContact(std::string s2, int index);
     void    printRepertoire(std::string str);
     void    printContact(int index);
     void    exitPhonebook(int exit);
