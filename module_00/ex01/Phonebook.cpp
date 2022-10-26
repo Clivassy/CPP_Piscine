@@ -13,18 +13,6 @@ Phonebook::~Phonebook( void )
     // Nothing to free here
 }
 
-Contact::Contact(void)
-{ 
-    // constructor
-    // Nothing to initialiaze here
-}
-
-Contact::~Contact( void )
-{ 
-    // destructor
-    // Nothing to free here
-}
-
 void    Phonebook::exitPhonebook(int exit)
 {
     std::cout << YELLOW "Closing phonebook ➜ all contacts will be lost." CLEAR << std::endl;
@@ -143,45 +131,4 @@ void   Phonebook::addContact( void )
 	this->fillContact(this->repertoire[idContact % 8].darkestSecret, "Darkest secret");
     this->idContact += 1;
     return;
-}
-
-int main(int ac, char **av){
-
-    std::string cmd("");
-    Phonebook newRepertoire;
-
-    (void)av;
-    if (ac == 1)
-    {
-        std::cout << YELLOW "|-------------------------------|" << std::endl;
-        std::cout << "|     WELCOME ON PHONEBOOK      |" << std::endl;
-        std::cout << "|-------------------------------|" << std::endl;
-        std::cout << "|ADD    ➜       Adding Contacts |" << std::endl;
-        std::cout << "|SEARCH ➜       Search Contact  |" << std::endl;
-        std::cout << "|EXIT   ➜       Quit program    |" << std::endl;
-        std::cout << "|-------------------------------|" CLEAR << std::endl;
-        while (!newRepertoire.exit)
-        {
-            getline(std::cin, cmd);
-            if (std::cin.eof())
-            {
-                exit(EXIT_FAILURE);
-            }
-            else if (!cmd.compare("ADD"))
-            {
-                newRepertoire.addContact();
-            }
-            else if (!cmd.compare("SEARCH"))
-            {
-                newRepertoire.searchContact();
-            }
-            else if (!cmd.compare("EXIT"))
-            {
-                newRepertoire.exitPhonebook(1);
-            }
-        }
-    }
-    else
-        std::cout << RED "Usage: ./phonebook" CLEAR << std::endl; 
-    return (0);
 }

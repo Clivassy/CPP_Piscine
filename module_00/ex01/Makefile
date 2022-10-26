@@ -4,7 +4,11 @@ NAME = phonebook
 
 # Sources
 SRCS += Phonebook.cpp
-HEADER = Phonebook.hpp
+SRCS += Contact.cpp
+SRCS += main.cpp
+
+HEADER += Phonebook.hpp
+HEADER += Contact.hpp
 
 OBJS = ${SRCS:.cpp=.o}
 
