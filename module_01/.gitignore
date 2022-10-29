@@ -4,13 +4,10 @@
 # Object files
 *.o
 
-# Debug files
+# Other
 *.dSYM/
 *.su
 *.idb
 *.pdb
-
 *.DS_Store
-
-# Executables
 *.out
