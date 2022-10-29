@@ -1,12 +1,12 @@
 ##########   BASE   ##########
 # File name
-NAME = sed
+NAME = harl
 
 # Sources
 SRCS += main.cpp
-#SRCS += sed.cpp
+SRCS += Harl.cpp
 
-HEADER += sed.hpp
+HEADER += Harl.hpp
 
 OBJS = ${SRCS:.c=.o}
 

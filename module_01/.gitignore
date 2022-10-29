@@ -1,0 +1,16 @@
+# Prerequisites
+*.d
+
+# Object files
+*.o
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+*.DS_Store
+
+# Executables
+*.out
