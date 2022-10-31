@@ -4,6 +4,7 @@
 //------ librairies------------
 #include <iostream>
 #include <string>
+
 //-------- Colors ------------
 #define CLEAR "\e[0m"
 #define YELLOW "\e[33m"
@@ -19,7 +20,7 @@ class Weapon {
 
     public:
     const std::string& getType(void);
-    void        setType(std::string _type);
+    void               setType(std::string _type);
     Weapon( std::string _type );
     ~Weapon(void);
 };

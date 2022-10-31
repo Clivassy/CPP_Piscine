@@ -3,6 +3,9 @@
 int main(void)
 {
     Harl harl;
-    // rajouter un ca quand la string envoyée ne correspond a rien
     harl.complain("DEBUG");
+    harl.complain("INFO");
+    harl.complain("WARNING");
+    harl.complain("ERROR");
+    harl.complain("");
 }

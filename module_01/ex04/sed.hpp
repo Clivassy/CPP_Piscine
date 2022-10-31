@@ -15,15 +15,9 @@
 //----------------------------
 
 class Sed {
-
-    private:
-    std::string _fileName;
-    std::string _s1;
-    std::string _s2;
-
     public:
     void    sedReplace( std::string file, std::string str1, std::string str2 );
-    Sed( std::string _fileName, std::string _s1, std::string _s2 );
-    ~Sed(void);
+    Sed( void );
+    ~Sed( void );
 };
 #endif

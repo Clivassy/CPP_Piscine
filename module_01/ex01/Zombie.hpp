@@ -3,6 +3,7 @@
 
 //------ librairies------------
 #include <iostream>
+#include <limits.h>
 
 //-------- Colors ------------
 #define CLEAR "\e[0m"

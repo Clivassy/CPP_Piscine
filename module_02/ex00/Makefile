@@ -1,12 +1,12 @@
 ##########   BASE   ##########
 # File name
-NAME = sed
+NAME = fixed
 
 # Sources
 SRCS += main.cpp
-SRCS += sed.cpp
+SRCS += Fixed.cpp
 
-HEADER += sed.hpp
+HEADER += Fixed.hpp
 
 OBJS = ${SRCS:.cpp=.o}
 

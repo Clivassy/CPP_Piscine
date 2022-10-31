@@ -1,18 +1,17 @@
 #include "HumanB.hpp"
 
-HumanB:: HumanB( std::string _name )
+HumanB:: HumanB( std::string name ) : _name(name), _weapon(NULL)
 {
-    this->_name = _name;
-    this->_weapon = NULL;
+    // constrcuteur avec initialisation des attributs
 }
 HumanB::~HumanB( void ) 
 {
-
+    // destructeur
 }
 
-void    HumanB::setWeapon(Weapon weap)
+void    HumanB::setWeapon(Weapon &weapon)
 {
-   _weapon = &weap;
+   _weapon = &weapon;
 }
 
 void    HumanB::attack()const

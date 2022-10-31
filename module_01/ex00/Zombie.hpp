@@ -9,7 +9,6 @@
 #define YELLOW "\e[33m"
 //----------------------------
 
-
 class Zombie {
 
     private:

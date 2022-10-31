@@ -8,27 +8,26 @@ SRCS += Zombie.cpp
 SRCS += zombieHorde.cpp
 
 HEADER = Zombie.hpp
-
-OBJS = ${SRCS:.c=.o}
+OBJS = ${SRCS:.cpp=.o}
 
 # Compilateurs
-CC = g++
+CC = clang++
 CFLAGS = -g -Wall -Wextra -Werror -std=c++98
 
 ##########   RULES   ##########
 all: $(NAME)
 
-$(NAME): $(OBJS) $(HEADER)
+$(NAME): $(OBJS)
 	${CC} ${SRCS} -o ${NAME} ${CFLAGS}
 
-%.o: %.c $(HEADER)
+%.o: %.c
 	$(CC) -o $@ -c $< $(CFLAGS) 
 
 clean:
-	rm -f $(NAME)
+	rm -f $(OBJS)
 
-fclean:
-	rm -f $(NAME)
+fclean: clean
+	rm -f ${NAME}
 
 re: fclean all
 

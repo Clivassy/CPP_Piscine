@@ -2,12 +2,19 @@
 
 int main()
 {
-    int numberOfZombies = 10;
+    int numberOfZombies;
+    
+   numberOfZombies = 1000000000;
+   // numberOfZombies = 200;
+   // numberOfZombies = 5;
+   // numberOfZombies = 0;
+   // numberOfZombies = -3;
+
     Zombie *newHordeOfZombies;
 
-    std::cout << YELLOW << "---------- CREATING ZOMBIES HORDE -------------" CLEAR << std::endl;
     newHordeOfZombies = zombieHorde(numberOfZombies, "Koko roccoco");
-
+    if (!newHordeOfZombies)
+        return(0);
     for (int i = 0; i < numberOfZombies; i++)
     {
         std::cout <<  YELLOW << i << " : " << CLEAR;

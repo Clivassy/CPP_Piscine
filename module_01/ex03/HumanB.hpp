@@ -23,7 +23,7 @@ class HumanB {
     std::string getName( void )const;
     void        setName( std::string _name );
     void        attack( void )const;
-    void        setWeapon(Weapon _weap);
+    void        setWeapon(Weapon &weapon);
     HumanB( std::string _name );
     ~HumanB( void );
 };
