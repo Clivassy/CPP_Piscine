@@ -155,7 +155,7 @@ bool	Fixed::operator!=(Fixed const &elem)const
 	return (false);
 }
 
-// ---- function to check biggest or smallest ----------
+// ---- functions to check biggest or smallest ----------
 Fixed		&Fixed::min(Fixed &elem1, Fixed &elem2)
 {
     if (elem1 < elem2)
