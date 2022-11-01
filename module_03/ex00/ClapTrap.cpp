@@ -73,7 +73,7 @@ void ClapTrap::takeDamage( unsigned int amount )
     {
         std::cout << YELLOW "ClapTrap " << this->_name << " took ";
         std::cout << amount << " points of damage!" CLEAR << std::endl;
-        this->_energyPoints = this->_energyPoints - amount;
+        this->_hitPoints = this->_hitPoints - amount;
         return;
     }
     std::cout << RED "Oops, not enough energy point to take damage" CLEAR << std::endl;
