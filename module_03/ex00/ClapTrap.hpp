@@ -36,6 +36,6 @@ class ClapTrap{
     void attack( const std::string& target );
     void takeDamage( unsigned int amount );
     void beRepaired( unsigned int amount );
-    void printPlayer(ClapTrap Player);
 };
+std::ostream &operator<<( std::ostream &out, ClapTrap const &input );
 #endif

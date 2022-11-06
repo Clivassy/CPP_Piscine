@@ -56,38 +56,54 @@ unsigned int ClapTrap::getEnergyPoints(void) const
 
 void ClapTrap::attack( const std::string& target )
 {
-    if(this->_energyPoints > 0)
+    if (this->_energyPoints > 0 and this->_hitPoints > 0)
     {
         std::cout << YELLOW "ClapTrap " << this->_name << " attacks ";
         std::cout << target << " causing " << this->_attackDamage;
         std::cout << " points of damage!" CLEAR << std::endl;
         this->_energyPoints--;
-        return;
+        return ;
     }
-    std::cout << RED "Oops, not enough energy point to attack" CLEAR << std::endl;
+    std::cout << RED "Oops, not enough energy or hit points to attack" CLEAR << std::endl;
 }
 
 void ClapTrap::takeDamage( unsigned int amount )
 {
-    if(this->_energyPoints > 0)
+    if (this->_energyPoints > 0 and this->_hitPoints > 0)
     {
         std::cout << YELLOW "ClapTrap " << this->_name << " took ";
         std::cout << amount << " points of damage!" CLEAR << std::endl;
+        if (amount > this->_energyPoints)
+        {
+            this->_energyPoints = 0;
+            return ;
+        }
         this->_hitPoints = this->_hitPoints - amount;
-        return;
+        return ;
     }
-    std::cout << RED "Oops, not enough energy point to take damage" CLEAR << std::endl;
+    std::cout << RED "Oops, not enough energy or hit points to take damage" CLEAR << std::endl;
 }
 
 void ClapTrap::beRepaired( unsigned int amount )
 {
-    if(this->_energyPoints > 0)
+    if (this->_energyPoints > 0 and this->_hitPoints > 0)
     {
         std::cout << YELLOW "ClapTrap " << this->_name << " won ";
         std::cout << amount << " points of repair" CLEAR << std::endl;
         this->_hitPoints = this->_hitPoints + amount;
         this->_energyPoints--;
-        return;
+        return ;
     }
-    std::cout << RED "Oops, not enough energy point to be repaired" CLEAR << std::endl;
+    std::cout << RED "Oops, not enough energy or hit points to be repaired" CLEAR << std::endl;
+}
+
+std::ostream &operator<<(std::ostream &out, ClapTrap const &elem)
+{
+    out << GREEN "------------------------------" CLEAR << std::endl;
+    out << "Claptrap Name : " << elem.getName() << std::endl;
+    out << "Claptrap Hit Points : " << elem.getHitPoints() << std::endl;
+    out << "Claptrap Damages : " << elem.getAttackDamage() << std::endl;
+    out << "Claptrap Energy Points : " << elem.getEnergyPoints() << std::endl;
+    out << GREEN "------------------------------" CLEAR << std::endl;
+    return (out);
 }

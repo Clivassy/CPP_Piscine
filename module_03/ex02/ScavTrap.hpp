@@ -19,11 +19,12 @@ class ScavTrap : public  ClapTrap
     public:
     ScavTrap( void ); 
     ScavTrap( std::string name ); 
-    ScavTrap( const ClapTrap &copy );
+    ScavTrap( const ScavTrap &copy );
     ~ScavTrap( void );
     ScavTrap &operator=( ScavTrap const &copy );
 
     void attack( const std::string& target );
-    void guardGate( void );
+    void guardGate();
 };
+std::ostream &operator<<(std::ostream &out, ScavTrap const &elem);
 #endif

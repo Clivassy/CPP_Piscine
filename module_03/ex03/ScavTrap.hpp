@@ -14,7 +14,7 @@
 #define CYAN "\e[0;36m"
 //----------------------------
 
-class ScavTrap : public  ClapTrap
+class ScavTrap : public  virtual ClapTrap
 {
     public:
     ScavTrap( void ); 

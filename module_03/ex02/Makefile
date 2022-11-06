@@ -1,6 +1,6 @@
 ##########   BASE   ##########
 # File name
-NAME = claptrap
+NAME = FragTrap
 
 # Sources
 SRCS += main.cpp

@@ -38,4 +38,5 @@ class ClapTrap{
     void beRepaired( unsigned int amount );
     void printPlayer(ClapTrap Player);
 };
+std::ostream &operator<<( std::ostream &out, ClapTrap const &input );
 #endif

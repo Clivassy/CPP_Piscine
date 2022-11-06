@@ -1,18 +1,22 @@
 ##########   BASE   ##########
 # File name
-NAME = HarlFilter
+NAME = FragTrap
 
 # Sources
 SRCS += main.cpp
-SRCS += Harl.cpp
+SRCS += ClapTrap.cpp
+SRCS += ScavTrap.cpp
+SRCS += FragTrap.cpp
 
-HEADER += Harl.hpp
+HEADER += ClapTrap.hpp
+HEADER += ScavTrap.hpp
+HEADER += FragTrap.hpp
 
 OBJS = ${SRCS:.cpp=.o}
 
 # Compilateurs
 CC = clang++
-CFLAGS = -g -Wall -Wextra -Werror -std=c++98
+CFLAGS = -g -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
 
 ##########   RULES   ##########
 all: $(NAME)
