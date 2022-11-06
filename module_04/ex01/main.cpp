@@ -3,8 +3,8 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 
-int	main(){
-
+int	main()
+{
 	const Animal	*CatsAndDogs[100];
 
     for (int i = 0; i < 50; i++)
@@ -22,7 +22,6 @@ int	main(){
 	}
 	for (int j = 0; j < 100; j++)
     {
-
 		delete CatsAndDogs[j];
 	}
 	return (0);

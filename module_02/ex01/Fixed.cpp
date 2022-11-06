@@ -21,10 +21,10 @@ Fixed:: Fixed(const int nb)
 
 Fixed:: Fixed(const float nb) 
 // constructeur prenant un float constant en paramètre
-
 {
     std::cout << "Float Constructor called" << std::endl; 
     this->_nbValue = roundf(nb * (1 << this->_nbBits));
+    //renvoie l'arrondi entier au plus proche de la valeur spécifiée en paramètre.
 }
 
 Fixed::~Fixed( void ) 
@@ -47,10 +47,7 @@ void   Fixed::setRawBits( int const raw )
 Fixed &Fixed::operator=(Fixed const &Copy)
 {
     std::cout << "Copy assigment operator called" << std::endl;
-	if (this != &Copy)
-    {
-        this->_nbValue = Copy.getRawBits();
-    }
+    this->_nbValue = Copy.getRawBits();
 	return (*this);
 }
 

@@ -5,15 +5,13 @@ Fixed:: Fixed(void): _nbValue(0) // constructeur par défaut
     //std::cout << "Default constructor called" << std::endl; 
 }
 
-Fixed:: Fixed( const Fixed &copy ) // constructeur de copie
+Fixed:: Fixed( const Fixed &toCopy ) // constructeur de copie
 {
    // std::cout << "Copy constructor called" << std::endl;
-    *this = copy;
+    *this = toCopy;
 }
 
 Fixed:: Fixed(const int nb) 
-// constructeur prenant un int constant en paramètre
-// qui convertit cet int en virgule fixe.
 {
    // std::cout << "Int constructor called" << std::endl; 
     this->_nbValue = nb << _nbBits;
@@ -44,35 +42,6 @@ void   Fixed::setRawBits( int const raw )
     this->_nbValue= raw;
 }
 
-// ---- Arithmetic operations ----------
-Fixed &Fixed::operator=(Fixed const &Copy)
-{
-   // std::cout << "Copy assigment operator called" << std::endl;
-    this->_nbValue = Copy.getRawBits();
-	return (*this);
-}
-
-Fixed   Fixed::operator+( Fixed const &elem )
-{
-    return (Fixed(this->_nbValue + elem.getRawBits()));
-}
-
-Fixed   Fixed::operator-( Fixed const &elem )
-{
-    return (Fixed(this->_nbValue - elem.getRawBits()));
-}
-
-Fixed   Fixed::operator*( Fixed const &elem )
-{
-    return (Fixed(this->toFloat() * elem.toFloat()));
-}
-
-Fixed   Fixed::operator/( Fixed const &elem )
-{
-    // Cas du 0 ?? 
-    return (Fixed(this->toFloat() / elem.toFloat()));
-}
-
 float   Fixed::toFloat( void )const
 {
     return ((float)this->_nbValue / (1 << this->_nbBits));
@@ -83,7 +52,35 @@ int     Fixed::toInt( void )const
     return (this->_nbValue >> this->_nbBits);
 }
 
-// ---- Post and pre operations ----------
+// ---- Arithmetic operations ----------
+Fixed &Fixed::operator=(Fixed const &Copy)
+{
+   // std::cout << "Copy assigment operator called" << std::endl;
+    this->_nbValue = Copy.getRawBits();
+	return (*this);
+}
+
+Fixed   Fixed::operator+( Fixed const &elem )
+{
+    return (Fixed(this->toFloat() + elem.toFloat()));
+}
+
+Fixed   Fixed::operator-( Fixed const &elem )
+{
+    return (Fixed(this->toFloat() - elem.toFloat()));
+}
+
+Fixed   Fixed::operator*( Fixed const &elem )
+{
+    return (Fixed(this->toFloat() * elem.toFloat()));
+}
+
+Fixed   Fixed::operator/( Fixed const &elem )
+{
+    return (Fixed(this->toFloat() / elem.toFloat()));
+}
+
+// ---- Post and pre incrementation operations ----------
 
 Fixed Fixed::operator++(int)
 {

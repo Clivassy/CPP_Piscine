@@ -16,13 +16,13 @@
 class Fixed{
 
     private:
-    int _nbInt;
+    int _nbValue;
     static int const _nbBits = 8;
 
     public:
     int     getRawBits( void )const;
     void    setRawBits( int const raw );
-    Fixed   &operator=(Fixed const &Copy); // surcharge d'opérateur d'affectation
+    Fixed   &operator=(Fixed const &toCopy); // surcharge d'opérateur d'affectation
     Fixed( void );
     Fixed( const Fixed& copy );
     ~Fixed(void);

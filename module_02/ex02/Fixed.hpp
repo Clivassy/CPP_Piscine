@@ -23,7 +23,7 @@ class Fixed{
     public:
     Fixed( void );
     ~Fixed( void );
-    Fixed( const Fixed& copy ); // constructeur par copie 
+    Fixed( const Fixed& toCopy ); // constructeur par copie 
     Fixed( const float _nbBits );
     Fixed( const int _nbInt );
     static Fixed		&min(Fixed &elem1, Fixed &elem2);
@@ -31,13 +31,14 @@ class Fixed{
 	static Fixed		&max(Fixed &elem1, Fixed &elem2);
 	static Fixed const	&max(Fixed const &elem1, Fixed const &elem2);
 
-    // +, -, /, *, = 
+    // Arithmetic operator 
     Fixed   &operator=( Fixed const &elem );
     Fixed   operator+( Fixed const &elem );
     Fixed   operator-( Fixed const &elem );
     Fixed   operator*( Fixed const &elem );
     Fixed   operator/( Fixed const &elem );
     
+    // Comparaison operators 
     bool    operator>(Fixed const &elem) const;
     bool    operator<(Fixed const &elem) const;
     bool    operator>=(Fixed const &elem) const;
@@ -45,6 +46,7 @@ class Fixed{
     bool    operator==(Fixed const &elem) const;
     bool    operator!=(Fixed const &elem) const;
 
+    // Increment and decrement operators
     Fixed operator++(int);
     Fixed operator--(int);
     Fixed &operator++();
@@ -56,5 +58,5 @@ class Fixed{
     int     toInt( void )const; 
 };
 
-std::ostream &operator<<( std::ostream &out, Fixed const &input ); // surcharge opérateur
+std::ostream &operator<<( std::ostream &out, Fixed const &input ); // surcharge d'opérateur ostream
 #endif

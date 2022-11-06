@@ -1,6 +1,6 @@
 #include "Fixed.hpp"
 
-Fixed:: Fixed(void): _nbInt(0)
+Fixed:: Fixed(void): _nbValue(0)
 {
     std::cout << "Default constructor called" << std::endl; 
 }
@@ -19,21 +19,18 @@ Fixed::~Fixed( void )
 int     Fixed::getRawBits( void )const
 {
     std::cout << "getRawbits member function called" << std::endl;
-    return(_nbInt);
+    return(_nbValue);
 }
 
 void   Fixed::setRawBits( int const raw )
 {
     std::cout << "setRawbits member function called" << std::endl;
-    this->_nbInt = raw;
+    this->_nbValue = raw;
 }
 
-Fixed &Fixed::operator=(Fixed const &Copy)
+Fixed &Fixed::operator=(Fixed const &toCopy)
 {
     std::cout << "Copy assigment operator called" << std::endl;
-	if (this != &Copy)
-    {
-        this->_nbInt = Copy.getRawBits();
-    }
+    this->_nbValue = toCopy.getRawBits();
 	return (*this);
 }

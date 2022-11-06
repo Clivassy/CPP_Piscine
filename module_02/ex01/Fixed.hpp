@@ -23,7 +23,7 @@ class Fixed{
     public:
     Fixed( void );
     ~Fixed( void );
-    Fixed( const Fixed& copy ); // constructeur par copie 
+    Fixed( const Fixed& toCopy ); // constructeur par copie 
     Fixed( const float _nbBits );
     Fixed( const int _nbInt );
     Fixed &operator=(Fixed const &Copy);

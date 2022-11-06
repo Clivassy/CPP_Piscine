@@ -46,4 +46,5 @@ void    Harl::complain( std::string level )
 			return (this->*functionsPointer[i])();
  	}
 	std::cout << "Whatever you say..I want to complain" << std::endl;
-} 
+}
+
