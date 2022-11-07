@@ -1,48 +1,38 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
-int main()
+int main(void)
 {
-    FragTrap ByDefault;
-    FragTrap player("Boss");
-    FragTrap ByCopy(player);
 
-    /*ClapTrap Test;
-    Test.attack("Julia");
-    std::cout << Test;
+    DiamondTrap Big("Big");
+    DiamondTrap Boss("Boss");
 
-    ScavTrap Test2;
-    Test2.attack("Julia");
-    std::cout << Test2;
-    std::cout << ByDefault;*/
+    std::cout << Big;
+    std::cout << Boss;
 
-    std::cout << player;
-    player.attack("Big Boss");
-    std::cout << player;
-    player.takeDamage(3);
-    std::cout << player;
-    player.beRepaired(2);
-    std::cout << player;
-
-    std::cout << "     Object par copie     " << std::endl;
-    std::cout << ByCopy;
-
-    std::cout << "     Assignation objet     " << std::endl;
+    Big.attack("Boss");
+    std::cout << Big;
     
-    ByDefault = player;
-    std::cout << ByDefault;
-    player.highFivesGuys(); 
-   std::cout << std::endl;
+    //Boss.takeDamage(100);
+    //std::cout << Boss;
 
-    player.takeDamage(100);
-    std::cout << player;
-    
-   /* for (int i = 0; i < 98; i++)
+    for (int i = 0; i < 50; i++)
     {
-        player.attack("Big Boss");
-    }*/
-    player.attack("Big Boss");
-    player.beRepaired(2);
-    player.takeDamage(3);
+        Boss.attack("Big");
+    }
+    std::cout << Boss;
+
+    Boss.attack("Big");
+    Boss.beRepaired(2);
+    Boss.takeDamage(3);
+
+    Big.highFivesGuys();
+    Big.guardGate();
+
+    Big.takeDamage(2);
+    std::cout << Big;
+    Big.beRepaired(2);
+    std::cout << Big;
 }

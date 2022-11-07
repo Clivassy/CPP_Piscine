@@ -2,15 +2,21 @@
 
 // add les protections si points de vie == 10 
 ClapTrap::ClapTrap( void ):
-_name("unknown"), _hitPoints(100), _energyPoints(100), _attackDamage(30)
+_name("unknown"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
     std::cout << "ClapTrap: Constructor by default called" << std::endl;
 }
 
 ClapTrap::ClapTrap( std::string name ): 
-_name(name), _hitPoints(100), _energyPoints(100), _attackDamage(30)
+_name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
     std::cout << "ClapTrap: Constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string name, int hitPoints, int energyPoints, int attackDamage)
+: _name(name), _hitPoints(hitPoints), _energyPoints(energyPoints), _attackDamage(attackDamage)
+{
+    //
 }
 
 ClapTrap::~ClapTrap( void )
@@ -102,8 +108,8 @@ std::ostream &operator<<(std::ostream &out, ClapTrap const &elem)
     out << GREEN "------------------------------" CLEAR << std::endl;
     out << "Claptrap Name : " << elem.getName() << std::endl;
     out << "Claptrap Hit Points : " << elem.getHitPoints() << std::endl;
-    out << "Claptrap Damages : " << elem.getAttackDamage() << std::endl;
     out << "Claptrap Energy Points : " << elem.getEnergyPoints() << std::endl;
+    out << "Claptrap Damages : " << elem.getAttackDamage() << std::endl;
     out << GREEN "------------------------------" CLEAR << std::endl;
     return (out);
 }

@@ -1,12 +1,11 @@
 #include "FragTrap.hpp"
 
-// add les protections si points de vie == 10 
-FragTrap::FragTrap( void ) : ClapTrap()
+FragTrap::FragTrap( void ) : ClapTrap("Unknown", 100, 100, 30)
 {
     std::cout << "FragTrap: Constructor by default called" << std::endl;
 }
 
-FragTrap::FragTrap( std::string name ): ClapTrap(name)
+FragTrap::FragTrap( std::string name ): ClapTrap(name, 100, 100, 30)
 {
     std::cout << "FragTrap: Constructor called" << std::endl;
 }
@@ -33,7 +32,7 @@ FragTrap:: FragTrap( const FragTrap &copy ) : ClapTrap(copy)
 
 void FragTrap::attack( const std::string& target )
 {
-    if (this->_energyPoints > 0)
+    if (this->_energyPoints > 0 and this->_hitPoints > 0)
     {
         std::cout << YELLOW "FragTrap " << this->_name << " attacks ";
         std::cout << target << " causing " << this->_attackDamage;
@@ -41,7 +40,7 @@ void FragTrap::attack( const std::string& target )
         this->_energyPoints--;
         return;
     }
-    std::cout << RED "Oops, not enough energy point to attack" CLEAR << std::endl;
+    std::cout << RED "Oops, not enough energy or hit points to attack" CLEAR << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &out, FragTrap const &elem)
@@ -49,8 +48,8 @@ std::ostream &operator<<(std::ostream &out, FragTrap const &elem)
     out << GREEN "------------------------------" CLEAR << std::endl;
     out << "FragTrap Name : " << elem.getName() << std::endl;
     out << "FragTrap Hit Points : " << elem.getHitPoints() << std::endl;
-    out << "FragTrap Damages : " << elem.getAttackDamage() << std::endl;
     out << "FragTrap Energy Points : " << elem.getEnergyPoints() << std::endl;
+    out << "FragTrap Damages : " << elem.getAttackDamage() << std::endl;
     out << GREEN "------------------------------" CLEAR << std::endl;
     return (out);
 }

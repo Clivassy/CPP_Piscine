@@ -1,6 +1,6 @@
 ##########   BASE   ##########
 # File name
-NAME = claptrap
+NAME = ScavTrap
 
 # Sources
 SRCS += main.cpp

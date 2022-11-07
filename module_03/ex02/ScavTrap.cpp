@@ -1,12 +1,11 @@
 #include "ScavTrap.hpp"
 
-// add les protections si points de vie == 10 
-ScavTrap::ScavTrap( void ) : ClapTrap()
+ScavTrap::ScavTrap( void ) : ClapTrap("unknown", 100, 50, 20)
 {
     std::cout << "ScavTrap: Constructor by default called" << std::endl;
 }
 
-ScavTrap::ScavTrap( std::string name ) : ClapTrap(name)
+ScavTrap::ScavTrap( std::string name ) : ClapTrap(name, 100, 50, 20)
 {
     std::cout << "ScavTrap: Constructor called" << std::endl;
 }
@@ -15,7 +14,6 @@ ScavTrap::~ScavTrap( void )
 {
     std::cout << "ScavTrap: Destructor called" << std::endl;
 }
-
 
 ScavTrap   &ScavTrap::operator=( ScavTrap const &copy )
 {
@@ -50,13 +48,13 @@ std::ostream &operator<<(std::ostream &out, ScavTrap const &elem)
     out << GREEN "------------------------------" CLEAR << std::endl;
     out << "ScavTrap Name : " << elem.getName() << std::endl;
     out << "ScavTrap Hit Points : " << elem.getHitPoints() << std::endl;
-    out << "ScavTrap Damages : " << elem.getAttackDamage() << std::endl;
     out << "ScavTrap Energy Points : " << elem.getEnergyPoints() << std::endl;
+    out << "ScavTrap Damages : " << elem.getAttackDamage() << std::endl;
     out << GREEN "------------------------------" CLEAR << std::endl;
     return (out);
 }
 
 void ScavTrap::guardGate()
 {
-    std::cout << "ScarvTrap : " << this->_name << " turned into gate keeper mode" << std::endl;
+    std::cout << "ScarvTrap : " << this->getName() << " turned into gate keeper mode" << std::endl;
 }

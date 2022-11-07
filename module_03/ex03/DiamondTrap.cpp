@@ -2,29 +2,24 @@
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
-DiamondTrap::DiamondTrap( void )
+DiamondTrap::DiamondTrap( void ) 
+: ClapTrap("Unknown_clap_name", 100, 50, 30), ScavTrap("Unknown"), FragTrap("Unknown")
 {
+    this->_name = "Unknown";
     std::cout << "DiamondTrap: Constructor by default called" << std::endl;
-    this->DiamondTrap_name = "unknown";
-    this->_hitPoints = 100;
-    this->_energyPoints = 50;
-    this->_attackDamage = 30;
 }
 
 DiamondTrap::DiamondTrap( std::string name )
+: ClapTrap(name + "_clap_name", 100, 50, 30), ScavTrap(name), FragTrap(name)
 {
+    this->_name = name;
     std::cout << "DiamondTrap: Constructor called" << std::endl;
-    this->DiamondTrap_name = name;
-    this->_hitPoints = 100;
-    this->_energyPoints = 50;
-    this->_attackDamage = 30;
 }
 
 DiamondTrap::~DiamondTrap( void )
 {
     std::cout << "DiamondTrap: Destructor called" << std::endl;
 }
-
 
 DiamondTrap   &DiamondTrap::operator=( DiamondTrap const &copy )
 {
@@ -51,8 +46,8 @@ std::ostream &operator<<(std::ostream &out, DiamondTrap const &elem)
     out << GREEN "------------------------------" CLEAR << std::endl;
     out << "DiamondTrap Name : " << elem.getName() << std::endl;
     out << "DiamondTrap Hit Points : " << elem.getHitPoints() << std::endl;
-    out << "DiamondTrap Damages : " << elem.getAttackDamage() << std::endl;
     out << "DiamondTrap Energy Points : " << elem.getEnergyPoints() << std::endl;
+    out << "DiamondTrap Damages : " << elem.getAttackDamage() << std::endl;
     out << GREEN "------------------------------" CLEAR << std::endl;
     return (out);
 }

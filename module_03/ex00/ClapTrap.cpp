@@ -1,13 +1,13 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap( void ):
-_name("unknown"), _hitPoints(10), _energyPoints(10), _attackDamage(10)
+_name("unknown"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
     std::cout << "Constructor by default called" << std::endl;
 }
 
 ClapTrap::ClapTrap( std::string name ): 
-_name(name), _hitPoints(10), _energyPoints(10),_attackDamage(10)
+_name(name), _hitPoints(10), _energyPoints(10),_attackDamage(0)
 {
     std::cout << "Constructor called" << std::endl;
 }
@@ -57,7 +57,7 @@ void ClapTrap::attack( const std::string& target )
     if (this->_energyPoints > 0 and this->_hitPoints > 0)
     {
         std::cout << YELLOW "ClapTrap " << this->_name << " attacks ";
-        std::cout << target << " causing " << this->_attackDamage;
+        std::cout << target << " causing " << this->getAttackDamage();
         std::cout << " points of damage!" CLEAR << std::endl;
         this->_energyPoints--;
         return ;
@@ -100,8 +100,8 @@ std::ostream &operator<<(std::ostream &out, ClapTrap const &elem)
     out << GREEN "------------------------------" CLEAR << std::endl;
     out << "Claptrap Name : " << elem.getName() << std::endl;
     out << "Claptrap Hit Points : " << elem.getHitPoints() << std::endl;
-    out << "Claptrap Damages : " << elem.getAttackDamage() << std::endl;
     out << "Claptrap Energy Points : " << elem.getEnergyPoints() << std::endl;
+    out << "Claptrap Damages : " << elem.getAttackDamage() << std::endl;
     out << GREEN "------------------------------" CLEAR << std::endl;
     return (out);
 }

@@ -1,16 +1,18 @@
 ##########   BASE   ##########
 # File name
-NAME = FragTrap
+NAME = DiamondTrap
 
 # Sources
 SRCS += main.cpp
 SRCS += ClapTrap.cpp
 SRCS += ScavTrap.cpp
 SRCS += FragTrap.cpp
+SRCS += DiamondTrap.cpp
 
 HEADER += ClapTrap.hpp
 HEADER += ScavTrap.hpp
 HEADER += FragTrap.hpp
+HEADER += DiamondTrap.hpp
 
 OBJS = ${SRCS:.cpp=.o}
 

@@ -24,6 +24,7 @@ class ClapTrap{
     public:
     ClapTrap( void );
     ClapTrap( std::string name );
+    ClapTrap(std::string name, int hitPoints, int energyPoints, int attackDamage);
     ~ClapTrap( void );
     ClapTrap( const ClapTrap &copy ); // constructeur par copie 
     ClapTrap &operator=( ClapTrap const &copy );
