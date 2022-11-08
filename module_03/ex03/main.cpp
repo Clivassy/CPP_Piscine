@@ -30,6 +30,8 @@ int main(void)
 
     Big.highFivesGuys();
     Big.guardGate();
+    Big.whoAmI();
+    Boss.whoAmI();
 
     Big.takeDamage(2);
     std::cout << Big;

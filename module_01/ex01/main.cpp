@@ -4,9 +4,9 @@ int main()
 {
     int numberOfZombies;
     
-   numberOfZombies = 1000000000;
+   //numberOfZombies = 100;
    // numberOfZombies = 200;
-   // numberOfZombies = 5;
+    numberOfZombies = 5;
    // numberOfZombies = 0;
    // numberOfZombies = -3;
 

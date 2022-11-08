@@ -1,8 +1,8 @@
 #include "Zombie.hpp"
 
-Zombie:: Zombie( std::string name)
+Zombie:: Zombie( std::string name): _name(name)
 {
-    this->_name = name;
+    // constructor
 }
 
 Zombie::~Zombie( void ) 

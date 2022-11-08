@@ -19,11 +19,11 @@ class Zombie {
     std::string _name;
 
     public:
+    Zombie();
+    ~Zombie(void);
     std::string getName(void)const;
     void        setName(std::string name);
     void        announce( void );
-    Zombie();
-    ~Zombie(void);
 };
 
 Zombie*    zombieHorde( int N, std::string name );

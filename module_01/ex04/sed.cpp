@@ -13,21 +13,25 @@ Sed::~Sed( void )
 void    Sed:: sedReplace( std::string file, std::string str1, std::string str2 )
 {
     std::string     str, buff, fileName;
-    std::size_t found;
+    std::size_t     found(0);
     
     std::ifstream   inFile (file);
     if (!inFile)
+    {
+        std::cout << RED "Error: can't open/read the file" CLEAR << std::endl;
         return;
-   
+    }
     fileName = file += ".replace";
     std::ofstream outFile(fileName);
     if (!outFile)
+    {
+        std::cout << RED "Error: can't create file" CLEAR << std::endl;
         return;
-   
+    }
     while (std::getline(inFile, str))
     {
         buff.append( str.append("\n"));
-    }
+    } 
     while ((found = buff.find(str1)) >= 0 and found != std::string::npos)
     {
         buff.erase(found, str1.length());

@@ -2,6 +2,7 @@
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
+// miss le right name du claptrap + diamondtrap
 DiamondTrap::DiamondTrap( void ) 
 : ClapTrap("Unknown_clap_name", 100, 50, 30), ScavTrap("Unknown"), FragTrap("Unknown")
 {
@@ -30,7 +31,8 @@ DiamondTrap   &DiamondTrap::operator=( DiamondTrap const &copy )
     return (*this);
 }
 
-DiamondTrap:: DiamondTrap( const DiamondTrap &copy ) : ClapTrap(copy) 
+DiamondTrap:: DiamondTrap( const DiamondTrap &copy ):
+ ClapTrap(copy), ScavTrap(copy), FragTrap(copy)
 {
     std::cout << "DiamondTrap: Constructor by copy called" << std::endl;
     *this = copy;
@@ -54,5 +56,5 @@ std::ostream &operator<<(std::ostream &out, DiamondTrap const &elem)
 
 void DiamondTrap::whoAmI()
 {
-    std::cout << YELLOW << "I'm " << this->DiamondTrap_name << " " << ClapTrap::_name << std::endl;
+    std::cout << YELLOW << "I'm " << this->_name << "alos named as : " << ClapTrap::getName() << std::endl;
 }
