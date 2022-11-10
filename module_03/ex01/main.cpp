@@ -6,7 +6,6 @@ int main(void)
     ScavTrap Big("Big");
     ScavTrap Boss("Boss");
 
-    ClapTrap ByCopy(Boss);
     ClapTrap ByDefault;
 
     std::cout << Big;
@@ -30,9 +29,6 @@ int main(void)
     Boss.takeDamage(3);
 
     Big.guardGate();
-
-    std::cout << "     Object par copie     " << std::endl;
-    std::cout << ByCopy;
 
     std::cout << "     Assignation objet     " << std::endl;
     ByDefault = Big;

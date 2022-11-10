@@ -1,20 +1,20 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap( void ):
-_name("unknown"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+_name("Unknown"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-    std::cout << "Constructor by default called" << std::endl;
+    std::cout << "Claptrap constructor by default called and create: " << _name  << std::endl;
 }
 
 ClapTrap::ClapTrap( std::string name ): 
 _name(name), _hitPoints(10), _energyPoints(10),_attackDamage(0)
 {
-    std::cout << "Constructor called" << std::endl;
+    std::cout <<  "Claptrap constructor called and create: " <<_name << std::endl;
 }
 
 ClapTrap::~ClapTrap( void )
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "Claptrap destructor called and destroy: " << _name << std::endl;
 }
 
 ClapTrap:: ClapTrap( const ClapTrap &copy )

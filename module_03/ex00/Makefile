@@ -11,7 +11,7 @@ HEADER += ClapTrap.hpp
 OBJS = ${SRCS:.cpp=.o}
 
 # Compilateurs
-CC = clang++
+CC = c++
 CFLAGS = -g -Wall -Wextra -Werror -std=c++98
 
 ##########   RULES   ##########

@@ -2,17 +2,17 @@
 
 ScavTrap::ScavTrap( void ) : ClapTrap("unknown", 100, 50, 20)
 {
-    std::cout << "ScavTrap: Constructor by default called" << std::endl;
+    std::cout << "ScavTrap: constructor by default called and create: " <<_name  << std::endl;
 }
 
 ScavTrap::ScavTrap( std::string name ) : ClapTrap(name, 100, 50, 20)
 {
-    std::cout << "ScavTrap: Constructor called" << std::endl;
+    std::cout << "ScavTrap: constructor called and create: " << _name << std::endl;
 }
 
 ScavTrap::~ScavTrap( void )
 {
-    std::cout << "ScavTrap: Destructor called" << std::endl;
+    std::cout << "ScavTrap: destructor called and destroy: " << _name << std::endl;
 }
 
 ScavTrap   &ScavTrap::operator=( ScavTrap const &copy )
@@ -32,7 +32,7 @@ ScavTrap:: ScavTrap( const ScavTrap &copy ) : ClapTrap(copy)
 
 void ScavTrap::attack( const std::string& target )
 {
-    if (this->_energyPoints > 0 and this->_hitPoints > 0)
+   if (this->_energyPoints > 0 and this->_hitPoints > 0)
     {
         std::cout << YELLOW "ScavTrap " << this->_name << " attacks ";
         std::cout << target << " causing " << this->getAttackDamage();

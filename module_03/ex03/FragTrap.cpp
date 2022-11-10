@@ -2,17 +2,17 @@
 
 FragTrap::FragTrap( void ) : ClapTrap("Unknown", 100, 100, 30)
 {
-    std::cout << "FragTrap: Constructor by default called" << std::endl;
+    std::cout << "FragTrap: constructor by default called and create: " <<_name  << std::endl;
 }
 
 FragTrap::FragTrap( std::string name ): ClapTrap(name, 100, 100, 30)
 {
-    std::cout << "FragTrap: Constructor called" << std::endl;
+    std::cout << "FragTrap: constructor called and create: " << _name << std::endl;
 }
 
 FragTrap::~FragTrap( void )
 {
-    std::cout << "FragTrap: Destructor called" << std::endl;
+    std::cout << "FragTrap: destructor called and destroy: " << _name << std::endl;
 }
 
 FragTrap   &FragTrap::operator=( FragTrap const &copy )

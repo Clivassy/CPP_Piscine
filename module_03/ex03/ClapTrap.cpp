@@ -4,24 +4,24 @@
 ClapTrap::ClapTrap( void ):
 _name("unknown"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-    std::cout << "ClapTrap: Constructor by default called" << std::endl;
+    std::cout << "ClapTrap: constructor by default called and create: " <<_name  << std::endl;
 }
 
 ClapTrap::ClapTrap( std::string name ): 
 _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-    std::cout << "ClapTrap: Constructor called" << std::endl;
+    std::cout << "ClapTrap: constructor called and create: " << _name << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name, int hitPoints, int energyPoints, int attackDamage)
 : _name(name), _hitPoints(hitPoints), _energyPoints(energyPoints), _attackDamage(attackDamage)
 {
-    //
+    std::cout << "Claptrap constructor called and create: " << _name << std::endl;
 }
 
 ClapTrap::~ClapTrap( void )
 {
-    std::cout << "ClapTrap: Destructor called" << std::endl;
+    std::cout << "ClapTrap: destructor called and destroy: " << _name << std::endl;
 }
 
 ClapTrap:: ClapTrap( const ClapTrap &copy )
@@ -77,7 +77,7 @@ void ClapTrap::takeDamage( unsigned int amount )
 {
     if (this->_energyPoints > 0 and this->_hitPoints > 0)
     {
-        std::cout << YELLOW "ClapTrap " << this->_name << " took ";
+        std::cout << YELLOW << this->_name << " took ";
         std::cout << amount << " points of damage!" CLEAR << std::endl;
         if (amount > this->_energyPoints)
         {
@@ -94,7 +94,7 @@ void ClapTrap::beRepaired( unsigned int amount )
 {
     if (this->_energyPoints > 0 and this->_hitPoints > 0)
     {
-        std::cout << YELLOW "ClapTrap " << this->_name << " won ";
+        std::cout << YELLOW << this->_name << " won ";
         std::cout << amount << " points of repair" CLEAR << std::endl;
         this->_hitPoints = this->_hitPoints + amount;
         this->_energyPoints--;

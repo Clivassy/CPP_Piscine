@@ -28,8 +28,8 @@ int main(void)
     Boss.beRepaired(2);
     Boss.takeDamage(3);
 
-    Big.highFivesGuys();
-    Big.guardGate();
+    std::cout << std::endl;
+
     Big.whoAmI();
     Boss.whoAmI();
 
