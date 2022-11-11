@@ -1,6 +1,5 @@
 #include "ClapTrap.hpp"
 
-
 ClapTrap::ClapTrap( void ):
 _name("unknown"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
@@ -30,7 +29,6 @@ ClapTrap:: ClapTrap( const ClapTrap &copy )
     *this = copy;
 }
 
-//opérateur de surcharge pour l'assignation 
 ClapTrap   &ClapTrap::operator=( ClapTrap const &copy )
 {
     this->_name = copy.getName();

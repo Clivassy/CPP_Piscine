@@ -24,7 +24,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	${CC} ${SRCS} -o ${NAME} ${CFLAGS}
 
-%.o: %.c
+%.o: %.cpp
 	$(CC) -o $@ -c $< $(CFLAGS) 
 
 clean:

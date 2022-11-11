@@ -26,7 +26,7 @@ class ClapTrap{
     ClapTrap( std::string name );
     ClapTrap(std::string name, int hitPoints, int energyPoints, int attackDamage);
     ~ClapTrap( void );
-    ClapTrap( const ClapTrap &copy ); // constructeur par copie 
+    ClapTrap( const ClapTrap &copy );
     ClapTrap &operator=( ClapTrap const &copy );
     
     std::string getName(void) const;

@@ -56,5 +56,5 @@ std::ostream &operator<<(std::ostream &out, ScavTrap const &elem)
 
 void ScavTrap::guardGate()
 {
-    std::cout << "ScarvTrap : " << this->getName() << " turned into gate keeper mode" << std::endl;
+    std::cout << "ScavTrap : " << this->getName() << " turned into gate keeper mode" << std::endl;
 }

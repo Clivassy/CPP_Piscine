@@ -2,6 +2,10 @@
 # File name
 NAME = DiamondTrap
 
+# Compilateurs
+CC = c++ 
+CFLAGS = -g -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
+
 # Sources
 SRCS += main.cpp
 SRCS += ClapTrap.cpp
@@ -16,17 +20,13 @@ HEADER += DiamondTrap.hpp
 
 OBJS = ${SRCS:.cpp=.o}
 
-# Compilateurs
-CC = c++
-CFLAGS = -g -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
-
 ##########   RULES   ##########
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	${CC} ${SRCS} -o ${NAME} ${CFLAGS}
 
-%.o: %.c
+%.o: %.cpp
 	$(CC) -o $@ -c $< $(CFLAGS) 
 
 clean:
