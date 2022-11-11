@@ -2,29 +2,25 @@
 
 Animal::Animal( void ): _type("Unknown")
 {
-    // type animal vide
-    std::cout << "Animal: Constructor by default called" << std::endl;
+    std::cout << this->_type << ": Constructor by default called" << std::endl;
 }
 
-Animal::Animal( std::string type ): 
-_type(type)
+Animal::Animal( std::string type ): _type(type)
 {
-    // type animal initialisé avec la valeur de notre choix
-    std::cout << "Animal: Constructor called" << std::endl;
+    std::cout << this->_type << ": Constructor called" << std::endl;
 }
 
 Animal::~Animal( void )
 {
-    std::cout << "Animal: Destructor called" << std::endl;
+    std::cout << this->_type << ": Destructor called" << std::endl;
 }
 
 Animal:: Animal( const Animal &copy )
 {
-    std::cout << "Animal: Constructor by copy called" << std::endl;
+    std::cout <<  this->_type << ": Constructor by copy called" << std::endl;
     *this = copy;
 }
 
-//opérateur de surcharge pour l'assignation 
 Animal   &Animal::operator=( Animal const &copy )
 {
     this->_type = copy.getType();

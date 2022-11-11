@@ -22,7 +22,7 @@
 
     return 0; 
 } 
---------------------------------------------------*/
+*/
 
 int main()
 {
@@ -50,6 +50,7 @@ int main()
     delete koala;
     delete cat;
     delete dog;
+
     //-------- Tests with Wrong Animal --------------
     std::cout << GREEN "------- WRONG_ANIMAL OBJECT TESTS ----------" CLEAR << std::endl;
     const WrongAnimal* wronganimal = new WrongAnimal(); 

@@ -26,7 +26,5 @@ class WrongAnimal{
     WrongAnimal &operator=( WrongAnimal const &copy );
     std::string getType( void )const;
     virtual void    makeSound( void )const;
-    //getter
-    //Setter
 };
 #endif

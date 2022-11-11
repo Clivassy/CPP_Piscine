@@ -24,8 +24,6 @@ class WrongCat : public WrongAnimal
     WrongCat( std::string type );
     ~WrongCat( void );
     std::string getType( void ) const;
-    //getter
-    //Setter
 };
 
 #endif
