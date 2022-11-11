@@ -2,20 +2,17 @@
 
 AAnimal::AAnimal( void ): _type("Unknown")
 {
-    // type AAnimal vide
-    std::cout << "AAnimal: Constructor by default called" << std::endl;
+    std::cout << this->_type << ": Constructor by default called" << std::endl;
 }
 
-AAnimal::AAnimal( std::string type ): 
-_type(type)
+AAnimal::AAnimal( std::string type ): _type(type)
 {
-    // type AAnimal initialisé avec la valeur de notre choix
-    std::cout << "AAnimal: Constructor called" << std::endl;
+    std::cout << this->_type << ": Constructor called" << std::endl;
 }
 
 AAnimal::~AAnimal( void )
 {
-    std::cout << "AAnimal: Destructor called" << std::endl;
+    std::cout << this->_type << "AAnimal: Destructor called" << std::endl;
 }
 
 AAnimal:: AAnimal( const AAnimal &copy )
@@ -24,7 +21,6 @@ AAnimal:: AAnimal( const AAnimal &copy )
     *this = copy;
 }
 
-//opérateur de surcharge pour l'assignation 
 AAnimal   &AAnimal::operator=( AAnimal const &copy )
 {
     this->_type = copy.getType();
@@ -38,7 +34,7 @@ std::string AAnimal::getType( void ) const
 
 void    AAnimal::makeSound( void )const
 {
-    std::cout << "I can't hear any AAnimal sound..." << std::endl;
+   
 }
 
 void    AAnimal::getIdea(int index)const

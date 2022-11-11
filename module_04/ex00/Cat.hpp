@@ -21,8 +21,6 @@ class Cat : public Animal
     Cat( std::string type );
     ~Cat( void );
     void    makeSound( void )const;
-    //getter
-    //Setter
 };
 
 #endif

@@ -2,17 +2,17 @@
 
 Animal::Animal( void ): _type("Unknown")
 {
-    std::cout << "Animal: Constructor by default called" << std::endl;
+    std::cout << this->_type << ": Constructor by default called" << std::endl;
 }
 
 Animal::Animal( std::string type ): _type(type)
 {
-    std::cout << "Animal: Constructor called" << std::endl;
+    std::cout  << this->_type << ": Constructor called" << std::endl;
 }
 
 Animal::~Animal( void )
 {
-    std::cout << "Animal: Destructor called" << std::endl;
+    std::cout << this->_type << ": Destructor called" << std::endl;
 }
 
 Animal:: Animal( const Animal &copy )

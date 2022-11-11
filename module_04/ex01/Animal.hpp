@@ -22,12 +22,10 @@ class Animal{
     Animal( void );
     Animal( std::string type );
     virtual ~Animal( void );
-    Animal( const Animal &copy ); // constructeur par copie 
+    Animal( const Animal &copy );
     Animal &operator=( Animal const &copy );
     std::string getType( void )const;
     virtual void    makeSound( void )const;
     virtual void    getIdea(int index)const;
-    //getter
-    //Setter
 };
 #endif

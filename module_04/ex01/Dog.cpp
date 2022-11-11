@@ -3,13 +3,13 @@
 Dog::Dog( void ): Animal("Dog")
 { 
     this->brain = new Brain;
-    std::cout << "Dog: Constructor called" << std::endl;
+    std::cout << this->_type << ": Constructor called" << std::endl;
 }
 
 Dog::~Dog( void )
 {
     delete this->brain;
-    std::cout << "Dog: Destructor called" << std::endl;
+    std::cout << this->_type << ": Destructor called" << std::endl;
 }
 
 void    Dog::makeSound( void )const

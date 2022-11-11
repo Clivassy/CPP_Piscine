@@ -4,13 +4,13 @@ Cat::Cat( void ) : Animal("Cat")
 {
     // constructeur par défaut
     this->brain = new Brain;
-    std::cout << "Cat: Constructor called" << std::endl;
+    std::cout << this->_type << ": Constructor called" << std::endl;
 }
 
 Cat::~Cat( void )
 {
     delete this->brain;
-    std::cout << "Cat: Destructor called" << std::endl;
+    std::cout << this->_type << ": Destructor called" << std::endl;
 }
 
 void    Cat::makeSound( void )const
