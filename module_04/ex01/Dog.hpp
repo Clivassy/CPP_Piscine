@@ -23,8 +23,8 @@ class Dog : public Animal
     public:
     Dog( void );
     Dog( std::string type );
-    // add constructeur par copie 
-    // add surcharge d'opérateur =
+    Dog( const Dog &copy );
+    Dog &operator=( Dog const &copy );
     ~Dog( void );
     void    makeSound( void ) const;
     void    getIdea(int index)const;

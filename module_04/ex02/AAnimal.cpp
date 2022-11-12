@@ -32,11 +32,6 @@ std::string AAnimal::getType( void ) const
     return(this->_type);
 }
 
-void    AAnimal::makeSound( void )const
-{
-   
-}
-
 void    AAnimal::getIdea(int index)const
 {
     (void)index;

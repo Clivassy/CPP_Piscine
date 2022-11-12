@@ -6,6 +6,17 @@ Dog::Dog( void ): AAnimal("Dog")
     std::cout << "Dog: Constructor called" << std::endl;
 }
 
+Dog:: Dog( const Dog &copy )
+{
+    std::cout <<  this->_type << ": Constructor by copy called" << std::endl;
+    *this = copy;
+}
+
+Dog   &Dog::operator=( Dog const &copy )
+{
+    this->_type = copy.getType();
+    return (*this);
+}
 Dog::~Dog( void )
 {
     delete this->brain;

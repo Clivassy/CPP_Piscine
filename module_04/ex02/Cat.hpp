@@ -24,12 +24,10 @@ class Cat : public AAnimal
     Cat( void );
     Cat( std::string type );
     ~Cat( void );
-    // add constructeur par copie 
-    // add surcharge d'opérateur =
+    Cat( const Cat &copy );
+    Cat &operator=( Cat const &copy );
     void    makeSound( void )const;
     void    getIdea(int index)const;
-    //getter
-    //Setter
 };
 
 #endif

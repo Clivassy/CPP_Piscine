@@ -23,12 +23,10 @@ class Cat : public Animal
     public:
     Cat( void );
     Cat( std::string type );
-    // add constructeur par copie 
-    // add surcharge d'opérateur =
+    Cat( const Cat &copy );
+    Cat &operator=( Cat const &copy );
     ~Cat( void );
     void    makeSound( void )const;
     void    getIdea(int index)const;
-    //getter
-    //Setter
 };
 #endif

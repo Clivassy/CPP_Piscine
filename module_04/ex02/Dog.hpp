@@ -24,8 +24,8 @@ class Dog : public AAnimal
     Dog( void );
     Dog( std::string type );
     ~Dog( void );
-    // add constructeur par copie 
-    // add surcharge d'opérateur =
+    Dog( const Dog &copy );
+    Dog &operator=( Dog const &copy );
     void    makeSound( void ) const;
     void    getIdea(int index)const;
 };

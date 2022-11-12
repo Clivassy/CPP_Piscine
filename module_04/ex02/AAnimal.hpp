@@ -22,7 +22,7 @@ class AAnimal{
     AAnimal( void );
     AAnimal( std::string type );
     virtual ~AAnimal( void );
-    AAnimal( const AAnimal &copy ); // constructeur par copie 
+    AAnimal( const AAnimal &copy );
     AAnimal &operator=( AAnimal const &copy );
     std::string getType( void )const;
     virtual void    makeSound( void )const = 0;

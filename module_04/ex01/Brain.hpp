@@ -20,7 +20,7 @@ class Brain
     std::string ideas[100];
     Brain( void );
     ~Brain( void );
-    Brain( const Brain &copy ); // constructeur par copie 
+    Brain( const Brain &copy ); 
     void operator=( Brain const &toCopy );
 };
 #endif
