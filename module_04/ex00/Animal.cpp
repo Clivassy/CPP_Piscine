@@ -7,7 +7,7 @@ Animal::Animal( void ): _type("Unknown")
 
 Animal::Animal( std::string type ): _type(type)
 {
-    std::cout << this->_type << ": Constructor called" << std::endl;
+    std::cout << "Animal: Constructor called" << std::endl;
 }
 
 Animal::~Animal( void )

@@ -4,6 +4,7 @@
 //------ librairies------------
 #include <iostream>
 #include <string>
+#include "Form.hpp"
 
 //-------- Colors ------------
 #define CLEAR "\e[0m"
@@ -12,7 +13,8 @@
 #define GREEN "\e[0;32m"
 #define CYAN "\e[0;36m"
 //----------------------------
-
+class Form;
+ 
 class Bureaucrat{
 
     private:
@@ -27,7 +29,7 @@ class Bureaucrat{
     Bureaucrat &operator=( Bureaucrat const &copy );
     std::string getName( void )const;
     int getGrade( void )const;
-
+    void    signForm( Form &formulaire );
     class GradeTooHighException : public std::exception
     {
         public:

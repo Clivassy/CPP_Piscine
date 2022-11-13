@@ -1,9 +1,10 @@
-#ifndef BUREAUCRAT_H
-#define BUREAUCRAT_H
+#ifndef FORM_H
+#define FORM_H
 
 //------ librairies------------
 #include <iostream>
 #include <string>
+#include "Bureaucrat.hpp" 
 
 //-------- Colors ------------
 #define CLEAR "\e[0m"
@@ -13,27 +14,33 @@
 #define CYAN "\e[0;36m"
 //----------------------------
 
-class Bureaucrat{
+class Bureaucrat; 
+
+class Form{
 
     private:
-    std::string _name;
-    int _grade;
+    const std::string _name;
+    int _signedGrade;
+    int _execGrade;
+    bool _signed;
 
     public:
-    Bureaucrat( void );
-    Bureaucrat( std::string name, int grade );
-    ~Bureaucrat( void );
-    Bureaucrat( const Bureaucrat &copy );
-    Bureaucrat &operator=( Bureaucrat const &copy );
+    Form( void );
+    Form( std::string name, int signedGrade, int execGrade );
+    ~Form( void );
+    Form( const Form &copy );
+    Form &operator=( Form const &copy );
     std::string getName( void )const;
-    int getGrade( void )const;
-
+    int getSignedGrade( void )const;
+    int getExecGrade( void )const;
+    bool getFormStatus( void ) const ;
+    void beSigned(Bureaucrat &bureaucrat);
     class GradeTooHighException : public std::exception
     {
         public:
         virtual const char* what() const throw()
         {
-            return("Error: grade is too high.");
+            return("grade is too high.");
         }
     };
     class GradeTooLowException: public std::exception
@@ -41,12 +48,12 @@ class Bureaucrat{
         public:
         virtual const char* what() const throw()
         {
-            return("Error: grade is too low.");
+            return("grade is too low.");
         }
     };
     void    increment( void );
     void    decrement( void );
 };
 
-std::ostream &operator<<( std::ostream &out, Bureaucrat const &input );
+std::ostream &operator<<( std::ostream &out, Form const &input );
 #endif

@@ -16,22 +16,23 @@ return 0;
 
 int	main()
 {
-	const Animal	*CatsAndDogs[100];
+    int size = 6; 
+	const Animal	*CatsAndDogs[size];
 
-    for (int i = 0; i < 50; i++)
+    for (int i = 0; i < (size / 2); i++)
     {
         CatsAndDogs[i] = new Cat();
     }
-    for (int i = 50; i < 100; i++)
+    for (int i = (size / 2); i < size; i++)
     {
         CatsAndDogs[i] = new Dog();
     }
-	for (int i = 0; i < 100; i++){
+	for (int i = 0; i < size; i++){
 
 		CatsAndDogs[i]->makeSound();
         CatsAndDogs[i]->getIdea(i);
 	}
-	for (int j = 0; j < 100; j++)
+	for (int j = 0; j < size; j++)
     {
 		delete CatsAndDogs[j];
 	}

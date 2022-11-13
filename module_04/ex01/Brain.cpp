@@ -21,7 +21,7 @@ Brain::Brain( void )
     std::srand(time(NULL));
 	for( int i = 0 ; i < 100 ; i++ )
 		this->ideas[i] = randomIdeas[rand() % 10];
-    std::cout << "Brain: Constructor by default called" << std::endl;
+    std::cout << "Brain: Constructor called" << std::endl;
 }
 
 Brain::~Brain( void )
