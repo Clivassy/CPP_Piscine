@@ -3,30 +3,38 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 
-int	main(){
+int	main()
+{
+    
+    // AAnimal    *animal; // Impossible car classe abstraite
+    // L'objet ne peut être instancié, il faut qu'il soit définit (ou alors utiliser des pointeurs des des references)
+    // animal = new Dog;
 
-   // Animal    animal; // Impossible car classe abstraite
-   // L'objet ne peut être instancié, il faut qu'il soit définit.
-   // Dog dog; 
-   // Cat cat; 
-	const AAnimal	*CatsAndDogs[100];
+    //AAnimal animal;
+    //Dog dog;
+    //Cat cat;
 
-    for (int i = 0; i < 50; i++)
+    int size = 6; 
+	const AAnimal	*CatsAndDogs[size];
+
+    for (int i = 0; i < (size / 2); i++)
     {
         CatsAndDogs[i] = new Cat();
     }
-    for (int i = 50; i < 100; i++)
+    std::cout << std::endl;
+    for (int i = (size / 2); i < size; i++)
     {
         CatsAndDogs[i] = new Dog();
     }
-	for (int i = 0; i < 100; i++){
+    std::cout << std::endl;
+	for (int i = 0; i < size; i++){
 
 		CatsAndDogs[i]->makeSound();
-        CatsAndDogs[i]->getIdea(i);
+       // CatsAndDogs[i]->getIdea(i);
 	}
-	for (int j = 0; j < 100; j++)
+    std::cout << std::endl;
+	for (int j = 0; j < size; j++)
     {
-
 		delete CatsAndDogs[j];
 	}
 	return (0);

@@ -18,15 +18,16 @@
 class Dog : public AAnimal
 {
     private:
-    Brain*  brain;
+        Brain*  brain;
 
     public:
-    Dog( void );
-    Dog( std::string type );
-    ~Dog( void );
-    Dog( const Dog &copy );
-    Dog &operator=( Dog const &copy );
-    void    makeSound( void ) const;
-    void    getIdea(int index)const;
-};
+        Dog( void );
+        Dog( std::string type );
+        ~Dog( void );
+        Dog( const Dog &copy );
+        Dog &operator=( Dog const &copy );
+        void    makeSound( void ) const;
+        void    getIdea(int index)const;
+};  
+
 #endif

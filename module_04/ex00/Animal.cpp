@@ -2,22 +2,22 @@
 
 Animal::Animal( void ): _type("Unknown")
 {
-    std::cout << this->_type << ": Constructor by default called" << std::endl;
+    std::cout << this->_type << ": Animal constructor by default called" << std::endl;
 }
 
 Animal::Animal( std::string type ): _type(type)
 {
-    std::cout << "Animal: Constructor called" << std::endl;
+    std::cout <<  this->_type << ": Animal constructor called" << std::endl;
 }
 
 Animal::~Animal( void )
 {
-    std::cout << this->_type << ": Destructor called" << std::endl;
+    std::cout << this->_type << ": Animal destructor called" << std::endl;
 }
 
 Animal:: Animal( const Animal &copy )
 {
-    std::cout <<  this->_type << ": Constructor by copy called" << std::endl;
+    std::cout << this->_type << ": Animal constructor by copy called" << std::endl;
     *this = copy;
 }
 
@@ -34,5 +34,5 @@ std::string Animal::getType( void ) const
 
 void    Animal::makeSound( void )const
 {
-    std::cout << "I can't hear any animal sound..." << std::endl;
+    std::cout << "**Silence**" << std::endl;
 }

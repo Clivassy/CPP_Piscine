@@ -16,11 +16,14 @@
 
 class Brain
 {
+    private:
+        std::string _ideas[100];
     public:
-    std::string ideas[100];
-    Brain( void );
-    ~Brain( void );
-    Brain( const Brain &copy );
-    void operator=( Brain const &toCopy );
+        Brain( void );
+        ~Brain( void );
+        Brain( const Brain &copy );
+        void operator=( Brain const &toCopy );
+        std::string getIdea( int index ) const;
 };
+
 #endif

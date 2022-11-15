@@ -2,17 +2,17 @@
 
 AAnimal::AAnimal( void ): _type("Unknown")
 {
-    std::cout << this->_type << ": Constructor by default called" << std::endl;
+    std::cout << this->_type << ": AAnimal constructor by default called" << std::endl;
 }
 
 AAnimal::AAnimal( std::string type ): _type(type)
 {
-    std::cout << this->_type << ": Constructor called" << std::endl;
+    std::cout << this->_type << ": AAnimal constructor called" << std::endl;
 }
 
 AAnimal::~AAnimal( void )
 {
-    std::cout << this->_type << "AAnimal: Destructor called" << std::endl;
+    std::cout << this->_type << ": AAnimal destructor called" << std::endl;
 }
 
 AAnimal:: AAnimal( const AAnimal &copy )
@@ -32,7 +32,7 @@ std::string AAnimal::getType( void ) const
     return(this->_type);
 }
 
-void    AAnimal::getIdea(int index)const
+void  AAnimal::getIdea(int index) const
 {
     (void)index;
 }

@@ -2,14 +2,13 @@
 
 Cat::Cat( void ) : AAnimal("Cat")
 {
-    // constructeur par défaut
     this->brain = new Brain;
-    std::cout << "Cat: Constructor called" << std::endl;
+    std::cout <<  this->_type << ": Cat Constructor called" << std::endl;
 }
 
 Cat:: Cat( const Cat &copy )
 {
-    std::cout <<  this->_type << ": Constructor by copy called" << std::endl;
+    std::cout <<  this->_type << ": Cat constructor by copy called" << std::endl;
     *this = copy;
 }
 
@@ -32,5 +31,5 @@ void    Cat::makeSound( void )const
 
 void    Cat::getIdea(int index)const
 {
-    std::cout << this->brain->ideas[index] << std::endl;
+    std::cout << this->brain->getIdea(index) << std::endl;
 }

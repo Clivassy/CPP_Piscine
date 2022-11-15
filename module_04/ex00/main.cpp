@@ -55,12 +55,15 @@ int main()
     std::cout << GREEN "------- WRONG_ANIMAL OBJECT TESTS ----------" CLEAR << std::endl;
     const WrongAnimal* wronganimal = new WrongAnimal(); 
     const WrongAnimal* wrongcat = new WrongCat();
+    const WrongCat* realCat = new WrongCat();
 
+    realCat->makeSound(); //should output Cat sound! 
     wronganimal->makeSound(); //should output no sound! 
     wrongcat->makeSound(); // should output no sound! 
     std::cout << GREEN "-----------------------------------------" CLEAR << std::endl;
 
     delete wronganimal;
+    delete realCat;
     delete wrongcat;
 
     return (0); 

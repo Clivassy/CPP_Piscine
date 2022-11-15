@@ -14,7 +14,9 @@
 return 0;
 }*/
 
-int	main()
+
+// Test
+/*int	main()
 {
     int size = 6; 
 	const Animal	*CatsAndDogs[size];
@@ -23,18 +25,38 @@ int	main()
     {
         CatsAndDogs[i] = new Cat();
     }
+    std::cout << std::endl;
     for (int i = (size / 2); i < size; i++)
     {
         CatsAndDogs[i] = new Dog();
     }
+    std::cout << std::endl;
 	for (int i = 0; i < size; i++){
 
 		CatsAndDogs[i]->makeSound();
-        CatsAndDogs[i]->getIdea(i);
+       // CatsAndDogs[i]->getIdea(i);
 	}
+    std::cout << std::endl;
 	for (int j = 0; j < size; j++)
     {
 		delete CatsAndDogs[j];
 	}
 	return (0);
+}*/
+
+// Test de copie profonde
+int main()
+{
+    Cat test3;
+    {
+        std::cout << test3.getType() << std::endl;
+        Cat test1 = test3;
+        std::cout << test1.getType() << std::endl;
+    }
+    Dog test;
+    {
+        std::cout << test.getType() << std::endl;
+        Dog test1 = test;
+        std::cout << test1.getType() << std::endl;
+    }
 }

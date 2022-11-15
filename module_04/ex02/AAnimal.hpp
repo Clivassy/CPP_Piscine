@@ -16,16 +16,17 @@
 class AAnimal{
 
     protected:
-    std::string _type;
+        std::string _type;
 
     public:
-    AAnimal( void );
-    AAnimal( std::string type );
-    virtual ~AAnimal( void );
-    AAnimal( const AAnimal &copy );
-    AAnimal &operator=( AAnimal const &copy );
-    std::string getType( void )const;
-    virtual void    makeSound( void )const = 0;
-    virtual void    getIdea(int index)const = 0;
+        AAnimal( void );
+        AAnimal( std::string type );
+        virtual ~AAnimal( void );
+        AAnimal( const AAnimal &copy );
+        AAnimal &operator=( AAnimal const &copy );
+        std::string getType( void )const;
+        virtual void    makeSound( void )const = 0;
+        virtual void    getIdea( int index )const = 0;
 };
+
 #endif

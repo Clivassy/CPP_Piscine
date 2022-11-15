@@ -1,6 +1,6 @@
 ##########   BASE   ##########
 # File name
-NAME = brain
+NAME = AAnimal
 
 # Sources
 SRCS += main.cpp

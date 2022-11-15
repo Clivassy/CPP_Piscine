@@ -17,12 +17,14 @@
 class WrongCat : public WrongAnimal
 {
     private:
-    std::string _type;
+        std::string _type;
 
     public:
-    WrongCat( void );
-    WrongCat( std::string type );
-    ~WrongCat( void );
+        WrongCat( void );
+        WrongCat( std::string type );
+        ~WrongCat( void );
+    
+    void        makeSound( void )const;
     std::string getType( void ) const;
 };
 

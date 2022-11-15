@@ -18,16 +18,16 @@
 class Cat : public AAnimal
 {
     private:
-    Brain*  brain;
+        Brain*  brain;
 
     public:
-    Cat( void );
-    Cat( std::string type );
-    ~Cat( void );
-    Cat( const Cat &copy );
-    Cat &operator=( Cat const &copy );
-    void    makeSound( void )const;
-    void    getIdea(int index)const;
-};
+        Cat( void );
+        Cat( std::string type );
+        ~Cat( void );
+        Cat( const Cat &copy );
+        Cat &operator=( Cat const &copy );
+        void    makeSound( void )const;
+        void    getIdea(int index)const;
+}; 
 
 #endif

@@ -2,18 +2,18 @@
 
 WrongAnimal::WrongAnimal( void ) : _type("Unknown")
 {
-    std::cout << this->_type << ": Constructor by default called" << std::endl;
+    std::cout << this->_type << ": WrongAnimal constructor by default called" << std::endl;
 }
 
 WrongAnimal::WrongAnimal( std::string type ): 
 _type(type)
 {
-    std::cout << this->_type << ": Constructor called" << std::endl;
+    std::cout << this->_type << ": WrongAnimal constructor called" << std::endl;
 }
 
 WrongAnimal::~WrongAnimal( void )
 {
-    std::cout << this->_type << ": Destructor called" << std::endl;
+    std::cout << this->_type << ": WrongAnimal Destructor called" << std::endl;
 }
 
 WrongAnimal:: WrongAnimal( const WrongAnimal &copy )
@@ -35,5 +35,5 @@ std::string WrongAnimal::getType( void ) const
 
 void    WrongAnimal::makeSound( void )const
 {
-    std::cout << "I can't hear any animal sound..." << std::endl;
+    std::cout << "**Silence**" << std::endl;
 }

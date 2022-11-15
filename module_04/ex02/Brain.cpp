@@ -20,7 +20,7 @@ Brain::Brain( void )
 {
     std::srand(time(NULL));
 	for( int i = 0 ; i < 100 ; i++ )
-		this->ideas[i] = randomIdeas[rand() % 10];
+		this->_ideas[i] = randomIdeas[rand() % 10];
     std::cout << "Brain: Constructor by default called" << std::endl;
 }
 
@@ -39,6 +39,11 @@ void    Brain::operator=( Brain const &toCopy )
 {
     for (int i = 0; i < 100 ; i++)
     {
-        this->ideas[i] = toCopy.ideas[i];
+        this->_ideas[i] = toCopy._ideas[i];
     }
+}
+
+std::string    Brain::getIdea( int index )const 
+{
+    return(this->_ideas[index]);
 }

@@ -16,15 +16,16 @@
 class WrongAnimal{
 
     private:
-    std::string _type;
+        std::string _type;
 
     public:
-    WrongAnimal( void );
-    WrongAnimal( std::string name );
-    virtual ~WrongAnimal( void );
-    WrongAnimal( const WrongAnimal &copy ); // constructeur par copie 
-    WrongAnimal &operator=( WrongAnimal const &copy );
-    std::string getType( void )const;
-    virtual void    makeSound( void )const;
+        WrongAnimal( void );
+        WrongAnimal( std::string name );
+        ~WrongAnimal( void );
+        WrongAnimal( const WrongAnimal &copy );
+        WrongAnimal &operator=( WrongAnimal const &copy );
+    
+        std::string getType( void )const;
+        void        makeSound( void )const;
 };
 #endif

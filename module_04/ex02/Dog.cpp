@@ -30,5 +30,5 @@ void    Dog::makeSound( void )const
 
 void    Dog::getIdea(int index)const
 {
-    std::cout << this->brain->ideas[index] << std::endl;
+    std::cout << this->brain->getIdea(index) << std::endl;
 }

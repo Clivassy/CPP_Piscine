@@ -16,15 +16,15 @@
 class Animal{
 
     protected:
-    std::string _type;
+        std::string _type;
 
     public:
-    Animal( void );
-    Animal( std::string type );
-    virtual ~Animal( void );
-    Animal( const Animal &copy ); 
-    Animal &operator=( Animal const &copy );
-    std::string getType( void )const;
-    virtual void    makeSound( void )const;
+        Animal( void );
+        Animal( std::string type );
+        virtual ~Animal( void );
+        Animal( const Animal &copy ); 
+        Animal &operator=( Animal const &copy );
+        std::string getType( void )const;
+        virtual void    makeSound( void )const;
 };
 #endif
