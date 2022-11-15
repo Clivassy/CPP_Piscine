@@ -51,8 +51,6 @@ class Form{
             return("grade is too low.");
         }
     };
-    void    increment( void );
-    void    decrement( void );
 };
 
 std::ostream &operator<<( std::ostream &out, Form const &input );
