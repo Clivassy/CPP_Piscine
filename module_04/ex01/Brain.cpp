@@ -26,13 +26,13 @@ Brain::Brain( void )
 
 Brain::~Brain( void )
 {
-    std::cout << "Brain: Destructor called" << std::endl;
+    std::cout << "Brain: destructor called" << std::endl;
 }
 
 Brain::Brain( const Brain &copy )
 {
     *this = copy;
-    std::cout << "Brain: Constructor by copy called" << std::endl;
+    std::cout << "Brain: constructor by copy called" << std::endl;
 } 
 
 void    Brain::operator=( Brain const &toCopy )

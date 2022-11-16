@@ -17,7 +17,7 @@ Animal::~Animal( void )
 
 Animal:: Animal( const Animal &copy )
 {
-    std::cout << this->_type << ": Animal constructor by copy called" << std::endl;
+    std::cout << "Animal: constructor by copy called" << std::endl;
     *this = copy;
 }
 
