@@ -19,39 +19,41 @@ class Bureaucrat;
 class Form{
 
     private:
-    const std::string _name;
-    int _signedGrade;
-    int _execGrade;
-    bool _signed;
+        const std::string _name;
+        int _signedGrade;
+        int _execGrade;
+        bool _signed;
 
     public:
-    Form( void );
-    Form( std::string name, int signedGrade, int execGrade );
-    ~Form( void );
-    Form( const Form &copy );
-    Form &operator=( Form const &copy );
-    std::string getName( void )const;
-    int getSignedGrade( void )const;
-    int getExecGrade( void )const;
-    bool getFormStatus( void ) const ;
-    void beSigned(Bureaucrat &bureaucrat);
-    class GradeTooHighException : public std::exception
-    {
-        public:
-        virtual const char* what() const throw()
+        Form( void );
+        Form( std::string name, int signedGrade, int execGrade );
+        ~Form( void );
+        Form( const Form &copy );
+        Form &operator=( Form const &copy );
+
+        std::string getName( void )const;
+        int         getSignedGrade( void )const;
+        int         getExecGrade( void )const;
+        bool        getFormStatus( void ) const ;
+        void        beSigned(Bureaucrat &bureaucrat);
+        
+        class GradeTooHighException : public std::exception
         {
-            return("grade is too high.");
-        }
-    };
-    class GradeTooLowException: public std::exception
-    {
-        public:
-        virtual const char* what() const throw()
+            public:
+            virtual const char* what() const throw()
+            {
+                return("grade is too high.");
+            }
+        };
+        class GradeTooLowException: public std::exception
         {
-            return("grade is too low.");
-        }
-    };
-};
+            public:
+            virtual const char* what() const throw()
+            {
+                return("grade is too low.");
+            }
+        };
+};  
 
 std::ostream &operator<<( std::ostream &out, Form const &input );
 #endif

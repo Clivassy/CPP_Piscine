@@ -36,14 +36,14 @@ class Form{
         int             getExecGrade( void )const;
         bool            getFormStatus( void ) const ;
         void            beSigned( Bureaucrat &bureaucrat );
-        void virtual    execute( const Bureaucrat &executor ) const = 0;
+        void virtual    execute( const Bureaucrat &executor ) const = 0; // classe abstraire car fonction vituelle pure
 
         class GradeTooHighException : public std::exception
         {
             public:
             virtual const char* what() const throw()
             {
-                return("grade is too high.");
+                return("Grade is too high.");
             }
         };
 
@@ -52,7 +52,15 @@ class Form{
             public:
             virtual const char* what() const throw()
             {
-                return("grade is too low.");
+                return("Grade is too low.");
+            }
+        };
+        class UnsignedForm: public std::exception
+        {
+            public:
+            virtual const char* what() const throw()
+            {
+                return("Form must be signed to be executed.");
             }
         };
 };  

@@ -41,6 +41,18 @@ int Bureaucrat::getGrade( void )const
     return (this->_grade);
 }
 
+void    Bureaucrat::setName( std::string name )
+{
+    this->_name = name;
+    return;
+}
+
+void    Bureaucrat::setGrade( int grade )
+{
+    this->_grade = grade;
+    return;
+}
+
 void    Bureaucrat::increment( void )
 {
     if (this->_grade <= 1)

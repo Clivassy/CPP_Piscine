@@ -2,7 +2,7 @@
 
 Bureaucrat::Bureaucrat( void ): _name("Default"), _grade(1)
 {
-    std::cout << "Constructor by default called for: " << this->_name << std::endl;
+    std::cout << "Bureaucrat: constructor by default called for: " << this->_name << std::endl;
 }
 
 Bureaucrat::Bureaucrat( std::string name, int grade ): _name(name), _grade(grade)
@@ -11,12 +11,12 @@ Bureaucrat::Bureaucrat( std::string name, int grade ): _name(name), _grade(grade
        throw Bureaucrat::GradeTooHighException();
     if (this->_grade > 150)
         throw Bureaucrat::GradeTooLowException();
-    std::cout << "Constructor called for: " << this->_name << std::endl;
+    std::cout << "Bureaucrat: constructor called for: " << this->_name << std::endl;
 }
 
 Bureaucrat::~Bureaucrat( void )
 {
-    std::cout << "Destructor called for: " << this->_name << std::endl;
+    std::cout << "Bureaucrat: destructor called for: " << this->_name << std::endl;
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat &copy )
@@ -59,6 +59,11 @@ void    Bureaucrat::signForm( Form &formulaire)
 {
     try
     {
+        if (formulaire.getFormStatus() == 1)
+        {
+            std::cout << this->getName() << " cannot sign " << formulaire.getName() << ": already signed" << std::endl;
+            return;
+        }
         formulaire.beSigned( *this );
     }
     catch(const std::exception& e)
@@ -71,6 +76,10 @@ void    Bureaucrat::signForm( Form &formulaire)
 
 std::ostream &operator<<( std::ostream &out, Bureaucrat const &input )
 {
-    out <<  GREEN << input.getName() << ", bureaucrat | Grade: " << input.getGrade() << CLEAR << std::endl;
+    out << YELLOW << "---------------------------------------" << CLEAR << std::endl;
+    out << GREEN << " Bureaucrat informations "<< CLEAR << std::endl;
+    out << YELLOW << "---------------------------------------" << CLEAR << std::endl;
+    out << "Name : " << input.getName() << std::endl;
+    out << "Grade: " << input.getGrade() << std::endl;
     return(out);
 }

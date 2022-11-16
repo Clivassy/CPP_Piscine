@@ -16,6 +16,7 @@ Dog:: Dog( const Dog &copy ): Animal( copy )
 Dog   &Dog::operator=( Dog const &copy )
 {
     this->_type = copy.getType();
+    delete this->_brain;
     this->_brain = new Brain(*copy.getBrain());
     return (*this);
 }

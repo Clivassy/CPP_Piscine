@@ -6,7 +6,7 @@ int main()
     {
         std::cout << YELLOW "-----------------------------------------" << std::endl;
         std::cout << " Tests with invalid grade at contruction "  << std::endl;
-        std::cout <<  "-----------------------------------------"CLEAR << std::endl;
+        std::cout <<  "-----------------------------------------" << CLEAR << std::endl;
         try
         {
             Bureaucrat bureaucrat("Elen", 0);
@@ -21,7 +21,7 @@ int main()
     {
         std::cout << YELLOW "-----------------------------------------------------" << std::endl;
         std::cout << " Test with invalid grade after decrement or increment "  << std::endl;
-        std::cout <<  "-----------------------------------------------------"CLEAR << std::endl;
+        std::cout <<  "-----------------------------------------------------" << CLEAR << std::endl;
         try
         {
             Bureaucrat bureaucrat("Elen", 150);
@@ -41,7 +41,7 @@ int main()
     {
         std::cout << YELLOW "------------------------------" << std::endl;
         std::cout << " Tests with valid grade "  << std::endl;
-        std::cout <<  "------------------------------"CLEAR << std::endl;
+        std::cout <<  "------------------------------" CLEAR << std::endl;
         try
         {
             Bureaucrat bureaucrat("Elen", 10);

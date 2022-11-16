@@ -44,19 +44,17 @@ return 0;
 	return (0);
 }*/
 
-// Test de copie profonde
+// Test de copie profonde + LEAKS 
 int main()
 {
     Cat test3;
     {
-        std::cout << test3.getType() << std::endl;
         Cat test1 = test3;
-        std::cout << test1.getType() << std::endl;
     }
-    Dog test;
+
+    Cat chat;
+ /*   Dog test;
     {
-        std::cout << test.getType() << std::endl;
         Dog test1 = test;
-        std::cout << test1.getType() << std::endl;
-    }
+    }*/
 }

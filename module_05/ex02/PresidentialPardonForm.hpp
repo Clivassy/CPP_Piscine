@@ -1,6 +1,8 @@
 #ifndef PRESIDENTIAL_PARDON_FORM_H
 #define PRESIDENTIAL_PARDON_FORM_H
 
+#define SIGNED_GRADE 25
+#define EXEC_GRADE 5
 //------ librairies------------
 #include "Form.hpp"
 

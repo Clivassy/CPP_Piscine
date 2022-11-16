@@ -16,6 +16,7 @@ Cat:: Cat( const Cat &copy ) : Animal( copy )
 Cat   &Cat::operator=( Cat const &copy )
 {
     this->_type = copy.getType();
+    //delete this->_brain;
     this->_brain = new Brain(*copy.getBrain());
     return (*this);
 }

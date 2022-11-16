@@ -2,7 +2,7 @@
 
 Form::Form( void ): _name("Default"), _signedGrade(3), _execGrade(4), _signed(false)
 {
-    std::cout << "Constructor by default called for: " << this->_name << std::endl;
+    std::cout << "Form: constructor by default called for: " << this->_name << std::endl;
 }
 
 Form::Form( std::string name, int signedGrade, int execGrade ): 
@@ -12,12 +12,12 @@ _name(name),  _signedGrade(signedGrade), _execGrade(execGrade), _signed(false)
        throw Form::GradeTooHighException();
     if (this->_signedGrade > 150 or _execGrade > 150)
         throw Form::GradeTooLowException();
-    std::cout << "Constructor called for: " << this->_name << std::endl;
+    std::cout << "Form: constructor called for: " << this->_name << std::endl;
 }
 
 Form::~Form( void )
 {
-    std::cout << "Destructor called for: " << this->_name << std::endl;
+    std::cout << "Form: destructor called for: " << this->_name << std::endl;
 }
 
 Form::Form( const Form &copy )
@@ -54,7 +54,7 @@ bool Form::getFormStatus( void)const
 }
 
 void Form::beSigned(Bureaucrat &bureaucrat)
-{
+{   
     if (bureaucrat.getGrade() <= this->getSignedGrade())
         this->_signed = true;
     else
@@ -63,9 +63,20 @@ void Form::beSigned(Bureaucrat &bureaucrat)
 
 std::ostream &operator<<( std::ostream &out, Form const &input )
 {
+    out << YELLOW << "---------------------------------------" << CLEAR << std::endl;
+    out << GREEN << " Form informations " << CLEAR << std::endl;
+    out << YELLOW << "---------------------------------------" << CLEAR << std::endl;
     out << "Name : " << input.getName() << std::endl;
     out << "Request Grade to signed: " << input.getSignedGrade() << std::endl;
     out << "Request Grade to execute: " << input.getExecGrade() << std::endl;
-    out << "Status of the form: " << input.getFormStatus() << std::endl;
+    if  (input.getFormStatus() == 0)
+    {
+        out << "Status of the form: not signed" << std::endl;
+        out << YELLOW << "---------------------------------------" << CLEAR << std::endl;
+        return(out);
+    }
+    else if (input.getFormStatus() == 1)
+        out << "Status of the form: signed" << std::endl;
+    out << YELLOW << "---------------------------------------" << CLEAR << std::endl;
     return(out);
 }

@@ -3,6 +3,7 @@
 
 //------ librairies------------
 #include <iostream>
+#include <exception>
 #include <string>
 #include "Form.hpp"
 
@@ -28,12 +29,12 @@ class Bureaucrat{
     Bureaucrat( const Bureaucrat &copy );
     Bureaucrat &operator=( Bureaucrat const &copy );
     std::string getName( void )const;
-    int getGrade( void )const;
+    int     getGrade( void )const;
     void    signForm( Form &formulaire );
     class GradeTooHighException : public std::exception
     {
         public:
-        virtual const char* what() const throw()
+        virtual const char* what() const throw() // return a null terminated character sequence that is used to identify the exception.
         {
             return("Error: grade is too high.");
         }
