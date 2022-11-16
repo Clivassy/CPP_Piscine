@@ -10,13 +10,15 @@ Dog::Dog( void ): Animal("Dog")
 Dog:: Dog( const Dog &copy ): Animal( copy )
 {
     std::cout <<  this->_type << ": Constructor by copy called" << std::endl;
+    this->_brain = NULL;
     *this = copy;
 }
 
 Dog   &Dog::operator=( Dog const &copy )
 {
     this->_type = copy.getType();
-    delete this->_brain;
+    if (this->_brain)
+        delete this->_brain;
     this->_brain = new Brain(*copy.getBrain());
     return (*this);
 }
