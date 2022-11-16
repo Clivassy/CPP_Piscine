@@ -6,9 +6,9 @@
 int	main()
 {
     
-    // AAnimal    *animal; // Impossible car classe abstraite
-    // L'objet ne peut être instancié, il faut qu'il soit définit (ou alors utiliser des pointeurs des des references)
-    // animal = new Dog;
+    //AAnimal    *animal; // Impossible car classe abstraite
+    // L'objet ne peut être instancié 
+    //animal = new Dog; // il faut qu'il soit définit (ou alors utiliser des pointeurs des des references)
 
     //AAnimal animal;
     //Dog dog;

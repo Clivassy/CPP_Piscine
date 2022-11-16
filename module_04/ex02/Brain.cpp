@@ -18,22 +18,22 @@ std::string randomIdeas[10] =
 
 Brain::Brain( void )
 {
-    std::srand(time(NULL));
+    std::srand( time( NULL ) );
 	for( int i = 0 ; i < 100 ; i++ )
 		this->_ideas[i] = randomIdeas[rand() % 10];
-    std::cout << "Brain: Constructor by default called" << std::endl;
-}
-
-Brain::~Brain( void )
-{
-    std::cout << "Brain: Destructor called" << std::endl;
+    std::cout << "Brain: Constructor called" << std::endl;
 }
 
 Brain::Brain( const Brain &copy )
 {
     *this = copy;
-    std::cout << "Brain: Constructor by copy called" << std::endl;
+    std::cout << "Brain: constructor by copy called" << std::endl;
 } 
+
+Brain::~Brain( void )
+{
+    std::cout << "Brain: destructor called" << std::endl;
+}
 
 void    Brain::operator=( Brain const &toCopy )
 {
@@ -43,7 +43,7 @@ void    Brain::operator=( Brain const &toCopy )
     }
 }
 
-std::string    Brain::getIdea( int index )const 
+std::string    Brain::getIdea( int index )
 {
-    return(this->_ideas[index]);
+    return( this->_ideas[index] );
 }

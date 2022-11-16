@@ -26,7 +26,7 @@ class AAnimal{
         AAnimal &operator=( AAnimal const &copy );
         std::string getType( void )const;
         virtual void    makeSound( void )const = 0;
-        virtual void    getIdea( int index )const = 0;
+        virtual void    getIdea( int index )const;
 };
 
 #endif

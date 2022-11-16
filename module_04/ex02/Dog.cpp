@@ -1,26 +1,32 @@
 #include "Dog.hpp"
+#include "Brain.hpp"
 
 Dog::Dog( void ): AAnimal("Dog")
 { 
-    this->brain = new Brain;
-    std::cout << "Dog: Constructor called" << std::endl;
+    this->_brain = new Brain;
+    std::cout << this->_type << ": Constructor called" << std::endl;
 }
 
-Dog:: Dog( const Dog &copy )
+Dog:: Dog( const Dog &copy ): AAnimal( copy )
 {
     std::cout <<  this->_type << ": Constructor by copy called" << std::endl;
+    this->_brain = NULL;
     *this = copy;
 }
 
 Dog   &Dog::operator=( Dog const &copy )
 {
     this->_type = copy.getType();
+    if (this->_brain)
+        delete this->_brain;
+    this->_brain = new Brain(*copy.getBrain());
     return (*this);
 }
+
 Dog::~Dog( void )
 {
-    delete this->brain;
-    std::cout << "Dog: Destructor called" << std::endl;
+    delete this->_brain;
+    std::cout << this->_type << ": Destructor called" << std::endl;
 }
 
 void    Dog::makeSound( void )const
@@ -28,7 +34,12 @@ void    Dog::makeSound( void )const
     std::cout << "Ouaf Ouaf" << std::endl;
 }
 
-void    Dog::getIdea(int index)const
+Brain*  Dog::getBrain( void )const
 {
-    std::cout << this->brain->getIdea(index) << std::endl;
+    return(this->_brain);
+}
+
+void    Dog::printIdeas( int index )const
+{
+    std::cout << this->_brain->getIdea(index) << std::endl;
 }

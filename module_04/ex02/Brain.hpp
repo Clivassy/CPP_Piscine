@@ -21,9 +21,9 @@ class Brain
     public:
         Brain( void );
         ~Brain( void );
-        Brain( const Brain &copy );
+        Brain( const Brain &copy ); 
         void operator=( Brain const &toCopy );
-        std::string getIdea( int index ) const;
+        
+        std::string getIdea( int index );
 };
-
 #endif

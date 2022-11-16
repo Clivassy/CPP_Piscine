@@ -1,27 +1,32 @@
 #include "Cat.hpp"
+#include "Brain.hpp"
 
 Cat::Cat( void ) : AAnimal("Cat")
 {
-    this->brain = new Brain;
-    std::cout <<  this->_type << ": Cat Constructor called" << std::endl;
+    this->_brain = new Brain;
+    std::cout << this->_type << ": Cat constructor called" << std::endl;
 }
 
-Cat:: Cat( const Cat &copy )
+Cat:: Cat( const Cat &copy ) : AAnimal( copy )
 {
-    std::cout <<  this->_type << ": Cat constructor by copy called" << std::endl;
+    std::cout << "Cat: constructor by copy called" << std::endl;
+    this->_brain = NULL;
     *this = copy;
 }
 
 Cat   &Cat::operator=( Cat const &copy )
 {
     this->_type = copy.getType();
+    if (this->_brain)
+        delete this->_brain;
+    this->_brain = new Brain(*copy.getBrain());
     return (*this);
 }
 
 Cat::~Cat( void )
 {
-    delete this->brain;
-    std::cout << "Cat: Destructor called" << std::endl;
+    delete this->_brain;
+    std::cout << this->_type << ": Cat destructor called" << std::endl;
 }
 
 void    Cat::makeSound( void )const
@@ -29,7 +34,12 @@ void    Cat::makeSound( void )const
     std::cout << "Miaou Miaou" << std::endl;
 }
 
-void    Cat::getIdea(int index)const
+Brain*  Cat::getBrain( void )const 
 {
-    std::cout << this->brain->getIdea(index) << std::endl;
+    return(this->_brain);
+}
+
+void    Cat::printIdeas( int index )const
+{
+    std::cout << this->_brain->getIdea(index) << std::endl;
 }
