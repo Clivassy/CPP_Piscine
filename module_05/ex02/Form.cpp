@@ -37,6 +37,11 @@ Form  &Form::operator=( Form const &copy )
     return (*this);
 }
 
+std::string     Form::getTarget( void )const
+{
+    return (this->_target);
+}
+
 std::string Form::getName( void )const
 {
     return (this->_name);

@@ -34,6 +34,7 @@ class Form{
         Form &operator=( Form const &copy );
 
         std::string     getName( void )const;
+        std::string     getTarget( void )const;
         int             getSignedGrade( void )const;
         int             getExecGrade( void )const;
         bool            getFormStatus( void ) const ;

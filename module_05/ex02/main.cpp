@@ -8,14 +8,23 @@ int main()
 {   
     try
     {  
-        Bureaucrat bureaucrat("Helen", 11);
-        ShrubberyCreationForm formOne("Helen");
+
+        // Creer 3 formulaires des trois types 
+        Bureaucrat bureaucrat("Helen", 15);
+        ShrubberyCreationForm formOne("New form");
+        PresidentialPardonForm Decret("Decret");
+
         bureaucrat.signForm(formOne);
-        formOne.execute(bureaucrat);
+        bureaucrat.signForm(Decret);
+
+        bureaucrat.executeForm(formOne);
+
+        // Decret.execute(bureaucrat);
+        // formOne.execute(bureaucrat);
     }
     catch(const std::exception& e)
     {
-        std::cerr << "error: " << e.what() << '\n';
+        std::cerr << "Error: " << e.what() << '\n';
     }
 
 }

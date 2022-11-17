@@ -3,16 +3,17 @@
 ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) 
 : Form(target, "ShrubberyCreationForm", SHRUBBERY_SIGNED_GRADE, SHRUBBERY_EXEC_GRADE)
 {
-    //
+    std::cout << "ShrubberyCreationForm constructor called for : " << target << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm( void )
 {
-    //
+    std::cout << "ShrubberyCreationForm destructor called for : " << Form::getTarget() << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm &copy ) : Form(copy)
 {
+	std::cout << "ShrubberyCreationForm constructor by copy called" << std::endl;
     *this = copy;
 }
 
@@ -24,18 +25,16 @@ ShrubberyCreationForm  &ShrubberyCreationForm::operator=( ShrubberyCreationForm 
 
 void    ShrubberyCreationForm::execute( const Bureaucrat &executor )const
 {
-
-	std::cout << "Excution of schruberry Form " << std::endl;
-    //std::ofstream outfile(this->getTarget() + "_shrubbery");
     if (this->Form::getFormStatus() == false){
 
 		throw Form::UnsignedForm();
 	}
-	if (executor.getGrade() > this->Form::getExecGrade()){
+	if (executor.getGrade() > SHRUBBERY_EXEC_GRADE)
+	{
 
-		throw Form::GradeTooHighException();
+		throw Form::GradeTooLowException();
 	}
-	std::string outfile = "_shrubbery"; // targetname before
+	std::string outfile = Form::getTarget() + "_shrubbery";
 	std::ofstream tree(outfile.c_str());
 
     tree <<"        *                    " << std::endl;
