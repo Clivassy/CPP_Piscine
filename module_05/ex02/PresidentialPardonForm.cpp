@@ -11,7 +11,7 @@ PresidentialPardonForm::~PresidentialPardonForm( void )
     std::cout << "PresidentialPardonForm destructor called for : " << Form::getTarget() << std::endl;
 } 
 
-PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm &copy )
+PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm &copy ) : Form( copy)
 {
     std::cout << "PresidentialPardonForm constructor by copy called for : " << std::endl;
     *this = copy;

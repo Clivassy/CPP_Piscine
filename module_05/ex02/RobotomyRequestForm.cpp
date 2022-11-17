@@ -1,5 +1,6 @@
 #include "RobotomyRequestForm.hpp"
-
+#include <stdio.h>
+#include <stdlib.h> 
 RobotomyRequestForm::RobotomyRequestForm( std::string target ) 
 : Form( target, "RobotomyRequestForm", ROBOTOMY_SIGNED_GRADE, ROBOTOMY_EXEC_GRADE)
 {
@@ -11,7 +12,7 @@ RobotomyRequestForm::~RobotomyRequestForm( void )
     std::cout << "RobotomyRequestForm destructor called for : " << Form::getTarget() << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm &copy )
+RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm &copy ): Form( copy)
 {
     std::cout << "RobotomyRequestForm constructor by copy called" << std::endl;
     *this = copy;
@@ -29,8 +30,9 @@ void    RobotomyRequestForm::execute( const Bureaucrat &executor )const
     {
         throw Form::GradeTooLowException();
     }
-    // 
-    // fait des bruits de perceuse, puis informe que la target a été robotomisée avec succès 50%du temps 
-   // (soit une fois sur deux) dans le cas contraire, informe que l'opération a échouée. 
+    if (rand() % 2 == 1)
+        std::cout << "Brrrrr brrrrr.. " << Form::getTarget() << " has been robotomised!" << std::endl;
+    else
+        std::cout << "Brrrrr brrrr... Robotomisation of " << Form::getTarget() << " failed" << std::endl;
 }
 

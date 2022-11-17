@@ -4,6 +4,7 @@
 //------ librairies------------
 #include <iostream>
 #include <string>
+#include <time.h> 
 #include "Bureaucrat.hpp" 
 
 //-------- Colors ------------
