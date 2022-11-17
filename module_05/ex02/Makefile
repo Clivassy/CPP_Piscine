@@ -7,15 +7,15 @@ SRCS += main.cpp
 SRCS += Bureaucrat.cpp
 SRCS += Form.cpp
 SRCS += ShrubberyCreationForm.cpp
-#SRCS += RobotomyRequestForm.cpp
-#SRCS += PresidentialPardonForm.cpp
+SRCS += RobotomyRequestForm.cpp
+SRCS += PresidentialPardonForm.cpp
 
 
 HEADER += Bureaucrat.hpp
 HEADER += Form.hpp
 HEADER += ShrubberyCreationForm.hpp
-#HEADER += RobotomyRequestForm.hpp
-#HEADER += PresidentialPardonForm.hpp
+HEADER += RobotomyRequestForm.hpp
+HEADER += PresidentialPardonForm.hpp
 
 OBJS = ${SRCS:.cpp=.o}
 

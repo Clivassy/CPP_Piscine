@@ -2,7 +2,7 @@
 
 Form::Form( void ): _name("Default"), _signedGrade(3), _execGrade(4), _signed(false)
 {
-    std::cout << "Constructor by default called for: " << this->_name << std::endl;
+    std::cout << "Form constructor by default called for: " << this->_name << std::endl;
 }
 
 Form::Form( std::string name, int signedGrade, int execGrade ): 
@@ -12,12 +12,18 @@ _name(name),  _signedGrade(signedGrade), _execGrade(execGrade), _signed(false)
        throw Form::GradeTooHighException();
     if (this->_signedGrade > 150 or _execGrade > 150)
         throw Form::GradeTooLowException();
-    std::cout << "Constructor called for: " << this->_name << std::endl;
+    std::cout << "Form constructor called for: " << this->_name << std::endl;
+}
+
+Form::Form( std::string target, std::string name,  int signedGrade, int execGrade ):
+_target(target), _name(name),  _signedGrade(signedGrade), _execGrade(execGrade), _signed(false)
+{
+    std::cout << "Form constructor called for: " << this->_name << std::endl;
 }
 
 Form::~Form( void )
 {
-    std::cout << "Destructor called for: " << this->_name << std::endl;
+    std::cout << "Form destructor called for: " << this->_name << std::endl;
 }
 
 Form::Form( const Form &copy )

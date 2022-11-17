@@ -1,8 +1,8 @@
 #ifndef ROBOTOMY_REQUEST_FORM_H
 #define ROBOTOMY_REQUEST_FORM_H
 
-#define SIGNED_GRADE 72
-#define EXEC_GRADE 45
+#define ROBOTOMY_SIGNED_GRADE 72
+#define ROBOTOMY_EXEC_GRADE 45
 //------ librairies------------
 #include "Form.hpp"
 
