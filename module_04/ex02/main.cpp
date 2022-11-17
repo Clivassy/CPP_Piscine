@@ -39,3 +39,23 @@ int	main()
 	}
 	return (0);
 }
+
+// Test de copie profonde + LEAKS 
+/*int main()
+{
+    Cat test3;
+    {
+        Cat test1 = test3;
+    }
+
+    Dog test;
+    {
+        Dog test1 = test;
+    }
+    {
+        Cat cat1;
+        Cat cat2;
+        cat1 = cat2;
+    }
+    return (0);
+}*/

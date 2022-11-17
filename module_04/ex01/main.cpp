@@ -16,7 +16,7 @@ return 0;
 
 
 // Test
-/*int	main()
+int	main()
 {
     int size = 6; 
 	const Animal	*CatsAndDogs[size];
@@ -42,18 +42,24 @@ return 0;
 		delete CatsAndDogs[j];
 	}
 	return (0);
-}*/
+}
 
 // Test de copie profonde + LEAKS 
-int main()
+/*int main()
 {
     Cat test3;
     {
         Cat test1 = test3;
     }
-    Cat chat;
- /*   Dog test;
+
+    Dog test;
     {
         Dog test1 = test;
-    }*/
-}
+    }
+    {
+        Cat cat1;
+        Cat cat2;
+        cat1 = cat2;
+    }
+    return (0);
+}*/

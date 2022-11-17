@@ -18,7 +18,6 @@ std::string randomIdeas[10] =
 
 Brain::Brain( void )
 {
-    std::srand( time( NULL ) );
 	for( int i = 0 ; i < 100 ; i++ )
 		this->_ideas[i] = randomIdeas[rand() % 10];
     std::cout << "Brain: Constructor called" << std::endl;
