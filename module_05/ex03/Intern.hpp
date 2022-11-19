@@ -5,6 +5,9 @@
 #include <iostream>
 #include <string>
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 //-------- Colors ------------
 #define CLEAR "\e[0m"
@@ -23,9 +26,12 @@ class Intern{
         Intern( const Intern &copy );
         Intern &operator=( Intern const &copy );
 
+        Form*	Intern::shrubbery(std::string target);
+        Form*	Intern::presidential(std::string target);
+        Form*	Intern::robotomy(std::string target);
         Form*   makeForm(std::string FormName, std::string FormTarget);
 
-        class InexistingFomrException : public std::exception
+        class InexistingFormException : public std::exception
         {
             public:
             virtual const char* what() const throw()
