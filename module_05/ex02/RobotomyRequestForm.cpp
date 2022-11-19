@@ -28,13 +28,13 @@ void    RobotomyRequestForm::execute( const Bureaucrat &executor )const
 {
     if (this->Form::getFormStatus() == false)
     {
-
 		throw Form::UnsignedForm();
 	}
     if (executor.getGrade() > ROBOTOMY_EXEC_GRADE)
     {
         throw Form::GradeTooLowException();
     }
+    srand (time(NULL)); // initialize random seed 
     if (rand() % 2 == 1)
         std::cout << "Brrrrr brrrrr.. " << Form::getTarget() << " has been robotomised!" << std::endl;
     else

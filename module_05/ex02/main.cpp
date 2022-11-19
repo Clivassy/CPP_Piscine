@@ -6,8 +6,6 @@
 
 int main()
 {   
-
-    // Grade fonctionnels
     {
         try
         {  
@@ -165,7 +163,6 @@ int main()
             {
                 std::cerr << e.what() << '\n';
             }
-            
         }
     } 
 }

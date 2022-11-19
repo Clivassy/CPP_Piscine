@@ -19,13 +19,13 @@ class Bureaucrat;
 class Form{
 
     private:
+        Form( void );
         const std::string _name;
         int _signedGrade;
         int _execGrade;
         bool _signed;
 
     public:
-        Form( void );
         Form( std::string name, int signedGrade, int execGrade );
         ~Form( void );
         Form( const Form &copy );

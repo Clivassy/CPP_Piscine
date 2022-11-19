@@ -1,6 +1,6 @@
 #include "Form.hpp"
 
-Form::Form( void ): _name("Default"), _signedGrade(3), _execGrade(4), _signed(false)
+Form::Form( void )
 {
     std::cout << "Form constructor by default called for: " << this->_name << std::endl;
 }
@@ -27,6 +27,7 @@ Form::~Form( void )
 }
 
 Form::Form( const Form &copy )
+: _target(copy.getTarget()), _name(copy.getName())
 {
     std::cout << "Form constructor by copy called for: " << std::endl;
     *this = copy;

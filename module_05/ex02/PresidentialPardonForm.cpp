@@ -27,7 +27,6 @@ void    PresidentialPardonForm::execute( const Bureaucrat &executor )const
 {
     if (this->Form::getFormStatus() == false)
     {
-
 		throw Form::UnsignedForm();
 	}
     if (executor.getGrade() > PRESIDENTIAL_EXEC_GRADE)

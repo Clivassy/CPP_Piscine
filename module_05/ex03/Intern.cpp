@@ -7,12 +7,12 @@ Intern::Intern( void )
 
 Intern::~Intern( void )
 {
-    std::cout << "Intern desstructor called" << std::endl;
+    std::cout << "Intern destructor called" << std::endl;
 }
 
 Intern::Intern( const Intern& copy )
 {
-    void(*copy);
+   	(void)copy;
     std::cout << "Intern constructor by copy called" << std::endl;
 }
 
@@ -20,12 +20,6 @@ Intern &Intern::operator=( Intern const &copy )
 {
     (void)copy;
     return (*this);
-}
-
-Form*   Intern::makeForm(std::string FormName, std::string FormTarget)
-{
-    
-    std::cout << "Intern creates" << FormName << std::endl;
 }
 
 Form*	Intern::shrubbery(std::string target)

@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat( void ): _name("Default"), _grade(1)
+Bureaucrat::Bureaucrat( void )
 {
     std::cout << "Constructor by default called for: " << this->_name << std::endl;
 }
@@ -19,14 +19,14 @@ Bureaucrat::~Bureaucrat( void )
     std::cout << "Destructor called for: " << this->_name << std::endl;
 }
 
-Bureaucrat::Bureaucrat( const Bureaucrat &copy )
+Bureaucrat::Bureaucrat( const Bureaucrat &copy ) : _name(copy.getName())
 {
+    std::cout << "Bureaucrat construtor by copy called for: " << this->_name << std::endl;
     *this = copy;
 }
 
 Bureaucrat  &Bureaucrat::operator=( Bureaucrat const &copy )
 {
-    this->_name = copy.getName();
     this->_grade = copy.getGrade();
     return (*this);
 }
@@ -39,12 +39,6 @@ std::string Bureaucrat::getName( void )const
 int Bureaucrat::getGrade( void )const
 {
     return (this->_grade);
-}
-
-void    Bureaucrat::setName( std::string name )
-{
-    this->_name = name;
-    return;
 }
 
 void    Bureaucrat::setGrade( int grade )
@@ -69,6 +63,6 @@ void    Bureaucrat::decrement( void )
 
 std::ostream &operator<<( std::ostream &out, Bureaucrat const &input )
 {
-    out <<  GREEN << input.getName() << ", bureaucrat | Grade: " << input.getGrade() << CLEAR << std::endl;
+    out << GREEN << input.getName() << " , bureaucrat grade: " << input.getGrade() << CLEAR << std::endl;
     return(out);
 }

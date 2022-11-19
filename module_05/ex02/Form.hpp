@@ -21,6 +21,7 @@ class Bureaucrat;
 class Form{
 
     private:
+        Form( void );
         const std::string _target;
         const std::string _name;
         int _signedGrade;
@@ -28,7 +29,7 @@ class Form{
         bool _signed;
 
     public:
-        Form( void );
+
         Form( std::string target, std::string name,  int signedGrade, int execGrade );
         Form( std::string name, int signedGrade, int execGrade );
         virtual ~Form( void );

@@ -26,9 +26,9 @@ class Intern{
         Intern( const Intern &copy );
         Intern &operator=( Intern const &copy );
 
-        Form*	Intern::shrubbery(std::string target);
-        Form*	Intern::presidential(std::string target);
-        Form*	Intern::robotomy(std::string target);
+        Form*	shrubbery(std::string target);
+        Form*	presidential(std::string target);
+        Form*	robotomy(std::string target);
         Form*   makeForm(std::string FormName, std::string FormTarget);
 
         class InexistingFormException : public std::exception
@@ -36,10 +36,9 @@ class Intern{
             public:
             virtual const char* what() const throw()
             {
-                return("form does not exit.");
+                return("form does not exist.");
             }
         };
 };
-std::ostream &operator<<( std::ostream &out, Intern const &input );
 
 #endif

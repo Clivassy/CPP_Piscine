@@ -5,6 +5,7 @@ NAME = Form
 # Sources
 SRCS += main.cpp
 SRCS += Bureaucrat.cpp
+SRCS += Intern.cpp
 SRCS += Form.cpp
 SRCS += ShrubberyCreationForm.cpp
 SRCS += RobotomyRequestForm.cpp
@@ -12,6 +13,7 @@ SRCS += PresidentialPardonForm.cpp
 
 
 HEADER += Bureaucrat.hpp
+HEADER += Intern.hpp
 HEADER += Form.hpp
 HEADER += ShrubberyCreationForm.hpp
 HEADER += RobotomyRequestForm.hpp

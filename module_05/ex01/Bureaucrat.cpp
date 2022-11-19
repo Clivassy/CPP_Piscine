@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat( void ): _name("Default"), _grade(1)
+Bureaucrat::Bureaucrat( void )
 {
     std::cout << "Bureaucrat: constructor by default called for: " << this->_name << std::endl;
 }
@@ -19,14 +19,13 @@ Bureaucrat::~Bureaucrat( void )
     std::cout << "Bureaucrat: destructor called for: " << this->_name << std::endl;
 }
 
-Bureaucrat::Bureaucrat( const Bureaucrat &copy )
+Bureaucrat::Bureaucrat( const Bureaucrat &copy ) :_name(copy.getName())
 {
     *this = copy;
 }
 
 Bureaucrat  &Bureaucrat::operator=( Bureaucrat const &copy )
 {
-    this->_name = copy.getName();
     this->_grade = copy.getGrade();
     return (*this);
 }
@@ -61,17 +60,16 @@ void    Bureaucrat::signForm( Form &formulaire)
     {
         if (formulaire.getFormStatus() == 1)
         {
-            std::cout << this->getName() << " cannot sign " << formulaire.getName() << ": already signed" << std::endl;
+            std::cout << this->getName() << " cannot sign " << formulaire.getName() << " because : form is already signed" << std::endl;
             return;
         }
         formulaire.beSigned( *this );
+        std::cout << this->getName() << " signs " << formulaire.getName() << std::endl;
     }
     catch(const std::exception& e)
     {
-        std::cerr <<  this->getName() << " cannot sign " << formulaire.getName() << " : " << e.what() << '\n';
-        throw;
+        std::cerr <<  this->getName() << " cannot sign " << formulaire.getName() << " because : " << e.what() << '\n';
     }
-    std::cout << this->getName() << " signs " << formulaire.getName() << std::endl;
 }
 
 std::ostream &operator<<( std::ostream &out, Bureaucrat const &input )

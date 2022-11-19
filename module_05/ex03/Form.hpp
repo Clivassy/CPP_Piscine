@@ -13,7 +13,7 @@
 #define RED "\e[0;31m"
 #define GREEN "\e[0;32m"
 #define CYAN "\e[0;36m"
-# define MAGENTA  "\x1B[35m"
+#define MAGENTA  "\x1B[35m"
 //----------------------------
 
 class Bureaucrat; 
@@ -21,6 +21,7 @@ class Bureaucrat;
 class Form{
 
     private:
+        Form( void );
         const std::string _target;
         const std::string _name;
         int _signedGrade;
@@ -28,7 +29,6 @@ class Form{
         bool _signed;
 
     public:
-        Form( void );
         Form( std::string target, std::string name,  int signedGrade, int execGrade );
         Form( std::string name, int signedGrade, int execGrade );
         virtual ~Form( void );
