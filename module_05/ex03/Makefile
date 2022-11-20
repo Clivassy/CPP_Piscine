@@ -1,6 +1,6 @@
 ##########   BASE   ##########
 # File name
-NAME = Form
+NAME = Intern
 
 # Sources
 SRCS += main.cpp

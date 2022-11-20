@@ -37,7 +37,7 @@ void    ShrubberyCreationForm::execute( const Bureaucrat &executor )const
 	std::ofstream tree(outfile.c_str());
 	if (!tree)
     {
-        std::cout << RED "Error: can't open/read the file" CLEAR << std::endl;
+        std::cout << RED "Error: can't create the file" CLEAR << std::endl;
         return;
     }
 

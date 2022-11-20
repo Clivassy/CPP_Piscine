@@ -152,6 +152,7 @@ int main()
                 Bureaucrat Tom("Tom", 20);
                 Bureaucrat Helen("Helen", 6);
                 std::cout << Tom;
+                std::cout << Helen;
                 PresidentialPardonForm PresidentialAgreement("PresidentialAgreement");
                 std::cout << PresidentialAgreement;
                 Tom.signForm(PresidentialAgreement);

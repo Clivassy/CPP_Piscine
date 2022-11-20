@@ -34,7 +34,6 @@ void    RobotomyRequestForm::execute( const Bureaucrat &executor )const
     {
         throw Form::GradeTooLowException();
     }
-    srand (time(NULL)); // initialize random seed 
     if (rand() % 2 == 1)
         std::cout << "Brrrrr brrrrr.. " << Form::getTarget() << " has been robotomised!" << std::endl;
     else
