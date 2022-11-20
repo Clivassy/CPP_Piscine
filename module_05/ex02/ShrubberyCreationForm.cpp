@@ -35,6 +35,11 @@ void    ShrubberyCreationForm::execute( const Bureaucrat &executor )const
 	}
 	std::string outfile = Form::getTarget() + "_shrubbery";
 	std::ofstream tree(outfile.c_str());
+	if (!tree)
+    {
+        std::cout << RED "Error: can't open/read the file" CLEAR << std::endl;
+        return;
+    }
 
 	tree << "                                              " << std::endl;
 	tree << "               ,@@@@@@@,                      " << std::endl;
