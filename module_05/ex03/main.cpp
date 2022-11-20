@@ -52,6 +52,10 @@ int main()
         Bureaucrat Helen("Helen", 5);
         std::cout << Helen;
 
+        Helen.signForm(*RobotomyForm);
+        Helen.executeForm(*RobotomyForm);
+        std::cout << *RobotomyForm;
+
         std::cout << YELLOW << "---------------------------------------" << CLEAR << std::endl;
         std::cout << GREEN << " Objects Destruction "<< CLEAR << std::endl;
         std::cout << YELLOW << "---------------------------------------" << CLEAR << std::endl;
@@ -75,7 +79,7 @@ int main()
         Form* RobotomyForm;
 
         RobotomyForm = intern.makeForm("I don't exists", "Bender");
-
+        
         delete RobotomyForm;
     }
     catch(const std::exception& e)
