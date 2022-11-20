@@ -1,4 +1,7 @@
 #include "Bureaucrat.hpp"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>  
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -62,6 +65,8 @@ int main()
             std::cout << YELLOW << "---------------------------------------" << CLEAR << std::endl;
             std::cout << CYAN << " ROBOTIMISATION EXECUTION "<< CLEAR << std::endl;
             std::cout << YELLOW << "---------------------------------------" << CLEAR << std::endl;
+            Helen.executeForm(RobotomyAgreement);
+            Helen.executeForm(RobotomyAgreement);
             Helen.executeForm(RobotomyAgreement);
             Helen.executeForm(RobotomyAgreement);
 

@@ -72,7 +72,6 @@ int main()
         std::cout << YELLOW << "---------------------------------------" << CLEAR << std::endl;
         std::cout << MAGENTA << " Test with inexisting form  "<< CLEAR << std::endl;
         std::cout << YELLOW << "---------------------------------------" << CLEAR << std::endl;
-
     try
     {   
         Intern intern;

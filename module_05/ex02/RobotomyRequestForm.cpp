@@ -1,6 +1,7 @@
 #include "RobotomyRequestForm.hpp"
 #include <stdio.h>
 #include <stdlib.h> 
+
 RobotomyRequestForm::RobotomyRequestForm( std::string target ) 
 : Form( target, "RobotomyRequestForm", ROBOTOMY_SIGNED_GRADE, ROBOTOMY_EXEC_GRADE)
 {
@@ -26,6 +27,13 @@ RobotomyRequestForm  &RobotomyRequestForm::operator=( RobotomyRequestForm const 
 
 void    RobotomyRequestForm::execute( const Bureaucrat &executor )const
 {
+    static bool seed = false;
+
+    if (seed == false)
+    {
+        srand (time(NULL));
+        seed = true;
+    }
     if (this->Form::getFormStatus() == false)
     {
 		throw Form::UnsignedForm();
