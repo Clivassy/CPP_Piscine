@@ -53,21 +53,4 @@ int main()
 
     // Upcast 
     // Downcast
-
-    // STATIC CAST CPP
-    {
-        int a = 42;
-
-        double b = a;
-        int c = b;
-        int d = static_cast<int>(b);  // cast explicit
-        // ==  je veux faire un static cast (convertir) de l'expression b (double) vers le type int;
-    } 
-    // DYNAMIC CAST : particularité: il a lieu a l'exécution ( c'est le seul car les autres ont lieu a la compilation)
-   // ne fonctionne que dans le cas d'une instance polymorphique : une methode doit etre virtuelle dans
-   // notre classe pour que ca fonctionne
-    {
-        // s'utilise uniquement dans le cadre d'un downcast et vérifie si c'est possible. 
-    }
-
 }

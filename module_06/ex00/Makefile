@@ -4,9 +4,7 @@ NAME = ConversionScalaire
 
 # Sources
 SRCS += main.cpp
-SRCS += 
-
-HEADER += .hpp
+SRCS += Conversion.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
