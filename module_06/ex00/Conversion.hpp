@@ -6,6 +6,7 @@
 #include <iomanip>
 #include <string>
 #include <sstream>
+#include <limits>
 #include <climits>
 #include <cfloat>
 #include <cmath>
@@ -40,6 +41,7 @@ class Conversion{
         void            convertFloat(std:: string input);
         void            convertDouble(std:: string input);
         void            printConversion( void );
+        void            checkNonAffichableNumber( std::string input );
 
         // Exception
     	class	ConversionExceptionImpossible : public std::exception{
@@ -47,7 +49,7 @@ class Conversion{
 			public:
 				const char *what() const throw(){
 
-					return ("Impossible");
+					return ("impossible");
 				}
 		};
         private:
@@ -59,5 +61,6 @@ class Conversion{
             bool        _isValidChar;
             bool        _isValidInt;
             bool        _isValidFloat;
+            bool        _isPrintable;
 };
 #endif

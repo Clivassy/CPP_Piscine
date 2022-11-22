@@ -1,7 +1,7 @@
 #include "Conversion.hpp"
 
 Conversion::Conversion( void )
-: _nbInt(0), _nbFloat(0), _nbDouble(0), _isValidChar(true), _isValidInt(true), _isValidFloat(true)
+: _nbInt(0), _nbFloat(0), _nbDouble(0), _isValidChar(true), _isValidInt(true), _isValidFloat(true), _isPrintable(true)
 {
     //
 }

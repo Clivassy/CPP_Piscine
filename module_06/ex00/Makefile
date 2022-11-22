@@ -1,6 +1,6 @@
 ##########   BASE   ##########
 # File name
-NAME = ConversionScalaire
+NAME = convert
 
 # Sources
 SRCS += main.cpp
