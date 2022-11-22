@@ -1,11 +1,7 @@
 #include "Conversion.hpp"
 
 Conversion::Conversion( void )
-{
-    //
-}
-
-Conversion::Conversion( std::string input ) : _input(input)
+: _nbInt(0), _nbFloat(0), _nbDouble(0), _isValidChar(true), _isValidInt(true), _isValidFloat(true)
 {
     //
 }
@@ -25,7 +21,7 @@ Conversion &Conversion::operator=( Conversion const &copy )
     this->_input = copy.getInput();
     this->_character = copy.getChar();
     this->_nbInt = copy.getInt();
-    this->_nbfloat = copy.getFloat();
+    this->_nbFloat = copy.getFloat();
     this->_nbDouble = copy.getDouble();
     return(*this);
 }
@@ -48,12 +44,12 @@ int    Conversion::getInt( void )const
 
 float    Conversion::getFloat( void )const
 {
-    return(this->_nbfloat);
+    return(this->_nbFloat);
 }
 
 double    Conversion::getDouble( void)const
 {
-    return(this->_nbfloat);
+    return(this->_nbDouble);
 }
 
 // implicit cast : ne fonctionne que dans des contexte de conversion et d'upcast

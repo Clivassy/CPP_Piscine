@@ -3,8 +3,12 @@
 
 //------ librairies------------
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <sstream>
+#include <climits>
+#include <cfloat>
+#include <cmath>
 
 //-------- Colors ------------
 #define CLEAR "\e[0m"
@@ -16,26 +20,44 @@
 
 class Conversion{
 
-    private:
-        Conversion( void );
-        std::string _input;
-        char _character;
-        int _nbInt;
-        float _nbfloat;
-        double _nbDouble;
-
     public:
-        Conversion( std::string input );
+        Conversion( void );
         ~Conversion ( void );
         Conversion( const Conversion&copy ); 
         Conversion &operator=( Conversion const &copy );
 
+        // Getters
         std::string     getInput( void )const;
         char            getChar( void )const;
         int             getInt( void )const;
         float           getFloat( void )const;
         double          getDouble( void )const;
-    // fct getLitteralType 
-    // fct de conversion
+        void            convert( std::string input );
+
+        // Conversion
+        void            convertChar(std:: string input);
+        void            convertInt(std:: string input);
+        void            convertFloat(std:: string input);
+        void            convertDouble(std:: string input);
+        void            printConversion( void );
+
+        // Exception
+    	class	ConversionExceptionImpossible : public std::exception{
+
+			public:
+				const char *what() const throw(){
+
+					return ("Impossible");
+				}
+		};
+        private:
+            std::string _input;
+            char        _character;
+            int         _nbInt;
+            float       _nbFloat;
+            double      _nbDouble;
+            bool        _isValidChar;
+            bool        _isValidInt;
+            bool        _isValidFloat;
 };
 #endif
