@@ -158,24 +158,21 @@ void    Conversion::convert( std::string input )
 }
 
 /**********************************************************
-                            NOTES
+                       NOTES
 */
 /* ----------------------------------------------------
 STEP ONE : get the type of the litteral 
 STEP TWO : Convert into his original type
 STEP THREE : convert into other type checking it is possible and displayable 
 STEP FOUR : Print result 
--------------------------------------------------------*/
+-------------------------------------------------------
 
-/* errors : 
+ERRORS: 
  1 - tout est impossible
  2 - char impossible 
  3- char non diplayable 
  4 -int impossible
  */ 
-
-
-
 
 // implicit cast : ne fonctionne que dans des contexte de conversion et d'upcast
 //(ex: passer un double en int)
