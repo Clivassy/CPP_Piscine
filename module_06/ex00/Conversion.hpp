@@ -53,7 +53,6 @@ class Conversion{
 				}
 		};
         private:
-            std::string _input;
             char        _character;
             int         _nbInt;
             float       _nbFloat;
