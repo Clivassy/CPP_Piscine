@@ -19,6 +19,10 @@
 #define CYAN "\e[0;36m"
 //----------------------------
 
+#define INT 1
+#define FLOAT 2
+#define DOUBLE 3
+
 class Conversion{
 
     public:

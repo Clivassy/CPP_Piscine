@@ -1,10 +1,10 @@
 ##########   BASE   ##########
 # File name
-NAME = convert
+NAME = identify
 
 # Sources
 SRCS += main.cpp
-SRCS += Data.cpp
+SRCS += Base.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 

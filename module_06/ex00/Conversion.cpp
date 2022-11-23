@@ -1,15 +1,34 @@
 #include "Conversion.hpp"
 
-Conversion::Conversion( void )
-: _nbInt(0), _nbFloat(0), _nbDouble(0), _isValidChar(true), _isValidInt(true), _isValidFloat(true), _isPrintable(true)
+bool    isInvalidInput(std::string input, int type)
 {
-    //
+    bool foundFloat = false;
+
+    for(size_t i = 0; i < input.size(); i++)
+    {
+        if (!isdigit(input[i]))
+        {
+            if (type == INT)
+                return(true);
+            if (type == FLOAT and input[i] != '.')
+            {
+                if (foundFloat == true)
+                    return(true);
+                if (input[i] == 'f')
+                    foundFloat = true;
+            }
+            if ((type == DOUBLE and input[i] != '.'))
+                return(true);
+        }
+    }
+    return(false);
 }
 
-Conversion::~Conversion (void )
-{
-    //
-}
+Conversion::Conversion( void )
+: _nbInt(0), _nbFloat(0), _nbDouble(0), _isValidChar(true), _isValidInt(true), _isValidFloat(true), _isPrintable(true)
+{ }
+
+Conversion::~Conversion (void ){ }
 
 Conversion::Conversion( const Conversion &copy )
 {
@@ -68,11 +87,17 @@ void    Conversion::printConversion( void )
 
 void    Conversion::convertInt(std:: string input)
 {
+
+    if (isInvalidInput(input, INT))
+        throw ConversionExceptionImpossible();
+    
     long temp;
     std::istringstream tempStream(input);
-    tempStream >> temp; // string to in version +98c++
-    if (temp > INT_MAX or temp < INT_MIN or tempStream.fail()) // check if something else than int is send 
+    tempStream >> temp; // string to int version +98c++
+
+    if (temp > INT_MAX or temp < INT_MIN)
 		throw Conversion::ConversionExceptionImpossible();
+        
     this->_nbInt = temp;
     this->_nbFloat = static_cast<float>(this->_nbInt);
     this->_nbDouble = static_cast<double>(this->_nbInt);
@@ -85,9 +110,13 @@ void    Conversion::convertInt(std:: string input)
 
 void    Conversion::convertDouble(std:: string input)
 {
+    if (isInvalidInput(input, DOUBLE))
+        throw ConversionExceptionImpossible();
+
     this->_nbDouble = strtod(input.c_str(), NULL);
     if (this->_nbDouble == HUGE_VAL or this->_nbDouble == -HUGE_VAL)
         throw ConversionExceptionImpossible();
+
     this->_nbInt = static_cast<int>(this->_nbDouble);
     if (this->_nbFloat > static_cast<float>(std::numeric_limits<int>::max()) 
         or this->_nbFloat < static_cast<float>(std::numeric_limits<int>::min())) 
@@ -98,14 +127,20 @@ void    Conversion::convertDouble(std:: string input)
     this->_character = static_cast<char>(this->_nbDouble);
     if (this->_character > CHAR_MAX or this->_character < CHAR_MIN)
         this->_isValidChar = false;
+    if (this->_nbInt < 32 or this->_nbInt > 126)
+        this->_isPrintable = false;
 }
 
 
 void    Conversion::convertFloat(std:: string input)
 {
+    if (isInvalidInput(input, FLOAT))
+        throw ConversionExceptionImpossible();
+    
     this->_nbFloat = strtof(input.c_str(), NULL);
     if (this->_nbFloat == HUGE_VAL or this->_nbFloat == -HUGE_VAL)
         throw ConversionExceptionImpossible();
+
     this->_nbInt = static_cast<int>(this->_nbFloat);
     if (this->_nbFloat > static_cast<float>(std::numeric_limits<int>::max()) 
         or this->_nbFloat < static_cast<float>(std::numeric_limits<int>::min())) 
@@ -156,32 +191,3 @@ void    Conversion::convert( std::string input )
     }
     this->printConversion();
 }
-
-/**********************************************************
-                       NOTES
-*/
-/* ----------------------------------------------------
-STEP ONE : get the type of the litteral 
-STEP TWO : Convert into his original type
-STEP THREE : convert into other type checking it is possible and displayable 
-STEP FOUR : Print result 
--------------------------------------------------------
-
-ERRORS: 
- 1 - tout est impossible
- 2 - char impossible 
- 3- char non diplayable 
- 4 -int impossible
- */ 
-
-// implicit cast : ne fonctionne que dans des contexte de conversion et d'upcast
-//(ex: passer un double en int)
-
-// static cast : peut ete utiliser en conversion de valeur siples et en cas d'upcast et downcast
-// permet d'empecher les cast entre classes qui ne sont pas du meme arbre d'heritage
-
-// dynamic cast : le seul qui a lieu a l'execution du code . 
-
-// const cast : presque jamais utilisé
-
-// reinterpret_cast : cast le plus libre , permet de faire des reinterpretation mais sans check.
