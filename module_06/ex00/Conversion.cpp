@@ -16,6 +16,8 @@ bool    isInvalidInput(std::string input, int type)
                     return(true);
                 if (input[i] == 'f')
                     foundFloat = true;
+                else
+                    return (true);
             }
             if ((type == DOUBLE and input[i] != '.'))
                 return(true);
@@ -87,10 +89,8 @@ void    Conversion::printConversion( void )
 
 void    Conversion::convertInt(std:: string input)
 {
-
     if (isInvalidInput(input, INT))
         throw ConversionExceptionImpossible();
-    
     long temp;
     std::istringstream tempStream(input);
     tempStream >> temp; // string to int version +98c++
@@ -108,15 +108,37 @@ void    Conversion::convertInt(std:: string input)
         this->_isValidChar = false;
 }
 
+void    handleInfPos( void)
+{
+    std::cout << "char : impossible" << std::endl;
+    std::cout << "int : impossible" << std::endl;
+    std::cout << "float : " << "+inff" << std::endl;
+    std::cout << "double : " << "+inf "<< std::endl;
+}
+
+void    handleInfNeg( void )
+{
+    std::cout << "char : impossible " << std::endl;
+    std::cout << "int :  impossible " << std::endl;
+    std::cout << "float : " << "-inff" << std::endl;
+    std::cout << "double : " << "-inf "<< std::endl;
+}
+
 void    Conversion::convertDouble(std:: string input)
 {
+    this->_nbDouble = strtod(input.c_str(), NULL);
+    if (this->_nbDouble == HUGE_VAL )
+    {
+        handleInfPos();
+        return;
+    }
+    if (this->_nbDouble == -HUGE_VAL)
+    {
+        handleInfNeg();
+        return;
+    }
     if (isInvalidInput(input, DOUBLE))
         throw ConversionExceptionImpossible();
-
-    this->_nbDouble = strtod(input.c_str(), NULL);
-    if (this->_nbDouble == HUGE_VAL or this->_nbDouble == -HUGE_VAL)
-        throw ConversionExceptionImpossible();
-
     this->_nbInt = static_cast<int>(this->_nbDouble);
     if (this->_nbFloat > static_cast<float>(std::numeric_limits<int>::max()) 
         or this->_nbFloat < static_cast<float>(std::numeric_limits<int>::min())) 
@@ -134,13 +156,21 @@ void    Conversion::convertDouble(std:: string input)
 
 void    Conversion::convertFloat(std:: string input)
 {
+    this->_nbFloat = strtof(input.c_str(), NULL);
+    if (this->_nbFloat != this->_nbFloat )
+        throw ConversionExceptionImpossible();
+    if (this->_nbFloat == HUGE_VAL )
+    {
+        handleInfPos();
+        return;
+    }
+    if (this->_nbFloat == -HUGE_VAL)
+    {
+        handleInfNeg();
+        return;
+    }
     if (isInvalidInput(input, FLOAT))
         throw ConversionExceptionImpossible();
-    
-    this->_nbFloat = strtof(input.c_str(), NULL);
-    if (this->_nbFloat == HUGE_VAL or this->_nbFloat == -HUGE_VAL)
-        throw ConversionExceptionImpossible();
-
     this->_nbInt = static_cast<int>(this->_nbFloat);
     if (this->_nbFloat > static_cast<float>(std::numeric_limits<int>::max()) 
         or this->_nbFloat < static_cast<float>(std::numeric_limits<int>::min())) 
@@ -166,9 +196,21 @@ void    Conversion::convertChar(std:: string input)
 }
 
 void    Conversion::convert( std::string input )
-{
+{    
+   
     try
     {   
+         bool foundPoint = false;
+
+        for (size_t i = 0; i < input.length(); i++)
+        {
+            if (input[i] == '.')
+            {
+                if (foundPoint == true)
+                    throw ConversionExceptionImpossible();
+                foundPoint = true;
+            }
+        }
         if (input.length() == 1 and not std::isdigit(input[0])) // Get CHAR 
             this->convertChar(input);
         else if (input.find(".") != std::string::npos) // get FLOAT or DOUBLE
