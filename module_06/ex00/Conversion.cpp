@@ -3,13 +3,18 @@
 bool    isInvalidInput(std::string input, int type)
 {
     bool foundFloat = false;
+    bool foundSign = false;
 
     for(size_t i = 0; i < input.size(); i++)
     {
         if (!isdigit(input[i]))
         {
             if (type == INT)
-                return(true);
+            {
+                if (foundSign == true)
+                    return(true);
+                foundSign = true;
+            }
             if (type == FLOAT and input[i] != '.')
             {
                 if (foundFloat == true)
@@ -89,15 +94,13 @@ void    Conversion::printConversion( void )
 
 void    Conversion::convertInt(std:: string input)
 {
-    if (isInvalidInput(input, INT))
-        throw ConversionExceptionImpossible();
     long temp;
     std::istringstream tempStream(input);
     tempStream >> temp; // string to int version +98c++
-
     if (temp > INT_MAX or temp < INT_MIN)
-		throw Conversion::ConversionExceptionImpossible();
-        
+	    throw Conversion::ConversionExceptionImpossible();
+    if (isInvalidInput(input, INT))
+        throw ConversionExceptionImpossible();
     this->_nbInt = temp;
     this->_nbFloat = static_cast<float>(this->_nbInt);
     this->_nbDouble = static_cast<double>(this->_nbInt);
@@ -197,7 +200,6 @@ void    Conversion::convertChar(std:: string input)
 
 void    Conversion::convert( std::string input )
 {    
-   
     try
     {   
          bool foundPoint = false;
