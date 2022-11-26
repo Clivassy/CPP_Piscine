@@ -28,6 +28,7 @@ class Array {
         }
         // constructor by copy 
         Array(Array const & toCopy){
+
         	this->_array = NULL;
 			*this = toCopy;
         }
@@ -38,14 +39,14 @@ class Array {
             if (this->_array)
                 delete [] this->_array;
             this->_array = new T[size()];
-            for (int i = 0; i < size(); i++){
+            for (unsigned int i = 0; i < size(); i++){
                 this->_array[i] = toCopy._array[i];
             }
             return (*this);
         }
 
         // surcharge d'opérateur []
-        T const &operator[](unsigned int n)const{
+        T &operator[](unsigned int n){
             if (n >= _size or n < 0)
                 throw InvalidIndexException();
             return(this->_array[n]);
