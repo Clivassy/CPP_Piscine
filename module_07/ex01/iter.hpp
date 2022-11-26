@@ -19,4 +19,10 @@ void    iter(T const *tab , std::size_t size, void(*fct)(T const & )) {
     }
 }
 
+template< typename T> 
+void    printElem( T const & elem)
+{
+    std::cout << elem << std::endl;
+}
+
 #endif

@@ -1,17 +1,11 @@
-#include "Iter.hpp"
-
-template< typename T> 
-void    printElem( T const & elem)
-{
-    std::cout << elem << std::endl;
-}
-
+#include "iter.hpp"
 
 int main( void){
 
-// Fill les tab avec d'autres fonctions pour les tests;
+
 int tabInt[5] = {2, 3, 4, 5, 8};
 std::string tabChar[3] = {"hello", "julia", "ca va"};
+
 float tabFloat[2] = {21.42, 42.21};
 
 int *TabError = NULL;

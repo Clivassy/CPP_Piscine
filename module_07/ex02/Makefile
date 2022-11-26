@@ -5,6 +5,9 @@ NAME = array
 # Sources
 SRCS += main.cpp
 
+# Header/s
+HEADER = Array.hpp
+
 OBJS = ${SRCS:.cpp=.o}
 
 # Compilateurs
@@ -17,7 +20,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	${CC} ${SRCS} -o ${NAME} ${CFLAGS}
 
-%.o: %.cpp
+%.o: %.cpp $(HEADER)
 	$(CC) -o $@ -c $< $(CFLAGS) 
 
 clean:
