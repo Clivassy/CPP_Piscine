@@ -1,5 +1,5 @@
-#ifndef WHATEVER_H
-#define WHATEVER_H
+#ifndef WHATEVER_HPP
+#define WHATEVER_HPP
 
 //------ librairies------------
 #include <iostream>
