@@ -87,7 +87,4 @@ class Array {
         T *_array;
 
 };
-
-
-
 #endif

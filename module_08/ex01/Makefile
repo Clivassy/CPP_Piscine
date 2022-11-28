@@ -1,12 +1,13 @@
 ##########   BASE   ##########
 # File name
-NAME = easyfind
+NAME = span
 
 # Sources
 SRCS += main.cpp
+SRCS += Span.cpp
 
 # Header/s
-HEADER = easyfind.hpp
+HEADER = Span.hpp
 
 OBJS = ${SRCS:.cpp=.o}
 
