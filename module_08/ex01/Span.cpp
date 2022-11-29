@@ -1,21 +1,22 @@
 #include "Span.hpp"
-
-
 Span::Span( void ){ }
 
 Span::Span( unsigned int n ) : _N(n){ }
 
 Span::~Span( void ){ }
 
-Span::Span(Span const & toCopy){
-
-	*this = toCopy;
+Span::Span(Span const & toCopy)
+{
+    if (this != &toCopy)
+    {
+	    *this = toCopy;
+    }
 }
 
 Span    &Span::operator=(Span const & toCopy){
 
     this->_N = toCopy.getN();
-
+    this->_array = toCopy._array;
     return(*this);
 }
 
@@ -31,34 +32,47 @@ int    Span::getNumber( int index )const
 
 void    Span::addNumber(int number)
 {
-    if (_array.size() + 1 > this->getN())
+    if (_array.size() >= this->_N)
         throw Span::NoSpaceException();
     this->_array.push_back(number);
 }
 
-// calculer la taille de l'array 
-
-int     Span::shortestSpan( )
+void Span::addNumber(std::vector<int>::iterator first, std::vector<int>::iterator last)
 {
-
-    if (this->_array.size() <= 1)
-        throw Span::SpanNotFound();
-    std::vector<int>temp = this->_array;
-    std::sort(temp.begin(), temp.end());
-    for (unsigned int i = 0; sizeof(this->_array); i++)
-    {
-
-    }
-    int shortestSpan;
-    return(shortestSpan);
+	for (std::vector<int>::iterator it = first ; it < last; it++) {
+		if (_array.size() >= this->_N)
+			throw Span::NoSpaceException();
+		this->_array.push_back(*it);
+	}
 }
 
-int     Span::longestSpan( )   // max - min 
+int     Span::shortestSpan( void )
 {
     if (this->_array.size() <= 1)
-        throw Span::SpanNotFound();   // check what is used in containers
-    int longestSpan = *std::max_element(_array.begin(), _array.end()) 
-        - *std::min_element(_array.begin(), _array.end());
-    std::cout << longestSpan << std::endl;
-    return(longestSpan);
+        throw Span::SpanNotFound();
+
+    long (*longabs)(long) = &std::abs;
+	long shortest = INT_MAX;
+
+	std::vector<int> temp(_array);
+	std::sort(temp.begin(), temp.end());
+
+	for (std::vector<int>::const_iterator it = temp.begin(); it != temp.end() - 1; ++it)
+        shortest = std::min(shortest, longabs(*it + 1) - longabs(*it));
+	return (shortest);
+}
+
+unsigned int    Span::difference( void )
+{
+    unsigned int min = *(std::min_element(this->_array.begin(), this->_array.end()));
+	unsigned int max = *(std::max_element(this->_array.begin(), this->_array.end()));
+    return (max - min);
+}
+
+
+int     Span::longestSpan( void )
+{
+    if (this->_array.size() <= 1)
+        throw Span::SpanNotFound();
+    return (difference());
 }

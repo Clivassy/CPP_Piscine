@@ -4,8 +4,12 @@
 //------ librairies------------
 #include <iostream>
 #include <vector>
+#include <limits.h>
 #include <exception>
 #include <algorithm>
+#include <cstdlib>
+#include <unistd.h>
+#include <numeric>
 
 //-------- Colors ------------
 #define CLEAR "\e[0m"
@@ -24,10 +28,13 @@ class Span {
         Span& operator=(Span const & toCopy);
 
         // METHODS 
-        void    addNumber( int number);
-        int     shortestSpan( );
-        int     longestSpan( );
+        void            addNumber( int number);
+        void		    addNumber(std::vector<int>::iterator first, std::vector<int>::iterator last);
+        int             shortestSpan( void );
+        int             longestSpan( void );
+        unsigned int    difference( void );
 
+        // EXCEPTIONS 
     	class NoSpaceException : public std::exception {
 			public:
         	    virtual const char* what() const throw()
@@ -42,6 +49,7 @@ class Span {
         		    return (RED "Not enough numbers in array to perform span function" CLEAR);
         		}
 		};
+
         // GETTEURS
         unsigned int    getN( void )const;
         int             getNumber( int index )const;

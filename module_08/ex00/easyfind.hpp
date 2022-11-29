@@ -16,19 +16,6 @@
 #define CYAN "\e[0;36m"
 //----------------------------
 
-template< typename T> 
-void    easyfind( T &array, int number){
-
-    std::vector<int>::iterator it;
-
-    it  = find(array.begin(), array.end(), number);
-    if (it != array.end())
-        std::cout << "Found : " << *it << " " << std::endl;
-    else
-        throw InexistingElementException();
-}
-
-
 class InexistingElementException : public std::exception {
     
     public:
@@ -37,4 +24,16 @@ class InexistingElementException : public std::exception {
 	    return ( RED "Element does not exist" CLEAR );
 	}
 };
+
+template< typename T> 
+typename T::iterator   easyfind( T &array, int number){
+
+    std::vector<int>::iterator it;
+
+    it  = find(array.begin(), array.end(), number);
+    if (it != array.end())
+        return(it);
+    else
+        throw InexistingElementException();
+}
 #endif
