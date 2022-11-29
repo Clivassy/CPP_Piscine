@@ -1,4 +1,5 @@
 #include "Span.hpp"
+
 Span::Span( void ){ }
 
 Span::Span( unsigned int n ) : _N(n){ }
@@ -46,19 +47,36 @@ void Span::addNumber(std::vector<int>::iterator first, std::vector<int>::iterato
 	}
 }
 
-int     Span::shortestSpan( void )
+int     Span::shortestSpan( void ) // reprendre mon ancienne fct 
 {
     if (this->_array.size() <= 1)
         throw Span::SpanNotFound();
-
-    long (*longabs)(long) = &std::abs;
-	long shortest = INT_MAX;
-
-	std::vector<int> temp(_array);
+    
+    long shortest = INT_MAX;
+	std::vector<int>temp(_array);
 	std::sort(temp.begin(), temp.end());
 
-	for (std::vector<int>::const_iterator it = temp.begin(); it != temp.end() - 1; ++it)
-        shortest = std::min(shortest, longabs(*it + 1) - longabs(*it));
+	for (std::vector<int>::iterator it = temp.begin(); it != temp.end() ; it++)
+    {   
+      /* if (abs(*it + 1) - abs(*it) < 0 and abs(*it + 1) - abs(*it) < shortest)
+        {
+            shortest = abs(*it + 1) - abs(*it);
+            shortest -= shortest;
+        }*/
+        std::vector<int>::iterator save = it;
+       // std::cout << *save << std::endl;
+        //std::cout << abs(*it) << std::endl;
+        //std::cout << "next |  " << std::endl;
+         if ((*save - abs(*it) ) < shortest)
+        {
+            shortest = *save - abs(*it);
+            std::cout << shortest << std::endl;
+        }
+        //std::min(shortest, static_cast<long>(*it + 1) - static_cast<long>(*it));
+        //if (shortest < 0)
+          //  shortest -= shortest;
+        
+    }
 	return (shortest);
 }
 
