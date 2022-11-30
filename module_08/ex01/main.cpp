@@ -2,16 +2,18 @@
 
 int main(){
 
-   // CLASSSIC TEST 
+    std::cout << YELLOW "-----------------------------" CLEAR<< std::endl;
+    std::cout << " CLASSIC FUNTIONAL TEST " << std::endl;
+    std::cout << YELLOW "-----------------------------" CLEAR<< std::endl;
     try
     {
         Span test = Span(10);
         std::vector<int>tab;
         for (int i = 0 ; i < 5 ; i++)
-		    tab.push_back(i); // je fill le tab 
-		test.addNumber(tab.begin(), tab.end()); // je copie toutes les valeurs du tab dans mon tab span
+		    tab.push_back(i);
+		test.addNumber(tab.begin(), tab.end());
 	
-		//std::cout << test.shortestSpan() << std::endl;
+		std::cout << test.shortestSpan() << std::endl;
 		std::cout << test.longestSpan() << std::endl; 
     }
     catch(const std::exception& e)
@@ -19,6 +21,9 @@ int main(){
         std::cerr << e.what() << '\n';
     }
 
+    std::cout << YELLOW "-----------------------------" CLEAR<< std::endl;
+    std::cout << "TEST WITH BIG HUGE NUMBER " << std::endl;
+    std::cout << YELLOW "-----------------------------" CLEAR<< std::endl;
     // TESTS Big HUGE number 
     {
         std::vector<int>tab;
@@ -26,21 +31,53 @@ int main(){
 		for (int i = 0 ; i < 1000000 ; i++)
 		    tab.push_back(i);
         bigTest.addNumber(tab.begin(), tab.end());
-	   // std::cout << bigTest.shortestSpan() << std::endl;
+	    std::cout << bigTest.shortestSpan() << std::endl;
 	    std::cout << bigTest.longestSpan() << std::endl;        
     }
 
+    std::cout << YELLOW "-----------------------------" CLEAR<< std::endl;
+    std::cout << "TEST WITH NEGATIVE NUMBER " << std::endl;
+    std::cout << YELLOW "-----------------------------" CLEAR<< std::endl;
+    {
+        Span tab(3);
+        tab.addNumber(-10);
+        tab.addNumber(7);
+        tab.addNumber(1);
 
-    // TESTING EXCEPTIONS 
+        std::cout << tab.shortestSpan() << std::endl;
+        std::cout << tab.longestSpan() << std::endl;      
+    }
+
+    std::cout << YELLOW "-----------------------------" CLEAR<< std::endl;
+    std::cout << "TEST WITH NOT ENOUGH NB TO PERFORM SPAN CALCUL " << std::endl;
+    std::cout << YELLOW "-----------------------------" CLEAR<< std::endl;
+    {
+        Span tab(7);
+        try
+        {       
+            tab.addNumber(-10);
+
+            std::cout << tab.shortestSpan() << std::endl;
+            std::cout << tab.longestSpan() << std::endl;
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+        }
+    }
+
+    std::cout << YELLOW "-----------------------------" CLEAR<< std::endl;
+    std::cout << "TESTING FULL ARRAY EXCEPTION " << std::endl;
+    std::cout << YELLOW "-----------------------------" CLEAR<< std::endl;
     Span tab(3);
     try
     {       
-        tab.addNumber(5);
-        tab.addNumber(6);
+        tab.addNumber(-10);
+        tab.addNumber(7);
         tab.addNumber(1);
         tab.addNumber(10);
 
-      //  std::cout << tab.shortestSpan() << std::endl;
+        std::cout << tab.shortestSpan() << std::endl;
         std::cout << tab.longestSpan() << std::endl;
     }
     catch(const std::exception& e)

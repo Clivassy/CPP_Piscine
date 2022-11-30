@@ -16,7 +16,7 @@ Span::Span(Span const & toCopy)
 
 Span    &Span::operator=(Span const & toCopy){
 
-    this->_N = toCopy.getN();
+    this->_N = toCopy._N;
     this->_array = toCopy._array;
     return(*this);
 }
@@ -47,35 +47,29 @@ void Span::addNumber(std::vector<int>::iterator first, std::vector<int>::iterato
 	}
 }
 
-int     Span::shortestSpan( void ) // reprendre mon ancienne fct 
-{
-    if (this->_array.size() <= 1)
-        throw Span::SpanNotFound();
-    
-    long shortest = INT_MAX;
-	std::vector<int>temp(_array);
-	std::sort(temp.begin(), temp.end());
 
-	for (std::vector<int>::iterator it = temp.begin(); it != temp.end() ; it++)
-    {   
-      /* if (abs(*it + 1) - abs(*it) < 0 and abs(*it + 1) - abs(*it) < shortest)
+// NB : The abs() function in C++ returns the absolute value of an integer number. 
+// The absolute value of a negative number is multiplied by -1.
+int     Span::shortestSpan( void )
+{
+    if (this->_array.size() == 1 or this->_array.empty())
+        throw Span::SpanNotFound();
+    std::vector<int>temp(_array);
+    std::sort(temp.begin(), temp.end());
+	long shortest = INT_MAX;
+    std::vector<int>::iterator it = temp.begin();
+    std::vector<int>::const_iterator postIt = it;
+	
+    std::advance(postIt, 1);
+    for (std::vector<int>::iterator it = temp.begin(); it != temp.end() ; it++)
+    {
+        if (it != temp.end())
         {
-            shortest = abs(*it + 1) - abs(*it);
-            shortest -= shortest;
-        }*/
-        std::vector<int>::iterator save = it;
-       // std::cout << *save << std::endl;
-        //std::cout << abs(*it) << std::endl;
-        //std::cout << "next |  " << std::endl;
-         if ((*save - abs(*it) ) < shortest)
-        {
-            shortest = *save - abs(*it);
-            std::cout << shortest << std::endl;
+		    if (std::abs(*it - *postIt) < shortest){
+                shortest = std::abs(*it - *postIt);
+		    }
+            postIt++;
         }
-        //std::min(shortest, static_cast<long>(*it + 1) - static_cast<long>(*it));
-        //if (shortest < 0)
-          //  shortest -= shortest;
-        
     }
 	return (shortest);
 }
@@ -90,7 +84,7 @@ unsigned int    Span::difference( void )
 
 int     Span::longestSpan( void )
 {
-    if (this->_array.size() <= 1)
+    if (this->_array.size() == 1 or this->_array.empty())
         throw Span::SpanNotFound();
     return (difference());
 }

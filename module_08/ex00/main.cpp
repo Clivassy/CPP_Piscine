@@ -1,4 +1,5 @@
 #include "easyfind.hpp"
+#include <list>
 /* -------------------------------------------------------------------------
 ITERATORS :
 - Access the STL container elements and perform certain operation on them
@@ -9,20 +10,46 @@ sur lequel on va itérer.
 
 int main( void ){
 
-    int Tofind = 16;
-
-    std::vector<int>array;
-
-    for (int i = 0; i < 10; i++){
-        array.push_back(i);
-    }
-    try
+    //int Tofind = 16;
+    int Tofind = 6;
+    
+    std::cout << YELLOW "-----------------------------" CLEAR<< std::endl;
+    std::cout << " TEST WITH VECTOR " << std::endl;
+    std::cout << YELLOW "-----------------------------" CLEAR<< std::endl;
     {
-        std::vector<int>::iterator it =  easyfind(array, Tofind);
-        std::cout << "Found : " << *it << " " << std::endl;
+        std::vector<int>array;
+
+        for (int i = 0; i < 10; i++){
+            array.push_back(i);
+        }
+        try
+        {
+            std::vector<int>::iterator it =  easyfind(array, Tofind);
+            std::cout << "Found : " << *it << " " << std::endl;
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+        }
     }
-    catch(const std::exception& e)
+
+    std::cout << YELLOW "-----------------------------" CLEAR<< std::endl;
+    std::cout << " TEST WITH LIST " << std::endl;
+    std::cout << YELLOW "-----------------------------" CLEAR<< std::endl;
     {
-        std::cerr << e.what() << '\n';
+        std::list<int>listTest;
+        for (int i = 0; i < 10; i++){
+            listTest.push_back(i);
+        }
+        try
+        {
+            std::list<int>::iterator it =  easyfind(listTest, Tofind);
+            std::cout << "Found : " << *it << " " << std::endl;
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+        }
     }
+
 }

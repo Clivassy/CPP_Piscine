@@ -28,11 +28,8 @@ class InexistingElementException : public std::exception {
 template< typename T> 
 typename T::iterator   easyfind( T &array, int number){
 
-    std::vector<int>::iterator it;
-
-    it  = find(array.begin(), array.end(), number);
-    if (it != array.end())
-        return(it);
+    if (std::find(array.begin(), array.end(), number )!= array.end())
+        return(std::find(array.begin(), array.end(), number));
     else
         throw InexistingElementException();
 }

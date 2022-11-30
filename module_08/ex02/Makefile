@@ -4,16 +4,15 @@ NAME = MutantStack
 
 # Sources
 SRCS += main.cpp
-SRCS += Span.cpp
 
 # Header/s
-HEADER = Span.hpp
+HEADER = MutantStack.hpp
 
 OBJS = ${SRCS:.cpp=.o}
 
 # Compilateurs
 CC = c++
-CFLAGS = -g -Wall -Wextra -Werror #-std=c++98
+CFLAGS = -g -Wall -Wextra -Werror -std=c++98
 
 ##########   RULES   ##########
 all: $(NAME)
