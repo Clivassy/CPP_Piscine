@@ -1,5 +1,5 @@
 #include "easyfind.hpp"
-#include <list>
+
 /* -------------------------------------------------------------------------
 ITERATORS :
 - Access the STL container elements and perform certain operation on them
@@ -10,7 +10,7 @@ sur lequel on va itérer.
 
 int main( void ){
 
-    //int Tofind = 16;
+   // int Tofind = 16;
     int Tofind = 6;
     
     std::cout << YELLOW "-----------------------------" CLEAR<< std::endl;

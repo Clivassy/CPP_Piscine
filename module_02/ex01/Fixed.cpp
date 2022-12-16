@@ -12,19 +12,15 @@ Fixed:: Fixed( const Fixed &copy ) // constructeur de copie
 }
 
 Fixed:: Fixed(const int nb) 
-// constructeur prenant un int constant en paramètre
-// qui convertit cet int en virgule fixe.
 {
     std::cout << "Int constructor called" << std::endl; 
     this->_nbValue = nb << _nbBits;
 }
 
 Fixed:: Fixed(const float nb) 
-// constructeur prenant un float constant en paramètre
 {
     std::cout << "Float Constructor called" << std::endl; 
     this->_nbValue = roundf(nb * (1 << this->_nbBits));
-    //renvoie l'arrondi entier au plus proche de la valeur spécifiée en paramètre.
 }
 
 Fixed::~Fixed( void ) 
@@ -44,10 +40,10 @@ void   Fixed::setRawBits( int const raw )
     this->_nbValue= raw;
 }
 
-Fixed &Fixed::operator=(Fixed const &Copy)
+Fixed &Fixed::operator=(Fixed const &toCopy)
 {
     std::cout << "Copy assigment operator called" << std::endl;
-    this->_nbValue = Copy.getRawBits();
+    this->_nbValue = toCopy.getRawBits();
 	return (*this);
 }
 

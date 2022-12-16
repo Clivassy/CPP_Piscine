@@ -3,6 +3,7 @@
 
 //------ librairies------------
 # include <iostream>
+#include <deque>
 # include <cstdlib>
 # include <algorithm>
 # include <map>
@@ -18,10 +19,8 @@
 #define GREEN "\e[0;32m"
 #define CYAN "\e[0;36m"
 //----------------------------
-
-template <typename T, typename Container = std::deque<T> >
-// std::stack by default uses std::deque for implementation -> contient des itérators
-class MutantStack : public std::stack<T, Container>
+template<typename T>
+class MutantStack : public std::stack<T> 
 {
 
 	public:
@@ -31,14 +30,13 @@ class MutantStack : public std::stack<T, Container>
 		
 		MutantStack	&operator=(const MutantStack &toCopy){ 
 			
-			std::stack<T>::operator=(toCopy); 
+			this->c = toCopy.c; 
 			return (*this);
 		}
 
-	// https://en.cppreference.com/w/cpp/container/deque
-	// List of iterator présent dans deque = C++ 98 
-
-		typedef typename Container::iterator	iterator;
+		typedef typename std::stack<T>::container_type::iterator	iterator; 
+		// container_type == membre de std::stack == container generique 
+		// standard container has : begin  + end iterators 
 
 		iterator	begin() { return this->c.begin(); }
 		iterator	end() { return this->c.end(); }

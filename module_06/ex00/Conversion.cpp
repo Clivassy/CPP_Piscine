@@ -80,7 +80,7 @@ void    Conversion::printConversion( void )
     else if (!this->_isValidChar)
         std::cout << "char: impossible "<< std::endl;
     else
-        std::cout << "char: " <<  getChar() << std::endl;
+        std::cout << "char: '" <<  getChar() << "'"<< std::endl;
     if (!this->_isValidInt)
         std::cout << "int: impossible" << std::endl;
     else

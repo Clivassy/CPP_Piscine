@@ -15,14 +15,15 @@ void    Sed:: sedReplace( std::string file, std::string str1, std::string str2 )
     std::string     str, buff, fileName;
     std::size_t     found(0);
     
-    std::ifstream   inFile (file);
+    std::ifstream   inFile (file.c_str());
     if (!inFile)
     {
         std::cout << RED "Error: can't open/read the file" CLEAR << std::endl;
         return;
     }
+
     fileName = file += ".replace";
-    std::ofstream outFile(fileName);
+    std::ofstream outFile(fileName.c_str());
     if (!outFile)
     {
         std::cout << RED "Error: can't create file" CLEAR << std::endl;

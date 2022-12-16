@@ -21,6 +21,7 @@ int main ( void)
         while (it != ite) {
             std::cout << *it << std::endl;
         ++it; }
+        std::stack<int> s(mstack);
     }
 
     // TESTS AVEC UNE LIST
@@ -41,6 +42,7 @@ int main ( void)
         while (it != ite) {
             std::cout << *it << std::endl;
         ++it; }
+        std::list<int> s(mlist);
     }
     return 0;
 }

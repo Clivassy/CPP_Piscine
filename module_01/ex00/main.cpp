@@ -1,6 +1,5 @@
 #include "Zombie.hpp"
 
- // check les leaks
 int main()
 {
     Zombie *zombie;

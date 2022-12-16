@@ -54,16 +54,17 @@ int     Span::shortestSpan( void )
 {
     if (this->_array.size() == 1 or this->_array.empty())
         throw Span::SpanNotFound();
+    
     std::vector<int>temp(_array);
     std::sort(temp.begin(), temp.end());
 	long shortest = INT_MAX;
     std::vector<int>::iterator it = temp.begin();
-    std::vector<int>::const_iterator postIt = it;
+    std::vector<int>::iterator postIt = it;
 	
     std::advance(postIt, 1);
     for (std::vector<int>::iterator it = temp.begin(); it != temp.end() ; it++)
     {
-        if (it != temp.end())
+        if (it != temp.end() - 1)
         {
 		    if (std::abs(*it - *postIt) < shortest){
                 shortest = std::abs(*it - *postIt);
@@ -80,7 +81,6 @@ unsigned int    Span::difference( void )
 	unsigned int max = *(std::max_element(this->_array.begin(), this->_array.end()));
     return (max - min);
 }
-
 
 int     Span::longestSpan( void )
 {

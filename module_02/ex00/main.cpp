@@ -3,7 +3,7 @@
 int main( void ) 
 {
     Fixed a;
-    Fixed b( a ); // constructeur par copie
+    Fixed b( a );
     Fixed c;
 
     c = a;

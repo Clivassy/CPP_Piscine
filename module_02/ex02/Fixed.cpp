@@ -53,10 +53,10 @@ int     Fixed::toInt( void )const
 }
 
 // ---- Arithmetic operations ----------
-Fixed &Fixed::operator=(Fixed const &Copy)
+Fixed &Fixed::operator=(Fixed const &toCopy)
 {
    // std::cout << "Copy assigment operator called" << std::endl;
-    this->_nbValue = Copy.getRawBits();
+    this->_nbValue = toCopy.getRawBits();
 	return (*this);
 }
 
